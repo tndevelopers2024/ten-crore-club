@@ -1,26 +1,410 @@
 @import "tailwindcss";
 
+/* ============================================================
+   Ten Crore Club — Design Tokens (Tailwind v4 @theme)
+   Hex values extracted from the official logo.
+   These generate utilities: bg-ink, text-gold, border-line, etc.
+   ============================================================ */
+@theme {
+  /* Brand Blacks */
+  --color-ink: #000000;
+  --color-ink-soft: #0a0a0a;
+  --color-ink-card: #111111;
+  --color-ink-elevated: #1a1a1a;
+  --color-line: #2a2a2a;
+
+  /* Brand Reds — shadow → vivid */
+  --color-red-shadow: #8b0000;
+  --color-red-deep: #a10601; /* primary red — banners, CTAs */
+  --color-red-mid: #c11409; /* hover state, highlights */
+  --color-red-vivid: #cd140a; /* peak red */
+
+  /* Brand Golds — shadow → cream */
+  --color-gold-shadow: #5a2619;
+  --color-gold-antique: #a76d1f;
+  --color-gold-warm: #b47c32;
+  --color-gold: #d5a04a; /* PRIMARY text gold — headings */
+  --color-gold-light: #e1c18d; /* subheadings, secondary */
+  --color-cream: #faf0dc; /* peak highlight, body on dark */
+
+  /* Text that sits on a solid red/gold accent — stays light in BOTH themes. */
+  --color-on-accent: #faf0dc;
+
+  /* Typography */
+  --font-sans: var(--font-body), system-ui, sans-serif;
+  --font-display: var(--font-cormorant), Georgia, "Times New Roman", serif;
+  --font-body: var(--font-dmsans), system-ui, sans-serif;
+  --font-mono: var(--font-jetbrains), ui-monospace, "SFMono-Regular", monospace;
+
+  /* Radii — luxury, never SaaS. Cap at 12px. */
+  --radius-lg: 12px;
+  --radius-md: 8px;
+  --radius-sm: 4px;
+}
+
+/* ============================================================
+   Base
+   ============================================================ */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  color-scheme: dark;
+  --brand-bg: #000000;
+  --brand-text: #faf0dc;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+/* ------------------------------------------------------------
+   Light theme — "ivory luxury". Activated by .light on <html>.
+   We re-map the SAME semantic tokens, so every utility (bg-ink,
+   text-cream, text-gold, border-line…) re-themes with no JSX change.
+   `cream` is the primary TEXT token, so in light mode it becomes the
+   dark ink colour; `on-accent` stays cream for text on red buttons.
+   ------------------------------------------------------------ */
+:root.light {
+  color-scheme: light;
+  --brand-bg: #f6f1e5;
+  --brand-text: #2a2114;
+
+  /* Surfaces (were blacks) → warm ivories */
+  --color-ink: #f6f1e5;
+  --color-ink-soft: #efe7d5;
+  --color-ink-card: #fffdf8;
+  --color-ink-elevated: #ece3cf;
+  --color-line: #e3d8bd;
+
+  /* Text (cream was light-on-dark) → deep espresso on ivory */
+  --color-cream: #2a2114;
+  --color-gold-light: #6a5526;
+
+  /* Accents need more depth to read on ivory */
+  --color-gold: #9c6b14;
+  --color-gold-warm: #8a5f1a;
+  --color-gold-antique: #7a4f12;
+  --color-gold-shadow: #4a2f0c;
+
+  /* Reds stay crimson — they read beautifully on ivory */
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+* {
+  border-color: var(--color-line);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
   }
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: var(--brand-bg);
+  color: var(--brand-text);
+  font-family: var(--font-body);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+/* All financial figures use tabular mono */
+.tnum {
+  font-feature-settings: "tnum" on;
+  font-variant-numeric: tabular-nums;
+}
+
+/* ============================================================
+   Type scale helpers (Cormorant display)
+   ============================================================ */
+.text-display-2xl {
+  font-family: var(--font-display);
+  font-size: clamp(3rem, 8vw, 6rem);
+  font-weight: 700;
+  line-height: 1.04;
+  letter-spacing: -0.02em;
+}
+.text-display-xl {
+  font-family: var(--font-display);
+  font-size: clamp(2.5rem, 6vw, 4.5rem);
+  font-weight: 700;
+  line-height: 1.08;
+  letter-spacing: -0.015em;
+}
+.text-display-lg {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 600;
+  line-height: 1.14;
+}
+.text-display-md {
+  font-family: var(--font-display);
+  font-size: clamp(1.5rem, 3vw, 2.25rem);
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+/* ============================================================
+   Signature effects
+   ============================================================ */
+
+/* Gold shimmer for primary headlines (scarcity = impact) */
+@keyframes shimmer {
+  0% {
+    background-position: -200% center;
+  }
+  100% {
+    background-position: 200% center;
+  }
+}
+.gold-shimmer {
+  background: linear-gradient(
+    90deg,
+    #a76d1f 0%,
+    #d5a04a 30%,
+    #faf0dc 50%,
+    #d5a04a 70%,
+    #a76d1f 100%
+  );
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+  animation: shimmer 5s linear infinite;
+}
+
+/* Static gold gradient text (no animation) */
+.gold-text {
+  background: linear-gradient(180deg, #faf0dc 0%, #d5a04a 55%, #a76d1f 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+}
+
+/* Light theme: deepen the gradient stops so gold reads on ivory */
+:root.light .gold-text {
+  background: linear-gradient(180deg, #b07d1e 0%, #9c6b14 55%, #6e4a0e 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+}
+:root.light .gold-shimmer {
+  background: linear-gradient(
+    90deg,
+    #6e4a0e 0%,
+    #9c6b14 30%,
+    #caa14a 50%,
+    #9c6b14 70%,
+    #6e4a0e 100%
+  );
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+}
+
+/* Theme-aware section backgrounds (replace hardcoded inline gradients
+   so they flip with the theme). */
+.section-red-fade {
+  background: linear-gradient(
+    180deg,
+    var(--color-ink) 0%,
+    color-mix(in srgb, var(--color-red-deep) 8%, transparent) 50%,
+    var(--color-ink) 100%
+  );
+}
+.cta-radial {
+  background: radial-gradient(
+    ellipse at center,
+    color-mix(in srgb, var(--color-red-deep) 16%, transparent) 0%,
+    var(--color-ink-soft) 70%
+  );
+}
+
+/* Gold border glow for callout boxes */
+@keyframes borderGlow {
+  0%,
+  100% {
+    box-shadow: 0 0 10px rgba(213, 160, 74, 0.18);
+  }
+  50% {
+    box-shadow: 0 0 26px rgba(213, 160, 74, 0.45);
+  }
+}
+.gold-glow {
+  animation: borderGlow 3.5s ease-in-out infinite;
+}
+
+/* Red pulsing CTA ring */
+@keyframes redPulse {
+  0%,
+  100% {
+    box-shadow: 0 0 0 0 rgba(161, 6, 1, 0.45);
+  }
+  50% {
+    box-shadow: 0 0 0 14px rgba(161, 6, 1, 0);
+  }
+}
+.cta-pulse {
+  animation: redPulse 2.6s ease-in-out infinite;
+}
+
+/* Slow pulse for the hero red glow */
+@keyframes glowPulse {
+  0%,
+  100% {
+    opacity: 0.5;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+.glow-pulse {
+  animation: glowPulse 4s ease-in-out infinite;
+}
+
+/* Entrance animation for above-the-fold content.
+   Base state is VISIBLE — the animation is additive — so content never
+   flashes hidden while JS hydrates, and stays visible with no JS / reduced motion. */
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(28px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+.animate-in {
+  animation: fadeUp 0.7s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+/* Scroll-reveal (driven by IntersectionObserver adding .is-visible) */
+.reveal {
+  opacity: 0;
+  transform: translateY(32px);
+  transition:
+    opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: opacity, transform;
+}
+.reveal.is-visible {
+  opacity: 1;
+  transform: none;
+}
+
+/* Subtle noise/texture overlay */
+.noise-overlay {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.5'/%3E%3C/svg%3E");
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .gold-shimmer,
+  .gold-glow,
+  .cta-pulse,
+  .glow-pulse,
+  .animate-in {
+    animation: none;
+  }
+  .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
+
+/* No-JS fallback: scroll reveals never get their observer, so show them. */
+@media (scripting: none) {
+  .reveal {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* ============================================================
+   Image loading skeleton (brand-toned shimmer, works in both themes)
+   ============================================================ */
+@keyframes imgShimmer {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}
+.img-skeleton {
+  background: linear-gradient(
+    100deg,
+    var(--color-ink-elevated) 0%,
+    color-mix(in srgb, var(--color-gold) 16%, var(--color-ink-elevated)) 50%,
+    var(--color-ink-elevated) 100%
+  );
+  background-size: 200% 100%;
+  animation: imgShimmer 1.6s linear infinite;
+}
+@media (prefers-reduced-motion: reduce) {
+  .img-skeleton {
+    animation: none;
+  }
+}
+
+/* ============================================================
+   Form controls — native range slider styled to brand
+   ============================================================ */
+input[type="range"].tc-range {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 100%;
+  height: 4px;
+  border-radius: 999px;
+  background: linear-gradient(
+    to right,
+    var(--color-gold) 0%,
+    var(--color-gold) var(--tc-fill, 50%),
+    var(--color-ink-elevated) var(--tc-fill, 50%),
+    var(--color-ink-elevated) 100%
+  );
+  outline: none;
+  cursor: pointer;
+}
+input[type="range"].tc-range::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: #faf0dc;
+  border: 2px solid var(--color-gold);
+  box-shadow: 0 0 0 4px rgba(213, 160, 74, 0.18);
+  transition: box-shadow 0.2s ease;
+}
+input[type="range"].tc-range::-webkit-slider-thumb:hover {
+  box-shadow: 0 0 0 6px rgba(213, 160, 74, 0.28);
+}
+input[type="range"].tc-range::-moz-range-thumb {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: #faf0dc;
+  border: 2px solid var(--color-gold);
+}
+
+/* ============================================================
+   Scrollbar + selection
+   ============================================================ */
+::-webkit-scrollbar {
+  width: 7px;
+  height: 7px;
+}
+::-webkit-scrollbar-track {
+  background: var(--color-ink-soft);
+}
+::-webkit-scrollbar-thumb {
+  background: #2a2a2a;
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #d5a04a;
+}
+::selection {
+  background: rgba(161, 6, 1, 0.45);
+  color: #faf0dc;
 }

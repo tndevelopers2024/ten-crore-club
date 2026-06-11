@@ -54,7 +54,7 @@ export function FloatingContactButtons() {
         href={WHATSAPP_URL}
         label="WhatsApp Us"
         icon={<WhatsAppIcon className="size-6" />}
-        colorClasses="border-[#25D366]/30 bg-[#128C7E] text-white hover:bg-[#25D366] hover:border-[#25D366]/60"
+        colorClasses="border-[#25D366]/40 bg-[#25D366] text-white hover:bg-[#1EBE57] hover:border-[#1EBE57]/70"
         glowClasses="hover:shadow-[0_8px_30px_-8px_rgba(37,211,102,0.5)]"
       />
       <FabButton

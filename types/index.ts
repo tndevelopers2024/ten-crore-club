@@ -58,6 +58,8 @@ export interface BannerSlide {
   title: string;
   subtitle: string;
   icon: LucideIcon;
+  /** Full-bleed background photo. Remote host must be allow-listed in next.config. */
+  image: { src: string; alt: string };
   primaryCta: { label: string; href: string };
   secondaryCta?: { label: string; href: string };
 }

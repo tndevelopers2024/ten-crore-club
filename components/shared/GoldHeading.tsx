@@ -18,7 +18,7 @@ const sizeClass: Record<Size, string> = {
 };
 
 /**
- * Cormorant Garamond headline with animated gold shimmer.
+ * Display headline with animated gold shimmer.
  * Use shimmer sparingly — only on primary headlines (scarcity = impact).
  */
 export function GoldHeading({

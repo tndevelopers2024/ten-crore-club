@@ -1,22 +1,16 @@
 import type { Metadata } from "next";
-import { Cormorant_Garamond, DM_Sans, JetBrains_Mono } from "next/font/google";
+import { Inter, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import { ComplianceFooter } from "@/components/layout/ComplianceFooter";
 import { FloatingContactButtons } from "@/components/layout/FloatingContactButtons";
 
-const cormorant = Cormorant_Garamond({
+// Single clean sans-serif for the whole site (body + headings).
+const inter = Inter({
   subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
   style: ["normal", "italic"],
-  variable: "--font-cormorant",
-  display: "swap",
-});
-
-const dmSans = DM_Sans({
-  subsets: ["latin"],
-  variable: "--font-dmsans",
+  variable: "--font-inter",
   display: "swap",
 });
 
@@ -65,7 +59,7 @@ export default function RootLayout({
     <html
       lang="en"
       suppressHydrationWarning
-      className={`${cormorant.variable} ${dmSans.variable} ${jetbrains.variable}`}
+      className={`${inter.variable} ${jetbrains.variable}`}
     >
       <body className="flex min-h-dvh flex-col bg-ink text-cream antialiased">
         {/* Apply persisted theme before paint to avoid a flash */}

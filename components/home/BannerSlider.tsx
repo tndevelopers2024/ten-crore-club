@@ -1,6 +1,7 @@
 "use client";
 
 import { useCallback, useEffect, useRef, useState } from "react";
+import Image from "next/image";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { bannerSlides } from "@/data/banner-slides";
 import { CTAButton } from "@/components/shared/CTAButton";
@@ -59,6 +60,29 @@ export function BannerSlider() {
         if (e.key === "ArrowRight") go(active + 1);
       }}
     >
+      {/* Full-bleed photo per slide — cross-faded with the active index. */}
+      <div aria-hidden className="pointer-events-none absolute inset-0">
+        {bannerSlides.map((slide, i) => (
+          <Image
+            key={slide.image.src}
+            src={slide.image.src}
+            alt=""
+            fill
+            sizes="100vw"
+            priority={i === 0}
+            className={cn(
+              "object-cover transition-opacity duration-700 ease-out",
+              i === active ? "opacity-100" : "opacity-0",
+            )}
+          />
+        ))}
+      </div>
+      {/* Dark scrim so cream/gold text stays legible and edges blend to ink. */}
+      <div
+        aria-hidden
+        className="pointer-events-none absolute inset-0 bg-gradient-to-b from-ink/85 via-ink/65 to-ink/95"
+      />
+
       {/* red radial glow + noise, matching the hero treatment */}
       <div
         aria-hidden
@@ -98,7 +122,7 @@ export function BannerSlider() {
                 <p className="mb-4 text-xs font-medium uppercase tracking-[0.25em] text-gold/80">
                   {slide.eyebrow}
                 </p>
-                <h2 className="mx-auto max-w-3xl text-display-lg text-balance text-cream">
+                <h2 className="mx-auto max-w-4xl text-display-xl text-balance text-cream">
                   {renderTitle(slide.title)}
                 </h2>
                 <p className="mx-auto mt-5 max-w-xl text-lg leading-relaxed text-gold-light/75">

@@ -1,9 +1,9 @@
 import { Sparkles } from "lucide-react";
 import { AnimateIn } from "@/components/shared/AnimateIn";
 import { CTAButton } from "@/components/shared/CTAButton";
-import { StatCounter } from "@/components/shared/StatCounter";
 import { TrustStrip } from "@/components/shared/TrustStrip";
 import { Badge } from "@/components/ui/Badge";
+import { BrandImage } from "@/components/shared/BrandImage";
 
 export function HeroSection() {
   return (
@@ -63,37 +63,15 @@ export function HeroSection() {
           </AnimateIn>
         </div>
 
-        {/* Right — stats panel */}
+        {/* Right — brand visual only */}
         <AnimateIn delay={300}>
-          <div className="rounded-2xl border border-gold/20 bg-ink-card/80 p-7 backdrop-blur-sm">
-            <p className="mb-6 text-xs font-medium uppercase tracking-[0.25em] text-gold/70">
-              The Club, by the numbers
-            </p>
-            <div className="grid grid-cols-2 gap-x-6 gap-y-8">
-              <StatCounter value={340} suffix="+" label="Active Members" />
-              <StatCounter
-                value={4.2}
-                prefix="₹"
-                suffix="Cr"
-                decimals={1}
-                label="Added This Month"
-              />
-              <div className="flex flex-col">
-                <span className="font-mono text-4xl font-semibold tracking-tight text-gold tnum sm:text-5xl">
-                  14–16<span className="ml-0.5 text-2xl text-gold-light sm:text-3xl">%</span>
-                </span>
-                <span className="mt-2 text-sm text-gold-light/70">
-                  Historical 15-yr SIP CAGR
-                </span>
-              </div>
-              <StatCounter
-                value={4.2}
-                suffix=" yrs"
-                decimals={1}
-                label="Avg. Portfolio Age"
-              />
-            </div>
-          </div>
+          <BrandImage
+            src="/images/sections/hero-membership.png"
+            alt="Ten Crore Club Premium Membership Card"
+            aspect="1/1"
+            bordered
+            className="shadow-2xl transition-transform duration-300 hover:scale-[1.02]"
+          />
         </AnimateIn>
       </div>
     </section>

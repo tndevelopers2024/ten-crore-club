@@ -154,12 +154,18 @@ export function calcDelayCost(
   const valueNextYear = sipFV(monthlySIP, totalYears - 1, returnRate);
   const delayCost = valueToday - valueNextYear;
 
-  let delayCostLabel = "a flat in a tier-2 city";
+  let delayCostLabel = "generational wealth for your entire family";
   if (delayCost < 500000) delayCostLabel = "a premium car downpayment";
   else if (delayCost < 1500000)
     delayCostLabel = "your child's complete school education";
   else if (delayCost < 3000000)
     delayCostLabel = "a foreign holiday every year for a decade";
+  else if (delayCost < 10000000)
+    delayCostLabel = "a luxury apartment downpayment";
+  else if (delayCost < 50000000)
+    delayCostLabel = "a premium villa in a tier-1 city";
+  else if (delayCost < 200000000)
+    delayCostLabel = "a luxury beachfront estate";
 
   return { valueToday, valueNextYear, delayCost, delayCostLabel };
 }

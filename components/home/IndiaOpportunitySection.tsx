@@ -1,6 +1,7 @@
 import { Reveal } from "@/components/shared/Reveal";
 import { StatCounter } from "@/components/shared/StatCounter";
 import { Eyebrow } from "@/components/ui/Badge";
+import { BrandImage } from "@/components/shared/BrandImage";
 
 const timeline = [
   { year: "1990", label: "Sensex 1,000" },
@@ -14,7 +15,7 @@ const timeline = [
 
 export function IndiaOpportunitySection() {
   return (
-    <section className="relative overflow-hidden px-5 py-24 sm:px-8 md:py-28">
+    <section className="relative overflow-hidden px-5 py-24 sm:px-8 md:py-18">
       <div
         aria-hidden
         className="pointer-events-none absolute inset-0 opacity-[0.06]"
@@ -32,26 +33,39 @@ export function IndiaOpportunitySection() {
           </h2>
         </Reveal>
 
-        {/* stats grid */}
-        <div className="mt-14 grid grid-cols-2 gap-x-6 gap-y-10 sm:gap-x-10">
-          <Reveal>
-            <StatCounter value={80000} suffix="+" label="Sensex in 2024 (from 1,000 in 1990)" />
-          </Reveal>
-          <Reveal delay={100}>
-            <StatCounter value={300000} suffix="+" label="Projected Sensex by 2040" />
-          </Reveal>
+        {/* Split grid for stats and graphic */}
+        <div className="mt-14 grid gap-12 lg:grid-cols-2 lg:items-center">
+          {/* stats grid */}
+          <div className="grid grid-cols-2 gap-x-6 gap-y-10 sm:gap-x-10">
+            <Reveal>
+              <StatCounter value={80000} suffix="+" label="Sensex in 2024 (from 1,000 in 1990)" />
+            </Reveal>
+            <Reveal delay={100}>
+              <StatCounter value={300000} suffix="+" label="Projected Sensex by 2040" />
+            </Reveal>
+            <Reveal delay={200}>
+              <div className="flex flex-col">
+                <span className="font-mono text-4xl font-semibold tracking-tight text-gold tnum sm:text-5xl">
+                  14–16<span className="ml-0.5 text-2xl text-gold-light sm:text-3xl">%</span>
+                </span>
+                <span className="mt-2 text-sm text-gold-light/70">
+                  Historical 15-year SIP CAGR
+                </span>
+              </div>
+            </Reveal>
+            <Reveal delay={300}>
+              <StatCounter value={2} suffix="x" label="India's middle class by 2035" />
+            </Reveal>
+          </div>
+
+          {/* graphic */}
           <Reveal delay={200}>
-            <div className="flex flex-col">
-              <span className="font-mono text-4xl font-semibold tracking-tight text-gold tnum sm:text-5xl">
-                14–16<span className="ml-0.5 text-2xl text-gold-light sm:text-3xl">%</span>
-              </span>
-              <span className="mt-2 text-sm text-gold-light/70">
-                Historical 15-year SIP CAGR
-              </span>
-            </div>
-          </Reveal>
-          <Reveal delay={300}>
-            <StatCounter value={2} suffix="x" label="India's middle class by 2035" />
+            <BrandImage
+              src="/images/sections/india-growth.png"
+              alt="India compounding growth and Sensex timeline graphic"
+              aspect="1/1"
+              bordered
+            />
           </Reveal>
         </div>
 

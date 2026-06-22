@@ -1,22 +1,27 @@
 import type { Metadata } from "next";
-import { Inter, JetBrains_Mono } from "next/font/google";
+import { Cormorant_Garamond, DM_Sans, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import { ComplianceFooter } from "@/components/layout/ComplianceFooter";
 import { FloatingContactButtons } from "@/components/layout/FloatingContactButtons";
 
-// Single clean sans-serif for the whole site (body + headings).
-const inter = Inter({
+const cormorant = Cormorant_Garamond({
   subsets: ["latin"],
-  style: ["normal", "italic"],
-  variable: "--font-inter",
+  weight: ["400", "500", "600", "700"],
+  variable: "--font-display",
+  display: "swap",
+});
+
+const dmSans = DM_Sans({
+  subsets: ["latin"],
+  variable: "--font-body",
   display: "swap",
 });
 
 const jetbrains = JetBrains_Mono({
   subsets: ["latin"],
-  variable: "--font-jetbrains",
+  variable: "--font-mono",
   display: "swap",
 });
 
@@ -43,7 +48,14 @@ export const metadata: Metadata = {
     title: "Ten Crore Club — Let Your Investments Fly Higher",
     description:
       "A private wealth community for India's serious investors. Build ₹10 Crore with discipline, the right system, and behavioral coaching.",
-    images: [{ url: "/logo/logo-mark.png", width: 512, height: 512 }],
+    images: [
+      {
+        url: "/logo/ten-crore-club-logo-2.png",
+        width: 5000,
+        height: 5000,
+        alt: "Ten Crore Club logo",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
@@ -59,13 +71,13 @@ export default function RootLayout({
     <html
       lang="en"
       suppressHydrationWarning
-      className={`${inter.variable} ${jetbrains.variable}`}
+      className={`light ${cormorant.variable} ${dmSans.variable} ${jetbrains.variable}`}
     >
       <body className="flex min-h-dvh flex-col bg-ink text-cream antialiased">
         {/* Apply persisted theme before paint to avoid a flash */}
         <script
           dangerouslySetInnerHTML={{
-            __html: `(function(){try{if(localStorage.getItem('tc-theme')==='light')document.documentElement.classList.add('light')}catch(e){}})()`,
+            __html: `(function(){try{if(localStorage.getItem('tc-theme')==='dark')document.documentElement.classList.remove('light')}catch(e){}})()`,
           }}
         />
         <Navbar />

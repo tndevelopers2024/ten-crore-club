@@ -3,10 +3,11 @@ import { Eyebrow } from "@/components/ui/Badge";
 import { CTAButton } from "@/components/shared/CTAButton";
 import { MilestoneBars } from "@/components/calculators/CalculatorChart";
 import { pillars, methodMilestones } from "@/data/pillars";
+import { BrandImage } from "@/components/shared/BrandImage";
 
 export function MethodSection() {
   return (
-    <section className="bg-ink-elevated px-5 py-24 sm:px-8 md:py-28">
+    <section className=" px-5 py-24 sm:px-8 md:py-28">
       <div className="mx-auto max-w-6xl">
         <Reveal className="max-w-3xl">
           <Eyebrow>The Ten Crore Method™</Eyebrow>
@@ -25,19 +26,30 @@ export function MethodSection() {
             const Icon = p.icon;
             return (
               <Reveal as="article" key={p.number} delay={i * 100}>
-                <div className="group h-full rounded-lg border border-line bg-ink-card p-6 transition-colors hover:border-gold/40">
-                  <div className="flex items-center justify-between">
-                    <span className="font-mono text-3xl font-bold text-gold/25">
-                      {p.number}
-                    </span>
-                    <Icon className="size-7 text-gold transition-transform group-hover:scale-110" />
+                <div className="group flex h-full flex-col overflow-hidden rounded-lg border border-line bg-ink-card transition-colors hover:border-gold/40">
+                  {p.image && (
+                    <BrandImage
+                      src={p.image}
+                      alt={p.title}
+                      aspect="16/10"
+                      className="border-b border-line"
+                      imgClassName="transition-transform duration-500 group-hover:scale-105"
+                    />
+                  )}
+                  <div className="flex flex-1 flex-col p-6">
+                    <div className="flex items-center justify-between">
+                      <span className="font-mono text-3xl font-bold text-gold/25">
+                        {p.number}
+                      </span>
+                      <Icon className="size-7 text-gold transition-transform group-hover:scale-110" />
+                    </div>
+                    <h3 className="mt-4 font-display text-2xl font-semibold text-cream">
+                      {p.title}
+                    </h3>
+                    <p className="mt-2 text-sm leading-relaxed text-gold-light/70">
+                      {p.short}
+                    </p>
                   </div>
-                  <h3 className="mt-4 font-display text-2xl font-semibold text-cream">
-                    {p.title}
-                  </h3>
-                  <p className="mt-2 text-sm leading-relaxed text-gold-light/70">
-                    {p.short}
-                  </p>
                 </div>
               </Reveal>
             );

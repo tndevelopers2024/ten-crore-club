@@ -4,6 +4,7 @@ export const successStories: SuccessStory[] = [
   {
     name: "Rajesh Kumar",
     initials: "RK",
+    photo: "/images/stories/rajesh.png",
     profession: "IT Manager",
     city: "Pune",
     age: 36,
@@ -18,6 +19,7 @@ export const successStories: SuccessStory[] = [
   {
     name: "Dr. Priya Sharma",
     initials: "PS",
+    photo: "/images/stories/priya.png",
     profession: "Gynaecologist",
     city: "Bengaluru",
     age: 44,
@@ -32,6 +34,7 @@ export const successStories: SuccessStory[] = [
   {
     name: "Karthik Rajan",
     initials: "KR",
+    photo: "/images/stories/karthik.png",
     profession: "Software Engineer (NRI)",
     city: "USA → India",
     age: 39,
@@ -42,5 +45,61 @@ export const successStories: SuccessStory[] = [
     onTrack: "₹8 Crore corpus by return date",
     quote:
       "I spent 8 years in the US building someone else's economy. Now I'm building mine.",
+  },
+  {
+    name: "Neha Bansal",
+    initials: "NB",
+    profession: "Startup Operator",
+    city: "Gurugram",
+    age: 34,
+    whenJoined: "Good salary, scattered investing, and too much money sitting idle in savings.",
+    plan: "₹30,000 monthly SIP with annual step-up, emergency buffer, and focused long-term equity allocation.",
+    today: "₹18.6 Lakhs",
+    todayValue: 1860000,
+    onTrack: "₹6 Crore+ by 55",
+    quote:
+      "Before this, I was earning well but behaving randomly. Now every raise has a job and every SIP has a purpose.",
+  },
+  {
+    name: "Amit Deshpande",
+    initials: "AD",
+    profession: "Senior Product Manager",
+    city: "Mumbai",
+    age: 41,
+    whenJoined: "Bonuses were getting spent, not invested. No real retirement target.",
+    plan: "Core SIP strategy with yearly bonus deployment, family protection cover, and quarterly rebalancing.",
+    today: "₹39.8 Lakhs",
+    todayValue: 3980000,
+    onTrack: "₹7 Crore by 58",
+    quote:
+      "The biggest shift wasn't finding better funds. It was finally building a system that stopped me from drifting.",
+  },
+  {
+    name: "Sonal Mehta",
+    initials: "SM",
+    profession: "Business Owner",
+    city: "Ahmedabad",
+    age: 47,
+    whenJoined: "Business cash flows were strong, but personal wealth planning was almost non-existent.",
+    plan: "Hybrid SIP and surplus deployment model designed around uneven monthly income and a 12-year goal.",
+    today: "₹74.2 Lakhs",
+    todayValue: 7420000,
+    onTrack: "₹5 Crore+ in 12 years",
+    quote:
+      "I used to think wealth planning was something I'd do once business became stable. I learned that stability comes from planning first.",
+  },
+  {
+    name: "Rohit Malhotra",
+    initials: "RM",
+    profession: "Consultant",
+    city: "Delhi",
+    age: 38,
+    whenJoined: "Good income, high lifestyle burn, and no visibility on what future freedom would actually cost.",
+    plan: "₹40,000 SIP plus a strict annual top-up plan tied to consulting income growth.",
+    today: "₹27.5 Lakhs",
+    todayValue: 2750000,
+    onTrack: "₹9 Crore by 56",
+    quote:
+      "The calculator got my attention. The discipline and accountability are what actually changed my trajectory.",
   },
 ];

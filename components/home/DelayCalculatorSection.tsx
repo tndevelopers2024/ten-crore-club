@@ -4,7 +4,7 @@ import { DelayCalculator } from "@/components/calculators/DelayCalculator";
 
 export function DelayCalculatorSection() {
   return (
-    <section className="relative px-5 py-24 sm:px-8 md:py-28">
+    <section className="relative px-5 py-24 sm:px-8 md:py-18">
       <div className="mx-auto max-w-6xl">
         <Reveal className="text-center">
           <Eyebrow>The Cost of Waiting</Eyebrow>

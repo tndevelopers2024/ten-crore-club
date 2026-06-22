@@ -11,6 +11,7 @@ interface StatCounterProps {
   label: string;
   decimals?: number;
   duration?: number;
+  threshold?: number;
   className?: string;
   labelClassName?: string;
 }
@@ -22,10 +23,11 @@ export function StatCounter({
   label,
   decimals = 0,
   duration = 1800,
+  threshold = 0.3,
   className,
   labelClassName,
 }: StatCounterProps) {
-  const { ref, isInView } = useScrollAnimation<HTMLDivElement>(0.3);
+  const { ref, isInView } = useScrollAnimation<HTMLDivElement>(threshold);
   const count = useCountUp(value, duration, isInView);
   const display = count.toLocaleString("en-IN", {
     minimumFractionDigits: decimals,

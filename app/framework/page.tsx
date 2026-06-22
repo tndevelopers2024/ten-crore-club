@@ -6,6 +6,7 @@ import { CTAButton } from "@/components/shared/CTAButton";
 import { LineAreaChart } from "@/components/calculators/CalculatorChart";
 import { pillars } from "@/data/pillars";
 import { growthTimeline } from "@/lib/calculators";
+import { BrandImage } from "@/components/shared/BrandImage";
 
 export const metadata: Metadata = {
   title: "The Ten Crore Method™",
@@ -39,7 +40,7 @@ export default function FrameworkPage() {
                   <span className="pointer-events-none absolute -right-2 -top-6 font-mono text-[7rem] font-bold leading-none text-gold/[0.06] sm:text-[10rem]">
                     {p.number}
                   </span>
-                  <div className="relative grid gap-6 md:grid-cols-[auto_1fr]">
+                  <div className="relative grid gap-6 md:grid-cols-[auto_1fr] lg:grid-cols-[auto_1fr_280px] items-start">
                     <div className="flex size-14 items-center justify-center rounded-lg border border-gold/30 bg-gold/10">
                       <Icon className="size-7 text-gold" />
                     </div>
@@ -61,6 +62,17 @@ export default function FrameworkPage() {
                         </p>
                       </div>
                     </div>
+                    {p.image && (
+                      <div className="w-full max-w-sm mt-4 lg:mt-0 relative z-10">
+                        <BrandImage
+                          src={p.image}
+                          alt={p.title}
+                          aspect="16/10"
+                          bordered
+                          className="shadow-xl transition-transform duration-300 hover:scale-[1.02]"
+                        />
+                      </div>
+                    )}
                   </div>
                 </article>
               </Reveal>

@@ -3,7 +3,7 @@ import { GoldDivider } from "@/components/shared/GoldDivider";
 
 export function RegretSection() {
   return (
-    <section className="bg-ink-card px-5 py-24 sm:px-8 md:py-32">
+    <section className=" px-5 py-14 sm:px-8 md:py-8">
       <div className="mx-auto max-w-3xl text-center">
         <Reveal>
           <h2 className="text-display-lg text-balance text-cream">

@@ -14,6 +14,7 @@ export const pillars: Pillar[] = [
     ],
     insight:
       "Your investable surplus is almost always larger than your bank balance suggests.",
+    image: "/images/sections/pillar-income-expansion.png",
   },
   {
     number: "02",
@@ -26,6 +27,7 @@ export const pillars: Pillar[] = [
       "We design SIPs around your income pattern — monthly salary, quarterly bonus, annual incentive — so you always invest the maximum possible without straining cash flow.",
     ],
     insight: "Consistency beats brilliance. The SIP that runs forever wins.",
+    image: "/images/sections/pillar-sip-discipline.png",
   },
   {
     number: "03",
@@ -38,6 +40,7 @@ export const pillars: Pillar[] = [
       "Quarterly rebalancing keeps the mix on target. Allocation evolves with your age and life stage.",
     ],
     insight: "Diversification is the only free lunch in investing. We serve it deliberately.",
+    image: "/images/sections/pillar-smart-allocation.png",
   },
   {
     number: "04",
@@ -50,6 +53,7 @@ export const pillars: Pillar[] = [
       "Every year you stay invested, you move exponentially closer to your number.",
     ],
     insight: "Time in the market is the single greatest force in your favour.",
+    image: "/images/sections/pillar-compounding-time.png",
   },
   {
     number: "05",
@@ -62,6 +66,7 @@ export const pillars: Pillar[] = [
       "When your friend tells you to invest in a trending NFO, we give you the data to say no.",
     ],
     insight: "We don't just manage your portfolio. We manage the investor behind it.",
+    image: "/images/sections/pillar-behavioral-coaching.png",
   },
 ];
 

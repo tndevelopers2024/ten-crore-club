@@ -12,7 +12,7 @@ export function ComplianceFooter() {
       aria-label="Regulatory disclaimer"
       className="px-4 pt-4 sm:px-6 sm:pt-6"
     >
-      <div className="mx-auto flex max-w-7xl items-start gap-3 rounded-2xl border border-line/50 bg-ink-card/50 px-6 py-5 backdrop-blur-sm sm:px-8">
+      <div className="mx-auto flex max-w-7xl items-start gap-3 rounded-2xl border border-line/50 bg-ink-card/50 px-6 py-5 backdrop-blur-sm sm:px-8 mb-8">
         <ShieldAlert className="mt-0.5 size-4 shrink-0 text-gold/60" />
         <p className="text-[11px] leading-relaxed text-gold-light/45 sm:text-xs">
           {COMPLIANCE_DISCLAIMER}

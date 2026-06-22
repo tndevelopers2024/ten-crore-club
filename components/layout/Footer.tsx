@@ -74,17 +74,14 @@ export function Footer() {
         <div className="relative grid gap-12 px-8 py-12 sm:px-12 md:grid-cols-[1.2fr_1fr_1fr]">
           {/* Brand */}
           <div>
-            <Link href="/" className="inline-flex items-center gap-2.5">
+            <Link href="/" className="inline-flex items-center">
               <Image
-                src="/logo/logo-mark.png"
-                alt="Ten Crore Club"
-                width={48}
-                height={48}
-                className="h-12 w-12 object-contain"
+                src="/logo/ten-crore-club-logo-2.png"
+                alt="Ten Crore Club logo"
+                width={180}
+                height={180}
+                className="h-36 w-36 object-contain sm:h-44 sm:w-44"
               />
-              <span className="font-display text-xl font-semibold tracking-wide text-cream">
-                TEN CRORE <span className="text-gold">CLUB</span>
-              </span>
             </Link>
             <p className="mt-5 max-w-xs font-display text-lg italic leading-relaxed text-gold-light/70">
               &ldquo;Let Your Investments Fly Higher.&rdquo;

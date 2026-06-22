@@ -15,26 +15,32 @@
 
   /* Brand Reds — shadow → vivid */
   --color-red-shadow: #8b0000;
-  --color-red-deep: #a10601; /* primary red — banners, CTAs */
-  --color-red-mid: #c11409; /* hover state, highlights */
-  --color-red-vivid: #cd140a; /* peak red */
+  --color-red-deep: #a10601;
+  /* primary red — banners, CTAs */
+  --color-red-mid: #c11409;
+  /* hover state, highlights */
+  --color-red-vivid: #cd140a;
+  /* peak red */
 
   /* Brand Golds — shadow → cream */
   --color-gold-shadow: #5a2619;
   --color-gold-antique: #a76d1f;
   --color-gold-warm: #b47c32;
-  --color-gold: #d5a04a; /* PRIMARY text gold — headings */
-  --color-gold-light: #e1c18d; /* subheadings, secondary */
-  --color-cream: #faf0dc; /* peak highlight, body on dark */
+  --color-gold: #d5a04a;
+  /* PRIMARY text gold — headings */
+  --color-gold-light: #e1c18d;
+  /* subheadings, secondary */
+  --color-cream: #faf0dc;
+  /* peak highlight, body on dark */
 
   /* Text that sits on a solid red/gold accent — stays light in BOTH themes. */
   --color-on-accent: #faf0dc;
 
   /* Typography */
   --font-sans: var(--font-body), system-ui, sans-serif;
-  --font-display: var(--font-inter), system-ui, sans-serif;
-  --font-body: var(--font-inter), system-ui, sans-serif;
-  --font-mono: var(--font-jetbrains), ui-monospace, "SFMono-Regular", monospace;
+  --font-display: var(--font-display), serif;
+  --font-body: var(--font-body), system-ui, sans-serif;
+  --font-mono: var(--font-mono), ui-monospace, "SFMono-Regular", monospace;
 
   /* Radii — luxury, never SaaS. Cap at 12px. */
   --radius-lg: 12px;
@@ -60,27 +66,27 @@
    ------------------------------------------------------------ */
 :root.light {
   color-scheme: light;
-  --brand-bg: #f6f1e5;
-  --brand-text: #2a2114;
+  --brand-bg: #ffffff;
+  --brand-text: #111111;
 
-  /* Surfaces (were blacks) → warm ivories */
-  --color-ink: #f6f1e5;
-  --color-ink-soft: #efe7d5;
-  --color-ink-card: #fffdf8;
-  --color-ink-elevated: #ece3cf;
-  --color-line: #e3d8bd;
+  /* Surfaces (were blacks) → clean white & grays */
+  --color-ink: #ffffff;
+  --color-ink-soft: #f8f9fa;
+  --color-ink-card: #ffffff;
+  --color-ink-elevated: #f1f3f5;
+  --color-line: #e9ecef;
 
-  /* Text (cream was light-on-dark) → deep espresso on ivory */
-  --color-cream: #2a2114;
-  --color-gold-light: #6a5526;
+  /* Text (cream was light-on-dark) → dark charcoal / black */
+  --color-cream: #111111;
+  --color-gold-light: #555555;
 
-  /* Accents need more depth to read on ivory */
+  /* Accents need more depth to read on white */
   --color-gold: #9c6b14;
   --color-gold-warm: #8a5f1a;
   --color-gold-antique: #7a4f12;
   --color-gold-shadow: #4a2f0c;
 
-  /* Reds stay crimson — they read beautifully on ivory */
+  /* Reds stay crimson — they read beautifully on white */
 }
 
 * {
@@ -121,6 +127,7 @@ body {
   line-height: 1.05;
   letter-spacing: -0.03em;
 }
+
 .text-display-xl {
   font-family: var(--font-display);
   font-size: clamp(2.125rem, 4.5vw, 3.25rem);
@@ -128,6 +135,7 @@ body {
   line-height: 1.1;
   letter-spacing: -0.025em;
 }
+
 .text-display-lg {
   font-family: var(--font-display);
   font-size: clamp(1.75rem, 3vw, 2.5rem);
@@ -135,6 +143,7 @@ body {
   line-height: 1.16;
   letter-spacing: -0.02em;
 }
+
 .text-display-md {
   font-family: var(--font-display);
   font-size: clamp(1.375rem, 2.5vw, 1.875rem);
@@ -152,19 +161,19 @@ body {
   0% {
     background-position: -200% center;
   }
+
   100% {
     background-position: 200% center;
   }
 }
+
 .gold-shimmer {
-  background: linear-gradient(
-    90deg,
-    #a76d1f 0%,
-    #d5a04a 30%,
-    #faf0dc 50%,
-    #d5a04a 70%,
-    #a76d1f 100%
-  );
+  background: linear-gradient(90deg,
+      #a76d1f 0%,
+      #d5a04a 30%,
+      #faf0dc 50%,
+      #d5a04a 70%,
+      #a76d1f 100%);
   background-size: 200% auto;
   -webkit-background-clip: text;
   background-clip: text;
@@ -188,15 +197,14 @@ body {
   -webkit-background-clip: text;
   background-clip: text;
 }
+
 :root.light .gold-shimmer {
-  background: linear-gradient(
-    90deg,
-    #6e4a0e 0%,
-    #9c6b14 30%,
-    #caa14a 50%,
-    #9c6b14 70%,
-    #6e4a0e 100%
-  );
+  background: linear-gradient(90deg,
+      #6e4a0e 0%,
+      #9c6b14 30%,
+      #caa14a 50%,
+      #9c6b14 70%,
+      #6e4a0e 100%);
   background-size: 200% auto;
   -webkit-background-clip: text;
   background-clip: text;
@@ -205,59 +213,65 @@ body {
 /* Theme-aware section backgrounds (replace hardcoded inline gradients
    so they flip with the theme). */
 .section-red-fade {
-  background: linear-gradient(
-    180deg,
-    var(--color-ink) 0%,
-    color-mix(in srgb, var(--color-red-deep) 8%, transparent) 50%,
-    var(--color-ink) 100%
-  );
+  background: linear-gradient(180deg,
+      var(--color-ink) 0%,
+      color-mix(in srgb, var(--color-red-deep) 8%, transparent) 50%,
+      var(--color-ink) 100%);
 }
+
 .cta-radial {
-  background: radial-gradient(
-    ellipse at center,
-    color-mix(in srgb, var(--color-red-deep) 16%, transparent) 0%,
-    var(--color-ink-soft) 70%
-  );
+  background: radial-gradient(ellipse at center,
+      color-mix(in srgb, var(--color-red-deep) 16%, transparent) 0%,
+      var(--color-ink-soft) 70%);
 }
 
 /* Gold border glow for callout boxes */
 @keyframes borderGlow {
+
   0%,
   100% {
     box-shadow: 0 0 10px rgba(213, 160, 74, 0.18);
   }
+
   50% {
     box-shadow: 0 0 26px rgba(213, 160, 74, 0.45);
   }
 }
+
 .gold-glow {
   animation: borderGlow 3.5s ease-in-out infinite;
 }
 
 /* Red pulsing CTA ring */
 @keyframes redPulse {
+
   0%,
   100% {
     box-shadow: 0 0 0 0 rgba(161, 6, 1, 0.45);
   }
+
   50% {
     box-shadow: 0 0 0 14px rgba(161, 6, 1, 0);
   }
 }
+
 .cta-pulse {
   animation: redPulse 2.6s ease-in-out infinite;
 }
 
 /* Slow pulse for the hero red glow */
 @keyframes glowPulse {
+
   0%,
   100% {
     opacity: 0.5;
   }
+
   50% {
     opacity: 1;
   }
 }
+
 .glow-pulse {
   animation: glowPulse 4s ease-in-out infinite;
 }
@@ -270,11 +284,13 @@ body {
     opacity: 0;
     transform: translateY(28px);
   }
+
   to {
     opacity: 1;
     transform: none;
   }
 }
+
 .animate-in {
   animation: fadeUp 0.7s cubic-bezier(0.22, 1, 0.36, 1) both;
 }
@@ -288,6 +304,7 @@ body {
     transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
   will-change: opacity, transform;
 }
+
 .reveal.is-visible {
   opacity: 1;
   transform: none;
@@ -299,6 +316,7 @@ body {
 }
 
 @media (prefers-reduced-motion: reduce) {
+
   .gold-shimmer,
   .gold-glow,
   .cta-pulse,
@@ -306,6 +324,7 @@ body {
   .animate-in {
     animation: none;
   }
+
   .reveal {
     opacity: 1;
     transform: none;
@@ -328,24 +347,52 @@ body {
   0% {
     background-position: 200% 0;
   }
+
   100% {
     background-position: -200% 0;
   }
 }
+
 .img-skeleton {
-  background: linear-gradient(
-    100deg,
-    var(--color-ink-elevated) 0%,
-    color-mix(in srgb, var(--color-gold) 16%, var(--color-ink-elevated)) 50%,
-    var(--color-ink-elevated) 100%
-  );
+  background: linear-gradient(100deg,
+      var(--color-ink-elevated) 0%,
+      color-mix(in srgb, var(--color-gold) 16%, var(--color-ink-elevated)) 50%,
+      var(--color-ink-elevated) 100%);
   background-size: 200% 100%;
   animation: imgShimmer 1.6s linear infinite;
 }
+
 @media (prefers-reduced-motion: reduce) {
   .img-skeleton {
     animation: none;
   }
+}
+
+/* ============================================================
+   Swiper — Member Stories
+   ============================================================ */
+.member-stories-swiper .swiper-slide {
+  height: auto;
+}
+
+.member-stories-swiper .swiper-pagination {
+  bottom: 0 !important;
+}
+
+.member-stories-swiper .swiper-pagination-bullet {
+  width: 10px;
+  height: 10px;
+  background: color-mix(in srgb, var(--color-gold-light) 45%, transparent);
+  opacity: 1;
+  transition:
+    transform 0.2s ease,
+    background-color 0.2s ease;
+}
+
+.member-stories-swiper .swiper-pagination-bullet-active {
+  background: var(--color-gold);
+  transform: scale(1.15);
+  box-shadow: 0 0 14px rgba(213, 160, 74, 0.35);
 }
 
 /* ============================================================
@@ -357,16 +404,15 @@ input[type="range"].tc-range {
   width: 100%;
   height: 4px;
   border-radius: 999px;
-  background: linear-gradient(
-    to right,
-    var(--color-gold) 0%,
-    var(--color-gold) var(--tc-fill, 50%),
-    var(--color-ink-elevated) var(--tc-fill, 50%),
-    var(--color-ink-elevated) 100%
-  );
+  background: linear-gradient(to right,
+      var(--color-gold) 0%,
+      var(--color-gold) var(--tc-fill, 50%),
+      var(--color-ink-elevated) var(--tc-fill, 50%),
+      var(--color-ink-elevated) 100%);
   outline: none;
   cursor: pointer;
 }
+
 input[type="range"].tc-range::-webkit-slider-thumb {
   -webkit-appearance: none;
   appearance: none;
@@ -378,9 +424,11 @@ input[type="range"].tc-range::-webkit-slider-thumb {
   box-shadow: 0 0 0 4px rgba(213, 160, 74, 0.18);
   transition: box-shadow 0.2s ease;
 }
+
 input[type="range"].tc-range::-webkit-slider-thumb:hover {
   box-shadow: 0 0 0 6px rgba(213, 160, 74, 0.28);
 }
+
 input[type="range"].tc-range::-moz-range-thumb {
   width: 18px;
   height: 18px;
@@ -396,16 +444,20 @@ input[type="range"].tc-range::-moz-range-thumb {
   width: 7px;
   height: 7px;
 }
+
 ::-webkit-scrollbar-track {
   background: var(--color-ink-soft);
 }
+
 ::-webkit-scrollbar-thumb {
   background: #2a2a2a;
   border-radius: 3px;
 }
+
 ::-webkit-scrollbar-thumb:hover {
   background: #d5a04a;
 }
+
 ::selection {
   background: rgba(161, 6, 1, 0.45);
   color: #faf0dc;

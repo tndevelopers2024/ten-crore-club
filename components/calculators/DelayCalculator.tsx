@@ -5,7 +5,7 @@ import { Slider } from "@/components/ui/Slider";
 import { LineAreaChart } from "./CalculatorChart";
 import { CTAButton } from "@/components/shared/CTAButton";
 import { calcDelayCost, delayTimeline } from "@/lib/calculators";
-import { formatINRFull } from "@/lib/formatters";
+import { formatINR, formatINRFull } from "@/lib/formatters";
 
 interface DelayCalculatorProps {
   showChart?: boolean;
@@ -16,9 +16,9 @@ export function DelayCalculator({
   showChart = true,
   showCTA = true,
 }: DelayCalculatorProps) {
-  const [monthly, setMonthly] = useState(25000);
-  const [years, setYears] = useState(25);
-  const [ret, setRet] = useState(13);
+  const [monthly, setMonthly] = useState(500000);
+  const [years, setYears] = useState(50);
+  const [ret, setRet] = useState(20);
 
   const { valueToday, valueNextYear, delayCost, delayCostLabel } = useMemo(
     () => calcDelayCost(monthly, years, ret),
@@ -30,6 +30,13 @@ export function DelayCalculator({
     [monthly, years, ret],
   );
 
+  const formatDisplayValue = (val: number) => {
+    if (val >= 10000000) {
+      return formatINR(val);
+    }
+    return formatINRFull(val);
+  };
+
   return (
     <div className="overflow-hidden rounded-xl border border-red-vivid/40 bg-gradient-to-b from-ink-card to-ink">
       <div className="grid gap-8 p-6 sm:p-8 lg:grid-cols-[minmax(0,0.85fr)_minmax(0,1.15fr)]">
@@ -39,9 +46,9 @@ export function DelayCalculator({
             label="Monthly SIP Amount"
             value={monthly}
             onChange={setMonthly}
-            min={5000}
-            max={100000}
-            step={1000}
+            min={10000}
+            max={1000000}
+            step={10000}
             display={formatINRFull}
           />
           <Slider
@@ -49,7 +56,7 @@ export function DelayCalculator({
             value={years}
             onChange={setYears}
             min={10}
-            max={30}
+            max={50}
             display={(v) => `${v} yrs`}
           />
           <Slider
@@ -57,7 +64,7 @@ export function DelayCalculator({
             value={ret}
             onChange={setRet}
             min={10}
-            max={16}
+            max={25}
             step={0.5}
             display={(v) => `${v}%`}
           />
@@ -92,7 +99,7 @@ export function DelayCalculator({
                 Start Today
               </p>
               <p className="mt-2 font-mono text-2xl font-semibold text-gold tnum sm:text-3xl">
-                {formatINRFull(valueToday)}
+                {formatDisplayValue(valueToday)}
               </p>
             </div>
             <div className="rounded-lg border border-line bg-ink p-5">
@@ -100,7 +107,7 @@ export function DelayCalculator({
                 Start Next Year
               </p>
               <p className="mt-2 font-mono text-2xl font-semibold text-gold-light/55 tnum sm:text-3xl">
-                {formatINRFull(valueNextYear)}
+                {formatDisplayValue(valueNextYear)}
               </p>
             </div>
           </div>
@@ -110,7 +117,7 @@ export function DelayCalculator({
               One Year Costs You
             </p>
             <p className="mt-2 font-mono text-4xl font-bold text-red-vivid tnum sm:text-5xl">
-              {formatINRFull(delayCost)}
+              {formatDisplayValue(delayCost)}
             </p>
             <p className="mt-2 text-sm text-gold-light/75">
               That&apos;s <span className="text-cream">{delayCostLabel}</span>.

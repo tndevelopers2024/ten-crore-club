@@ -49,6 +49,7 @@ export interface Pillar {
   short: string;
   detail: string[];
   insight: string;
+  image?: string;
 }
 
 export interface BannerSlide {

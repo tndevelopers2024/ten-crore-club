@@ -35,7 +35,9 @@ export function BannerSlider() {
 
   // Autoplay — pauses on hover/focus and when the tab is hidden.
   const activeRef = useRef(active);
-  activeRef.current = active;
+  useEffect(() => {
+    activeRef.current = active;
+  }, [active]);
   useEffect(() => {
     if (paused) return;
     const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
@@ -116,16 +118,16 @@ export function BannerSlider() {
                   isActive ? "opacity-100" : "opacity-0",
                 )}
               >
-                <span className="mx-auto mb-6 inline-flex size-14 items-center justify-center rounded-full border border-gold/30 bg-gold/10">
+                <span className="mx-auto mb-6 inline-flex size-14 items-center justify-center rounded-full border border-gold/30 bg-gold/8 shadow-[0_18px_70px_-45px_rgba(213,160,74,0.9)]">
                   <Icon className="size-6 text-gold" aria-hidden />
                 </span>
-                <p className="mb-4 text-xs font-medium uppercase tracking-[0.25em] text-gold/80">
+                <p className="mb-4 text-xs font-medium uppercase tracking-[0.25em] text-gold/85">
                   {slide.eyebrow}
                 </p>
                 <h2 className="mx-auto max-w-4xl text-display-xl text-balance text-cream">
                   {renderTitle(slide.title)}
                 </h2>
-                <p className="mx-auto mt-5 max-w-xl text-lg leading-relaxed text-gold-light/75">
+                <p className="mx-auto mt-5 max-w-2xl text-lg leading-relaxed text-gold-light/85">
                   {slide.subtitle}
                 </p>
                 <div className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">

@@ -11,7 +11,7 @@ type Theme = "dark" | "light";
  * no-flash script in the root layout; this just keeps it in sync + persists.
  */
 export function ThemeToggle({ className }: { className?: string }) {
-  const [theme, setTheme] = useState<Theme>("dark");
+  const [theme, setTheme] = useState<Theme>("light");
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {

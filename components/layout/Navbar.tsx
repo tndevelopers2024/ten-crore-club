@@ -43,24 +43,21 @@ export function Navbar() {
     <header className="fixed inset-x-0 top-0 z-50 px-4 pt-4 sm:px-6 sm:pt-5">
       <nav
         className={cn(
-          "mx-auto flex h-14 max-w-7xl items-center justify-between gap-4 rounded-2xl border px-5 transition-all duration-500 sm:h-16 sm:px-8",
+          "mx-auto flex h-8 max-w-7xl items-center justify-between gap-4 rounded-2xl border px-5 transition-all duration-500 sm:h-16 sm:px-8",
           scrolled
             ? "border-gold/15 bg-ink/80 shadow-[0_8px_32px_-8px_rgba(0,0,0,0.7),0_0_0_1px_rgba(213,160,74,0.08)] backdrop-blur-xl"
             : "border-gold/10 bg-ink-card/60 backdrop-blur-md",
         )}
       >
-        <Link href="/" className="flex items-center gap-2.5" onClick={() => setOpen(false)}>
+        <Link href="/" className="flex items-center" onClick={() => setOpen(false)}>
           <Image
-            src="/logo/logo-mark.png"
-            alt="Ten Crore Club"
-            width={44}
-            height={44}
+            src="/logo/ten-crore-club-logo-2.png"
+            alt="Ten Crore Club Logo"
+            width={104}
+            height={104}
             priority
-            className="h-9 w-9 object-contain sm:h-10 sm:w-10"
+            className="h-18 w-18 object-contain sm:h-22 sm:w-22"
           />
-          <span className="font-display text-lg font-semibold leading-none tracking-wide text-cream">
-            TEN CRORE <span className="text-gold">CLUB</span>
-          </span>
         </Link>
 
         {/* Desktop links */}
@@ -104,7 +101,7 @@ export function Navbar() {
       {/* Mobile drawer */}
       <div
         className={cn(
-          "fixed inset-x-4 top-[calc(3.5rem+1.25rem+0.75rem)] z-40 origin-top rounded-2xl border border-gold/15 bg-ink/95 backdrop-blur-xl transition-all duration-300 sm:inset-x-6 lg:hidden",
+          "fixed inset-x-4 top-[7.25rem] z-40 origin-top rounded-2xl border border-gold/15 bg-ink/95 backdrop-blur-xl transition-all duration-300 sm:inset-x-6 sm:top-[8.5rem] lg:hidden",
           open
             ? "pointer-events-auto scale-100 opacity-100 shadow-[0_16px_48px_-12px_rgba(0,0,0,0.8)]"
             : "pointer-events-none scale-95 opacity-0",

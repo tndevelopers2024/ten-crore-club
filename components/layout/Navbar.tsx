@@ -75,7 +75,7 @@ export function Navbar() {
                 <Link
                   href={link.href}
                   className={cn(
-                    "relative rounded-full px-4 py-2 text-sm transition-colors",
+                    "relative rounded-full px-4 py-2 text-sm transition-colors font-bold",
                     active ? "bg-gold/10 text-gold" : "text-gold-light/70 hover:bg-gold/5 hover:text-gold",
                   )}
                 >
@@ -89,7 +89,7 @@ export function Navbar() {
         <div className="flex items-center gap-2 shrink-0">
           <Link
             href="/book"
-            className="hidden rounded-full border border-red-vivid/60 bg-red-mid px-5 py-2 text-sm font-medium text-on-accent transition-all hover:bg-red-vivid hover:shadow-[0_0_20px_-4px_rgba(219, 51, 19,0.5)] sm:inline-flex"
+            className="hidden rounded-full border border-red-vivid/60 bg-red-mid px-5 py-2 text-sm font-bold text-on-accent transition-all hover:bg-red-vivid hover:shadow-[0_0_20px_-4px_rgba(219, 51, 19,0.5)] sm:inline-flex"
           >
             Book Free Call
           </Link>

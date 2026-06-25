@@ -22,7 +22,7 @@ const innerCircle = [
 
 export function CommunityPreviewSection() {
   return (
-    <section className="px-5 py-24 sm:px-8 md:py-28 relative overflow-hidden">
+    <section className="px-5 py-24 sm:px-8 md:py-18 relative overflow-hidden">
       {/* Subtle background glow for the whole section */}
       <div className="pointer-events-none absolute left-1/2 top-1/2 -z-10 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] rounded-full bg-gold/5 blur-[120px]" />
 

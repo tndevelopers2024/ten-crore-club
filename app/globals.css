@@ -110,6 +110,7 @@ body {
   background: var(--brand-bg);
   color: var(--brand-text);
   font-family: var(--font-body);
+  font-weight: 500;
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
 }
@@ -126,7 +127,7 @@ body {
 .text-display-2xl {
   font-family: var(--font-display);
   font-size: clamp(2.5rem, 6vw, 4.25rem);
-  font-weight: 700;
+  font-weight: 800;
   line-height: 1.05;
   letter-spacing: -0.03em;
 }
@@ -134,7 +135,7 @@ body {
 .text-display-xl {
   font-family: var(--font-display);
   font-size: clamp(2.125rem, 4.5vw, 3.25rem);
-  font-weight: 700;
+  font-weight: 800;
   line-height: 1.1;
   letter-spacing: -0.025em;
 }
@@ -142,7 +143,7 @@ body {
 .text-display-lg {
   font-family: var(--font-display);
   font-size: clamp(1.75rem, 3vw, 2.5rem);
-  font-weight: 600;
+  font-weight: 700;
   line-height: 1.16;
   letter-spacing: -0.02em;
 }
@@ -150,7 +151,7 @@ body {
 .text-display-md {
   font-family: var(--font-display);
   font-size: clamp(1.375rem, 2.5vw, 1.875rem);
-  font-weight: 600;
+  font-weight: 700;
   line-height: 1.22;
   letter-spacing: -0.015em;
 }
@@ -323,20 +324,16 @@ body {
 }
 
 .luxury-ticker-mask {
-  -webkit-mask-image: linear-gradient(
-    90deg,
-    transparent,
-    black 5%,
-    black 95%,
-    transparent
-  );
-  mask-image: linear-gradient(
-    90deg,
-    transparent,
-    black 5%,
-    black 95%,
-    transparent
-  );
+  -webkit-mask-image: linear-gradient(90deg,
+      transparent,
+      black 5%,
+      black 95%,
+      transparent);
+  mask-image: linear-gradient(90deg,
+      transparent,
+      black 5%,
+      black 95%,
+      transparent);
 }
 
 /* Entrance animation for above-the-fold content.
@@ -536,10 +533,12 @@ input[type="range"].tc-range::-moz-range-thumb {
   0% {
     transform: scale(1.02);
   }
+
   100% {
     transform: scale(1.09);
   }
 }
+
 .ken-burns-active {
   animation: kenBurnsEffect 8000ms cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
@@ -549,14 +548,17 @@ input[type="range"].tc-range::-moz-range-thumb {
   from {
     transform: scaleX(0);
   }
+
   to {
     transform: scaleX(1);
   }
 }
+
 .timeline-progress-active {
   transform-origin: left;
   animation: timelineProgress 6500ms linear forwards;
 }
+
 .timeline-progress-paused {
   animation-play-state: paused;
 }
@@ -566,25 +568,26 @@ input[type="range"].tc-range::-moz-range-thumb {
   0% {
     transform: translate(-100%, -100%) rotate(35deg);
   }
+
   100% {
     transform: translate(100%, 100%) rotate(35deg);
   }
 }
+
 .glare-sweep::after {
   content: "";
   position: absolute;
   inset: -50%;
-  background: linear-gradient(
-    45deg,
-    rgba(255, 255, 255, 0) 0%,
-    rgba(255, 255, 255, 0.01) 30%,
-    rgba(255, 255, 255, 0.12) 50%,
-    rgba(255, 255, 255, 0.01) 70%,
-    rgba(255, 255, 255, 0) 100%
-  );
+  background: linear-gradient(45deg,
+      rgba(255, 255, 255, 0) 0%,
+      rgba(255, 255, 255, 0.01) 30%,
+      rgba(255, 255, 255, 0.12) 50%,
+      rgba(255, 255, 255, 0.01) 70%,
+      rgba(255, 255, 255, 0) 100%);
   transform: translate(-100%, -100%) rotate(35deg);
   pointer-events: none;
 }
+
 .group:hover .glare-sweep::after {
   animation: glareSweep 1.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
@@ -593,6 +596,7 @@ input[type="range"].tc-range::-moz-range-thumb {
 .stats-card-transition {
   transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 }
+
 .stats-card-transition:hover {
   transform: translateY(-3px);
   border-color: rgba(213, 160, 74, 0.35);
@@ -603,8 +607,11 @@ input[type="range"].tc-range::-moz-range-thumb {
 .no-scrollbar::-webkit-scrollbar {
   display: none;
 }
+
 /* Hide scrollbar for IE, Edge and Firefox */
 .no-scrollbar {
-  -ms-overflow-style: none;  /* IE and Edge */
-  scrollbar-width: none;  /* Firefox */
+  -ms-overflow-style: none;
+  /* IE and Edge */
+  scrollbar-width: none;
+  /* Firefox */
 }

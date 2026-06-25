@@ -4,7 +4,7 @@ import { BrandImage } from "@/components/shared/BrandImage";
 
 export function RegretSection() {
   return (
-    <section className="px-5 py-24 sm:px-8 md:py-28">
+    <section className="px-5 py-14 sm:px-8 md:py-18">
       <div className="mx-auto max-w-7xl">
         <Reveal className="mx-auto max-w-3xl text-center">
           <h2 className="text-display-lg text-balance text-cream">

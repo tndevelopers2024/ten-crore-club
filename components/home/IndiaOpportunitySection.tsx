@@ -15,7 +15,7 @@ const timeline = [
 
 export function IndiaOpportunitySection() {
   return (
-    <section className="relative overflow-hidden px-5 py-24 sm:px-8 md:py-28">
+    <section className="relative overflow-hidden px-5 py-14 sm:px-8 md:py-18">
       <div
         aria-hidden
         className="pointer-events-none absolute inset-0 opacity-[0.06]"

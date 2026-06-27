@@ -45,7 +45,7 @@ export const bannerSlides: BannerSlide[] = [
     ],
   },
   {
-    eyebrow: "Private Wealth Community · Est. 2024",
+    eyebrow: "Private Wealth Community",
     title: "Don't build it {alone. Build it with us.}",
     subtitle:
       "340+ disciplined investors, AMFI-registered guidance, and behavioral coaching that keeps your SIP running through every market storm.",

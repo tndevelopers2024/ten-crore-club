@@ -41,7 +41,7 @@ export function IndiaOpportunitySection() {
             {/* stats grid */}
             <div className="grid grid-cols-2 gap-x-6 gap-y-10 sm:gap-x-10">
               <Reveal>
-                <StatCounter value={80000} suffix="+" label="Sensex in 2024 (from 1,000 in 1990)" />
+                <StatCounter value={80000} suffix="+" label="Sensex in (from 1,000 in 1990)" />
               </Reveal>
               <Reveal delay={100}>
                 <StatCounter value={300000} suffix="+" label="Projected Sensex by 2040" />

@@ -184,7 +184,7 @@ export const blogPosts: BlogPost[] = [
     title:
       "The Sensex at 3,00,000: what history says about India's next bull run",
     excerpt:
-      "From 1,000 in 1990 to 80,000+ in 2024. We map the runway to the next milestone — and what could derail it.",
+      "From 1,000 in 1990 to 80,000+ We map the runway to the next milestone — and what could derail it.",
     category: "macro",
     coverImage: "https://akm-img-a-in.tosshub.com/businesstoday/images/story/202307/sensex-1635417756_1-sixteen_nine.jpg?size=948:533",
     readTime: 7,

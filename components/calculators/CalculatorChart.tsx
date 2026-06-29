@@ -39,8 +39,8 @@ export function LineAreaChart({
   animate = false,
 }: LineAreaChartProps) {
   const uid = useId().replace(/:/g, "");
-  const padL = 8;
-  const padR = 8;
+  const padL = 18;
+  const padR = 20;
   const padB = 26;
   const padT = 12;
   const innerW = W - padL - padR;

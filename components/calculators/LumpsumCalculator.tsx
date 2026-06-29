@@ -3,23 +3,22 @@
 import { useMemo, useState } from "react";
 import { Slider } from "@/components/ui/Slider";
 import { LineAreaChart } from "./CalculatorChart";
-import { calcSIP, growthTimeline } from "@/lib/calculators";
+import { calcLumpsum, lumpsumTimeline } from "@/lib/calculators";
 import { formatINR, formatINRFull, formatMultiple } from "@/lib/formatters";
 
-export function SIPGrowthCalculator() {
-  const [monthly, setMonthly] = useState(15000);
+export function LumpsumCalculator() {
+  const [initial, setInitial] = useState(1000000); // Default ₹10 Lakh
   const [years, setYears] = useState(25);
   const [ret, setRet] = useState(12);
-  const [topUp, setTopUp] = useState(10);
 
   const result = useMemo(
-    () => calcSIP(monthly, years, ret, topUp),
-    [monthly, years, ret, topUp],
+    () => calcLumpsum(initial, years, ret),
+    [initial, years, ret],
   );
 
   const timeline = useMemo(
-    () => growthTimeline(monthly, years, ret, topUp),
-    [monthly, years, ret, topUp],
+    () => lumpsumTimeline(initial, years, ret),
+    [initial, years, ret],
   );
 
   return (
@@ -27,12 +26,12 @@ export function SIPGrowthCalculator() {
       {/* Inputs */}
       <div className="space-y-7 rounded-lg border border-line bg-ink-card p-6">
         <Slider
-          label="Monthly SIP Amount"
-          value={monthly}
-          onChange={setMonthly}
-          min={1000}
-          max={500000}
-          step={1000}
+          label="Lumpsum Investment"
+          value={initial}
+          onChange={setInitial}
+          min={10000}
+          max={100000000}
+          step={10000}
           display={formatINRFull}
         />
         <Slider
@@ -50,14 +49,6 @@ export function SIPGrowthCalculator() {
           min={6}
           max={40}
           step={0.5}
-          display={(v) => `${v}%`}
-        />
-        <Slider
-          label="Annual Step-up (optional)"
-          value={topUp}
-          onChange={setTopUp}
-          min={0}
-          max={20}
           display={(v) => `${v}%`}
         />
         <LineAreaChart

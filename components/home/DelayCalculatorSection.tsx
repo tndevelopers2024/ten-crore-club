@@ -12,7 +12,7 @@ export function DelayCalculatorSection() {
             See exactly what one year of hesitation is{" "}
             <span className="gold-text">costing you — in rupees.</span>
           </h2>
-          <p className="mx-auto mt-5 max-w-2xl text-lg text-gold-light/70">
+          <p className="mx-auto mt-5 max-w-2xl text-lg text-gold-light/80">
             Move the sliders. Watch the gap between starting today and starting
             next year. This is the single most clarifying number in personal
             finance.

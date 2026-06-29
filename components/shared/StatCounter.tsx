@@ -36,7 +36,7 @@ export function StatCounter({
 
   return (
     <div ref={ref} className={cn("flex flex-col", className)}>
-      <span className="font-mono text-4xl font-semibold tracking-tight text-gold tnum sm:text-5xl">
+      <span className="font-mono text-4xl font-semibold text-gold tnum sm:text-5xl">
         {prefix}
         {display}
         {suffix && <span className="ml-0.5 text-2xl text-gold-light sm:text-3xl">{suffix}</span>}

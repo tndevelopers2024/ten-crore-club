@@ -70,7 +70,7 @@ export function FAQSection() {
         <h2 className="text-display-lg text-balance text-cream">
           A clearer path starts with <span className="gold-text">clear answers.</span>
         </h2>
-        <p className="mx-auto mt-5 max-w-2xl leading-relaxed text-gold-light/75">
+        <p className="mx-auto mt-5 max-w-2xl leading-relaxed text-gold-light/80">
           The essentials about the community, the method, and what happens when
           you take the first step.
         </p>

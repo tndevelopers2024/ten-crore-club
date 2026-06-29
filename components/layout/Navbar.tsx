@@ -62,7 +62,7 @@ export function Navbar() {
         {/* Desktop links - styled as capsule */}
         <ul
           className={cn(
-            "hidden items-center gap-1 lg:flex h-12 rounded-full border px-4 transition-all duration-500",
+            "hidden items-center gap-1 lg:flex h-12 rounded-full border px-2 transition-all duration-500",
             scrolled
               ? "border-gold/15 bg-ink/80 shadow-[0_8px_32px_-8px_rgba(0,0,0,0.7),0_0_0_1px_rgba(213,160,74,0.08)] backdrop-blur-xl"
               : "border-gold/10 bg-ink-card/60 backdrop-blur-md",
@@ -89,7 +89,7 @@ export function Navbar() {
         <div className="flex items-center gap-2 shrink-0">
           <Link
             href="/book"
-            className="hidden rounded-full border border-red-vivid/60 bg-red-mid px-5 py-2 text-sm font-bold text-on-accent transition-all hover:bg-red-vivid hover:shadow-[0_0_20px_-4px_rgba(219, 51, 19,0.5)] sm:inline-flex"
+            className="hidden rounded-full bg-red-mid px-5 py-2 text-sm font-bold text-on-accent transition-all hover:bg-red-vivid hover:shadow-[0_0_20px_-4px_rgba(219, 51, 19,0.5)] sm:inline-flex"
           >
             Book Free Call
           </Link>

@@ -12,6 +12,7 @@ interface BaseProps {
   className?: string;
   withArrow?: boolean;
   pulse?: boolean;
+  disabled?: boolean;
 }
 
 interface LinkProps extends BaseProps {
@@ -29,9 +30,9 @@ type Props = LinkProps | ButtonProps;
 
 const variants: Record<Variant, string> = {
   primary:
-    "bg-red-mid text-on-accent border border-red-vivid/70 hover:bg-red-vivid shadow-[0_8px_30px_-12px_rgba(219,51,19,0.7)]",
+    "bg-red-mid text-on-accent hover:bg-red-vivid shadow-[0_8px_30px_-12px_rgba(219,51,19,0.7)]",
   secondary:
-    "bg-transparent border border-gold/70 text-gold hover:bg-gold/10 hover:border-gold",
+    "bg-ink/50 backdrop-blur-md border border-gold/40 text-gold-light hover:bg-gold/10 hover:border-gold hover:text-gold hover:shadow-[0_0_20px_rgba(213,160,74,0.15)]",
   ghost:
     "bg-transparent text-gold-light underline-offset-4 hover:text-cream hover:underline",
 };
@@ -50,16 +51,18 @@ export function CTAButton(props: Props) {
     className,
     withArrow = true,
     pulse = false,
+    disabled = false,
   } = props;
 
   const classes = cn(
     "group inline-flex items-center justify-center gap-2 rounded-full font-medium tracking-wide",
     "transition-all duration-200 will-change-transform",
-    "hover:-translate-y-0.5 active:translate-y-0 active:scale-[0.98]",
+    !disabled && "hover:-translate-y-0.5 active:translate-y-0 active:scale-[0.98]",
     "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-2 focus-visible:ring-offset-ink",
     variants[variant],
     sizes[size],
     pulse && "cta-pulse",
+    disabled && "opacity-50 cursor-not-allowed pointer-events-none",
     className,
   );
 
@@ -92,6 +95,7 @@ export function CTAButton(props: Props) {
     <button
       type={props.type ?? "button"}
       onClick={props.onClick}
+      disabled={disabled}
       className={classes}
     >
       {inner}

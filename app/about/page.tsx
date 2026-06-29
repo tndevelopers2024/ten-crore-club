@@ -65,7 +65,7 @@ export default function AboutPage() {
             />
           </Reveal>
           <Reveal delay={120}>
-            <p className="font-display text-2xl leading-relaxed text-gold-light/85 sm:text-[1.6rem]">
+            <p className="text-xl leading-relaxed text-gold-light/85 sm:text-2xl">
               Year after year, I met brilliant doctors, engineers, and founders who
               earned remarkably well — and had almost nothing to show for it. Not
               because they were careless. Because nobody ever gave them a system,

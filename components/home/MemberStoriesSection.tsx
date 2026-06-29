@@ -19,33 +19,49 @@ function StoryCard({
   story: (typeof successStories)[number];
 }) {
   return (
-    <div className="group flex h-full flex-col rounded-xl border border-line bg-ink-card/95 p-6 transition-all duration-300 hover:-translate-y-1.5 hover:border-gold/40 hover:shadow-[0_0_60px_-26px_rgba(213,160,74,0.7)]">
-      <header className="flex items-center gap-3">
-        <Avatar initials={story.initials} photo={story.photo} name={story.name} size={44} />
+    <div className="group flex h-full flex-col rounded-xl border border-gold/20 bg-ink-card/60 backdrop-blur-md p-6 transition-all duration-300 hover:-translate-y-1.5 hover:border-gold/45 hover:shadow-[0_12px_40px_-20px_rgba(213,160,74,0.35)] glare-sweep relative overflow-hidden">
+      <header className="flex items-center gap-3.5">
+        <div className="relative shrink-0 transition-transform duration-300 group-hover:scale-105">
+          <Avatar initials={story.initials} photo={story.photo} name={story.name} size={46} />
+          <div className="absolute -bottom-1 -right-1 size-3.5 rounded-full bg-gold border-2 border-ink flex items-center justify-center">
+            <span className="size-1 rounded-full bg-ink" />
+          </div>
+        </div>
         <div>
-          <p className="font-medium text-cream">{story.name}</p>
-          <p className="text-xs text-gold-light/60">
+          <p className="font-semibold text-cream group-hover:text-gold transition-colors duration-200">{story.name}</p>
+          <p className="text-xs text-gold-light/65">
             {story.profession} · {story.city} · Age {story.age}
           </p>
         </div>
       </header>
 
-      <p className="mt-4 text-[11px] uppercase tracking-[0.22em] text-gold-light/55">
-        When they joined
-      </p>
-      <p className="mt-1 text-sm text-gold-light/80">{story.whenJoined}</p>
+      {/* Before & Plan Split column */}
+      <div className="mt-5 space-y-3.5 border-l-2 border-gold/30 pl-4 py-1">
+        <div>
+          <span className="text-[10px] font-semibold uppercase tracking-[0.2em] text-gold/70">
+            Before Joining
+          </span>
+          <p className="mt-0.5 text-xs sm:text-sm text-gold-light/80 leading-relaxed">{story.whenJoined}</p>
+        </div>
+        <div>
+          <span className="text-[10px] font-semibold uppercase tracking-[0.2em] text-gold/70">
+            The Roadmap Plan
+          </span>
+          <p className="mt-0.5 text-xs sm:text-sm text-gold-light/80 leading-relaxed">{story.plan}</p>
+        </div>
+      </div>
 
-      <p className="mt-3 text-[11px] uppercase tracking-[0.22em] text-gold-light/55">
-        Their Ten Crore plan
-      </p>
-      <p className="mt-1 text-sm text-gold-light/80">{story.plan}</p>
+      {/* Quote block */}
+      <div className="relative mt-6 pt-1">
+        <span className="absolute -top-3 -left-2 text-4xl font-serif text-gold/20 select-none pointer-events-none">“</span>
+        <p className="font-display text-base italic leading-relaxed text-cream pl-4">
+          {story.quote}
+        </p>
+      </div>
 
-      <p className="mt-4 font-display text-lg italic leading-relaxed text-gold-light/90">
-        “{story.quote}”
-      </p>
-
+      {/* Status metrics card */}
       <div className="mt-auto pt-6">
-        <div className="border-t border-line pt-4">
+        <div className="bg-ink-soft/80 border border-line/45 rounded-lg p-4">
           <StatCounter
             value={story.todayValue / 1e5}
             prefix="₹"
@@ -55,9 +71,13 @@ function StoryCard({
             duration={1600}
             threshold={0.05}
           />
-          <p className="mt-2 text-xs text-gold-light/70">
-            On track: <span className="text-gold">{story.onTrack}</span>
-          </p>
+          <div className="mt-3 flex items-center justify-between border-t border-line/30 pt-3 text-xs">
+            <span className="text-gold-light/50">Plan Status:</span>
+            <span className="flex items-center gap-1.5 font-medium text-gold font-sans">
+              <span className="size-1.5 rounded-full bg-gold animate-pulse" />
+              {story.onTrack}
+            </span>
+          </div>
         </div>
       </div>
     </div>
@@ -66,7 +86,7 @@ function StoryCard({
 
 export function MemberStoriesSection() {
   return (
-    <section className="px-5 py-24 sm:px-8 md:py-28">
+    <section className="px-5 py-24 sm:px-8 md:py-18">
       <div className="mx-auto max-w-6xl">
         <Reveal className="max-w-3xl">
           <Eyebrow>Member Stories</Eyebrow>

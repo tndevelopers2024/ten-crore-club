@@ -54,7 +54,7 @@ export interface Pillar {
 
 export interface BannerSlide {
   /** Small uppercase eyebrow above the headline. */
-  eyebrow: string;
+  eyebrow?: string;
   /** Headline — the part in {braces} is rendered with the gold shimmer. */
   title: string;
   subtitle: string;

@@ -1,6 +1,7 @@
 import Script from "next/script";
 import { BannerSlider } from "@/components/home/BannerSlider";
 import { LuxuryTicker } from "@/components/home/LuxuryTicker";
+import { HomeServicesSection } from "@/components/home/HomeServicesSection";
 import { HeroSection } from "@/components/home/HeroSection";
 import { RegretSection } from "@/components/home/RegretSection";
 import { DelayCalculatorSection } from "@/components/home/DelayCalculatorSection";
@@ -38,6 +39,7 @@ export default function Home() {
       />
       <BannerSlider />
       <LuxuryTicker />
+      <HomeServicesSection />
       <HeroSection />
       <RegretSection />
       <DelayCalculatorSection />

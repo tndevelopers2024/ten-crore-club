@@ -48,7 +48,7 @@ export function SWPCalculator() {
           value={ret}
           onChange={setRet}
           min={8}
-          max={15}
+          max={40}
           step={0.5}
           display={(v) => `${v}%`}
         />

@@ -24,7 +24,7 @@ export function PageHero({ eyebrow, title, subtitle, children }: PageHeroProps) 
           {eyebrow && <Eyebrow>{eyebrow}</Eyebrow>}
           <h1 className="text-display-xl text-balance text-cream">{title}</h1>
           {subtitle && (
-            <p className="mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-gold-light/75">
+            <p className="mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-gold-light/80">
               {subtitle}
             </p>
           )}

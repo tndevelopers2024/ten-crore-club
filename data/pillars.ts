@@ -69,13 +69,13 @@ export const pillars: Pillar[] = [
   },
 ];
 
-/** Milestone table for a ₹15,000/month SIP at 12% annualised. */
+/** Milestone table for a ₹30,000/month SIP at 12.5% annualised. */
 export const methodMilestones: { year: number; label: string; value: number; target?: boolean }[] =
   [
-    { year: 5, label: "₹12 Lakh", value: 1200000 },
-    { year: 10, label: "₹35 Lakh", value: 3500000 },
-    { year: 15, label: "₹1 Crore", value: 10000000 },
-    { year: 20, label: "₹2.5 Crore", value: 25000000 },
-    { year: 25, label: "₹5.8 Crore", value: 58000000 },
-    { year: 30, label: "₹10.7 Crore", value: 107000000, target: true },
+    { year: 5, label: "₹25 Lakh", value: 2500000 },
+    { year: 10, label: "₹69 Lakh", value: 6900000 },
+    { year: 15, label: "₹1.5 Crore", value: 15000000 },
+    { year: 20, label: "₹2.9 Crore", value: 29000000 },
+    { year: 25, label: "₹5.52 Crore", value: 55200000 },
+    { year: 30, label: "₹10.2 Crore", value: 102000000, target: true },
   ];

@@ -7,7 +7,7 @@ import { BrandImage } from "@/components/shared/BrandImage";
 
 export function HeroSection() {
   return (
-    <section className="relative flex min-h-[92vh] items-center overflow-hidden px-5 pt-24 pb-16 sm:px-8">
+    <section className="relative flex min-h-[92vh] items-center overflow-hidden px-5 pt-0 pb-0 sm:px-8">
       {/* red radial glow */}
       <div
         aria-hidden
@@ -38,7 +38,7 @@ export function HeroSection() {
           </AnimateIn>
 
           <AnimateIn delay={240}>
-            <p className="mx-auto mt-6 max-w-xl text-lg leading-relaxed text-gold-light/75 lg:mx-0">
+            <p className="mx-auto mt-6 max-w-xl text-lg leading-relaxed text-gold-light/80 lg:mx-0">
               Ten Crore Club exists for one reason — to make sure you are not the
               only person in your circle who didn&apos;t build serious wealth.
             </p>

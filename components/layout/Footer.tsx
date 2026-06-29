@@ -16,15 +16,29 @@ import {
   FaWhatsapp 
 } from "react-icons/fa6";
 
-const quickLinks = [
-  { href: "/about", label: "About" },
+const methodLinks = [
   { href: "/framework", label: "The Ten Crore Method™" },
-  { href: "/services", label: "Services" },
-  { href: "/calculators", label: "Calculators" },
   { href: "/community", label: "The ₹10 Crore Circle" },
-  { href: "/blog", label: "Blog" },
   { href: "/stories", label: "Success Stories" },
-  { href: "/book", label: "Book a Call" },
+  { href: "/blog", label: "Wealth Journal" },
+  { href: "/about", label: "About Us" },
+  { href: "/contact", label: "Contact Us" },
+];
+
+const calculatorLinks = [
+  { href: "/calculators", label: "SIP Growth Calculator" },
+  { href: "/calculators", label: "Lumpsum Calculator" },
+  { href: "/calculators", label: "SWP Calculator" },
+  { href: "/calculators", label: "Goal Planner" },
+  { href: "/calculators", label: "Delay Cost Calculator" },
+];
+
+const offeringLinks = [
+  { href: "/services#mutual-funds", label: "Mutual Funds" },
+  { href: "/services#insurances", label: "Insurances" },
+  { href: "/services#gift-city", label: "GIFT City" },
+  { href: "/services#pms", label: "PMS & AIF" },
+  { href: "/services#bonds", label: "Bonds & Fixed Income" },
 ];
 
 const socials = [
@@ -39,14 +53,14 @@ const socials = [
 export function Footer() {
   return (
     <footer className="px-4 pb-4 sm:px-6 sm:pb-6">
-      <div className="relative mx-auto max-w-7xl overflow-hidden rounded-3xl border border-gold/12 bg-ink-card/90">
+      <div className="relative mx-auto max-w-7xl overflow-hidden rounded-3xl border border-gold/15 bg-ink-card/65 backdrop-blur-xl shadow-[0_30px_100px_-40px_rgba(0,0,0,0.8),0_0_50px_-20px_rgba(213,160,74,0.15)]">
         {/* Decorative background effects */}
         <div
           aria-hidden
           className="pointer-events-none absolute inset-0"
           style={{
             background:
-              "radial-gradient(ellipse at 20% 0%, rgba(213,160,74,0.06) 0%, transparent 50%), radial-gradient(ellipse at 80% 100%, rgba(219, 51, 19,0.05) 0%, transparent 50%)",
+              "radial-gradient(circle at 0% 0%, rgba(213,160,74,0.12) 0%, transparent 40%), radial-gradient(circle at 100% 100%, rgba(219, 51, 19,0.08) 0%, transparent 50%), radial-gradient(circle at 50% 50%, rgba(213,160,74,0.02) 0%, transparent 60%)",
           }}
         />
         <div
@@ -55,7 +69,7 @@ export function Footer() {
         />
 
         {/* Top CTA strip */}
-        <div className="relative border-b border-gold/10 px-8 py-8 sm:px-12 sm:py-10">
+        <div className="relative border-b border-gold/10 px-8 py-8 sm:px-12 sm:py-10 bg-gradient-to-r from-gold/5 via-transparent to-red-mid/5">
           <div className="flex flex-col items-center justify-between gap-6 md:flex-row">
             <div>
               <h3 className="font-display text-2xl text-cream sm:text-3xl">
@@ -68,7 +82,7 @@ export function Footer() {
             </div>
             <Link
               href="/book"
-              className="group flex items-center gap-2 rounded-full border border-red-vivid/60 bg-red-mid px-6 py-3 text-sm font-semibold text-on-accent transition-all hover:bg-red-vivid hover:shadow-[0_0_30px_-8px_rgba(219, 51, 19,0.6)]"
+              className="group flex items-center gap-2 rounded-full bg-red-mid px-6 py-3 text-sm font-semibold text-on-accent transition-all hover:bg-red-vivid hover:shadow-[0_0_30px_-8px_rgba(219, 51, 19,0.6)]"
             >
               Book Free Strategy Call
               <ArrowUpRight className="size-4 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
@@ -77,16 +91,16 @@ export function Footer() {
         </div>
 
         {/* Main footer content */}
-        <div className="relative grid gap-12 px-8 py-12 sm:px-12 md:grid-cols-[1.2fr_1fr_1fr]">
+        <div className="relative grid gap-10 px-8 py-12 sm:px-12 grid-cols-1 sm:grid-cols-2 lg:grid-cols-5">
           {/* Brand */}
-          <div>
+          <div className="sm:col-span-2 lg:col-span-1">
             <Link href="/" className="inline-flex items-center">
               <Image
                 src="/logo/ten-crore-club-logo-2.png"
                 alt="Ten Crore Club logo"
                 width={180}
                 height={180}
-                className="h-36 w-36 object-contain sm:h-44 sm:w-44"
+                className="h-36 w-36 object-contain sm:h-44 sm:w-44 transition-transform duration-300 hover:scale-[1.03]"
               />
             </Link>
             <p className="mt-5 max-w-xs font-display text-lg italic leading-relaxed text-gold-light/70">
@@ -99,13 +113,13 @@ export function Footer() {
             </p>
 
             {/* Social icons */}
-            <div className="mt-6 flex gap-2.5">
+            <div className="mt-6 flex items-center gap-2.5">
               {socials.map(({ icon: Icon, label, href }) => (
                 <a
                   key={label}
                   href={href}
                   aria-label={label}
-                  className="inline-flex size-10 items-center justify-center rounded-full border border-line/60 bg-ink/40 text-gold-light/50 transition-all duration-300 hover:-translate-y-0.5 hover:border-gold/40 hover:bg-gold/10 hover:text-gold hover:shadow-[0_4px_16px_-4px_rgba(213,160,74,0.3)]"
+                  className="inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-line/60 bg-ink/40 text-gold-light/50 transition-all duration-300 hover:-translate-y-1 hover:border-gold/50 hover:bg-gold/15 hover:text-gold-light hover:shadow-[0_4px_20px_rgba(213,160,74,0.25)]"
                 >
                   <Icon className="size-[18px]" />
                 </a>
@@ -113,21 +127,60 @@ export function Footer() {
             </div>
           </div>
 
-          {/* Quick links */}
+          {/* Column 2 (Method & Community) */}
           <div>
             <h3 className="flex items-center gap-2 text-xs font-bold uppercase tracking-[0.25em] text-gold">
               <span className="inline-block h-px w-4 bg-gold/50" />
-              Explore
+              Community
             </h3>
-            <ul className="mt-5 grid grid-cols-1 gap-y-1 sm:grid-cols-2 sm:gap-x-4">
-              {quickLinks.map((link) => (
+            <ul className="mt-5 space-y-2">
+              {methodLinks.map((link) => (
                 <li key={link.label}>
                   <Link
                     href={link.href}
-                    className="group flex items-center gap-1 rounded-full px-3 py-1.5 text-sm text-gold-light/65 transition-all hover:bg-gold/5 hover:text-gold"
+                    className="group flex items-center gap-1 border-l border-transparent pl-0 text-sm text-gold-light/65 transition-all duration-300 hover:border-gold hover:pl-2.5 hover:text-gold"
                   >
                     {link.label}
-                    <ArrowUpRight className="size-3 opacity-0 transition-all group-hover:opacity-100" />
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Column 3 (Calculators) */}
+          <div>
+            <h3 className="flex items-center gap-2 text-xs font-bold uppercase tracking-[0.25em] text-gold">
+              <span className="inline-block h-px w-4 bg-gold/50" />
+              Calculators
+            </h3>
+            <ul className="mt-5 space-y-2">
+              {calculatorLinks.map((link) => (
+                <li key={link.label}>
+                  <Link
+                    href={link.href}
+                    className="group flex items-center gap-1 border-l border-transparent pl-0 text-sm text-gold-light/65 transition-all duration-300 hover:border-gold hover:pl-2.5 hover:text-gold"
+                  >
+                    {link.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Column 4 (Services) */}
+          <div>
+            <h3 className="flex items-center gap-2 text-xs font-bold uppercase tracking-[0.25em] text-gold">
+              <span className="inline-block h-px w-4 bg-gold/50" />
+              Services
+            </h3>
+            <ul className="mt-5 space-y-2">
+              {offeringLinks.map((link) => (
+                <li key={link.label}>
+                  <Link
+                    href={link.href}
+                    className="group flex items-center gap-1 border-l border-transparent pl-0 text-sm text-gold-light/65 transition-all duration-300 hover:border-gold hover:pl-2.5 hover:text-gold"
+                  >
+                    {link.label}
                   </Link>
                 </li>
               ))}
@@ -135,23 +188,23 @@ export function Footer() {
           </div>
 
           {/* Contact */}
-          <div>
+          <div className="sm:col-span-2 lg:col-span-1">
             <h3 className="flex items-center gap-2 text-xs font-bold uppercase tracking-[0.25em] text-gold">
               <span className="inline-block h-px w-4 bg-gold/50" />
               Get in Touch
             </h3>
-            <ul className="mt-5 space-y-4">
+            <ul className="mt-5 space-y-3">
               <li>
                 <a
                   href="mailto:contact@tencroreclub.in"
-                  className="group flex items-start gap-3 rounded-full px-3 py-2 transition-all hover:bg-gold/5"
+                  className="group flex items-center gap-3.5 rounded-xl p-2 transition-all duration-300 hover:bg-gold/[0.02]"
                 >
-                  <span className="mt-0.5 flex size-8 shrink-0 items-center justify-center rounded-full bg-gold/8 text-gold transition-colors group-hover:bg-gold/15">
+                  <span className="flex size-9 shrink-0 items-center justify-center rounded-lg bg-gold/8 text-gold transition-all duration-300 group-hover:scale-105 group-hover:bg-gold/15 group-hover:shadow-[0_0_15px_rgba(213,160,74,0.2)]">
                     <Mail className="size-4" />
                   </span>
                   <div>
-                    <p className="text-xs text-gold-light/50">Email</p>
-                    <p className="text-sm text-gold-light/80 transition-colors group-hover:text-gold">
+                    <p className="text-[10px] uppercase tracking-wider text-gold-light/45">Email</p>
+                    <p className="text-[13px] font-medium text-gold-light/85 transition-colors group-hover:text-gold">
                       contact@tencroreclub.in
                     </p>
                   </div>
@@ -160,27 +213,27 @@ export function Footer() {
               <li>
                 <a
                   href="tel:+919876543210"
-                  className="group flex items-start gap-3 rounded-full px-3 py-2 transition-all hover:bg-gold/5"
+                  className="group flex items-center gap-3.5 rounded-xl p-2 transition-all duration-300 hover:bg-gold/[0.02]"
                 >
-                  <span className="mt-0.5 flex size-8 shrink-0 items-center justify-center rounded-full bg-gold/8 text-gold transition-colors group-hover:bg-gold/15">
+                  <span className="flex size-9 shrink-0 items-center justify-center rounded-lg bg-gold/8 text-gold transition-all duration-300 group-hover:scale-105 group-hover:bg-gold/15 group-hover:shadow-[0_0_15px_rgba(213,160,74,0.2)]">
                     <Phone className="size-4" />
                   </span>
                   <div>
-                    <p className="text-xs text-gold-light/50">Phone</p>
-                    <p className="text-sm text-gold-light/80 transition-colors group-hover:text-gold">
+                    <p className="text-[10px] uppercase tracking-wider text-gold-light/45">Phone</p>
+                    <p className="text-[13px] font-medium text-gold-light/85 transition-colors group-hover:text-gold">
                       +91 98765 43210
                     </p>
                   </div>
                 </a>
               </li>
-              <li className="flex items-start gap-3 px-2 py-2">
-                <span className="mt-0.5 flex size-8 shrink-0 items-center justify-center rounded-full bg-gold/8 text-gold">
+              <li className="flex items-center gap-3.5 p-2">
+                <span className="flex size-9 shrink-0 items-center justify-center rounded-lg bg-gold/8 text-gold">
                   <MapPin className="size-4" />
                 </span>
                 <div>
-                  <p className="text-xs text-gold-light/50">Location</p>
-                  <p className="text-sm leading-relaxed text-gold-light/80">
-                    Wealth advisory, serving investors across India &amp; NRIs.
+                  <p className="text-[10px] uppercase tracking-wider text-gold-light/45">Location</p>
+                  <p className="text-[13px] leading-relaxed text-gold-light/80">
+                    Serving investors across India &amp; NRIs.
                   </p>
                 </div>
               </li>

@@ -48,7 +48,7 @@ export function IndiaOpportunitySection() {
               </Reveal>
               <Reveal delay={200}>
                 <div className="flex flex-col">
-                  <span className="font-mono text-4xl font-semibold tracking-tight text-gold tnum sm:text-5xl">
+                  <span className="font-mono text-4xl font-semibold text-gold tnum sm:text-5xl">
                     14–16<span className="ml-0.5 text-2xl text-gold-light sm:text-3xl">%</span>
                   </span>
                   <span className="mt-2 text-sm text-gold-light/70">

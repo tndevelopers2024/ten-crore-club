@@ -210,3 +210,39 @@ export function delayTimeline(
     delayed: yr <= 1 ? 0 : sipFV(monthly, yr - 1, annualCAGR),
   }));
 }
+
+export interface LumpsumResult {
+  futureValue: number;
+  totalInvested: number;
+  wealthCreated: number;
+  wealthMultiple: number;
+}
+
+/** Lumpsum Compound Growth calculation. */
+export function calcLumpsum(
+  initial: number,
+  years: number,
+  annualCAGR: number,
+): LumpsumResult {
+  const futureValue = initial * Math.pow(1 + annualCAGR / 100, years);
+  const totalInvested = initial;
+  return {
+    futureValue,
+    totalInvested,
+    wealthCreated: futureValue - totalInvested,
+    wealthMultiple: totalInvested > 0 ? futureValue / totalInvested : 0,
+  };
+}
+
+/** Year-by-year lumpsum growth data for charts. */
+export function lumpsumTimeline(
+  initial: number,
+  maxYears: number,
+  annualCAGR: number,
+): TimelinePoint[] {
+  return Array.from({ length: maxYears + 1 }, (_, yr) => ({
+    year: yr,
+    value: initial * Math.pow(1 + annualCAGR / 100, yr),
+    invested: initial,
+  }));
+}

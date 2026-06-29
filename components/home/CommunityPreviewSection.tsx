@@ -33,7 +33,7 @@ export function CommunityPreviewSection() {
             This is not a WhatsApp tip group. This is a{" "}
             <span className="gold-text">private wealth ecosystem.</span>
           </h2>
-          <p className="mt-6 text-lg leading-relaxed text-gold-light/75">
+          <p className="mt-6 text-lg leading-relaxed text-gold-light/80">
             The people in this community are your peers. Same age. Same income
             bracket. Same city. They are already compounding. The gap between you
             and them grows every month you&apos;re not in here.

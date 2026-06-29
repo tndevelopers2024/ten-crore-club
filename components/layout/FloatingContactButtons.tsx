@@ -56,14 +56,14 @@ export function FloatingContactButtons() {
         href={WHATSAPP_URL}
         label="WhatsApp Us"
         icon={<WhatsAppIcon className="size-5 sm:size-6" />}
-        colorClasses="border-[#25D366]/40 bg-[#25D366] text-white hover:bg-[#1EBE57] hover:border-[#1EBE57]/70"
+        colorClasses="bg-[#25D366] text-white hover:bg-[#1EBE57]"
         glowClasses="hover:shadow-[0_8px_30px_-8px_rgba(37,211,102,0.5)]"
       />
       <FabButton
         href={CALL_URL}
         label="Call Us Now"
         icon={<Phone className="size-4 sm:size-5" />}
-        colorClasses="border-red-vivid/50 bg-red-mid text-on-accent hover:bg-red-vivid hover:border-red-vivid/80"
+        colorClasses="bg-red-mid text-on-accent hover:bg-red-vivid"
         glowClasses="hover:shadow-[0_8px_30px_-8px_rgba(219, 51, 19,0.6)]"
       />
     </div>

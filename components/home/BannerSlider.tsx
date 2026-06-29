@@ -74,7 +74,7 @@ export function BannerSlider() {
             priority={i === 0}
             className={cn(
               "object-cover transition-opacity duration-1000 ease-out",
-              i === active ? "opacity-90 z-10 ken-burns-active" : "opacity-0 z-0",
+              i === active ? "opacity-100 z-10 ken-burns-active" : "opacity-0 z-0",
             )}
           />
         ))}
@@ -83,7 +83,7 @@ export function BannerSlider() {
       {/* Dark scrim so cream/gold text stays legible and edges blend to ink. */}
       <div
         aria-hidden
-        className="pointer-events-none absolute inset-0 bg-gradient-to-b from-ink/90 via-ink/75 to-ink/95 z-10"
+        className="pointer-events-none absolute inset-0 bg-gradient-to-b from-ink/80 via-ink/55 to-ink/85 z-10"
       />
 
       {/* Red radial glow + noise */}
@@ -118,24 +118,19 @@ export function BannerSlider() {
                   isActive ? "opacity-100 translate-y-0 scale-100 z-10" : "opacity-0 translate-y-4 scale-[0.98] pointer-events-none z-0",
                 )}
               >
-                {/* Eyebrow & Index Label */}
-                <div className="flex items-center justify-center gap-4 mb-6">
-                  <span className="font-mono text-xs font-bold tracking-wider text-gold/85 bg-gold/8 px-2.5 py-1 rounded border border-gold/25">
-                    0{i + 1}
-                  </span>
-                  <div className="inline-flex items-center gap-2 rounded-full border border-gold/20 bg-gold/5 px-3.5 py-1 backdrop-blur-sm">
-                    <span className="relative flex size-2">
-                      <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-red-mid opacity-75"></span>
-                      <span className="relative inline-flex rounded-full size-2 bg-red-mid"></span>
-                    </span>
-                    <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-gold-light/90">
-                      {slide.eyebrow}
-                    </p>
-                  </div>
+                {/* Logo */}
+                <div className="flex items-center justify-center mb-6">
+                  <Image
+                    src="/logo/ten-crore-club-logo-2.png"
+                    alt="Ten Crore Club"
+                    width={160}
+                    height={160}
+                    className="object-contain drop-shadow-lg"
+                  />
                 </div>
 
                 {/* Heading */}
-                <h2 className="mx-auto max-w-4xl text-display-xl text-balance text-cream tracking-tight leading-[1.15]">
+                <h2 className="mx-auto max-w-4xl text-display-xl text-balance text-cream leading-[1.15]">
                   {renderTitle(slide.title)}
                 </h2>
 
@@ -144,15 +139,24 @@ export function BannerSlider() {
                   {slide.subtitle}
                 </p>
 
+
+
                 {/* Stats Grid */}
                 {slide.stats && (
-                  <div className="mx-auto mt-8 w-full max-w-3xl grid grid-cols-3 gap-4 border-t border-gold/15 pt-8">
+                  <div
+                    className={cn(
+                      "mx-auto mt-8 w-full border-t border-gold/15 pt-8 grid gap-4",
+                      slide.stats.length === 2
+                        ? "grid-cols-2 max-w-2xl"
+                        : "grid-cols-3 max-w-3xl"
+                    )}
+                  >
                     {slide.stats.map((stat) => (
                       <div
                         key={stat.label}
                         className="stats-card-transition flex flex-col p-4 sm:p-5 rounded-lg border border-gold/15 bg-ink-card/40 backdrop-blur-md shadow-[0_10px_30px_rgba(0,0,0,0.5)]"
                       >
-                        <span className="font-display text-xl sm:text-3xl font-bold tracking-tight text-cream gold-text">
+                        <span className="font-display text-xl sm:text-3xl font-bold text-cream gold-text">
                           {stat.value}
                         </span>
                         <span className="mt-1.5 text-[9px] sm:text-[10px] font-bold uppercase tracking-[0.15em] text-gold-light/65 leading-none">
@@ -162,8 +166,6 @@ export function BannerSlider() {
                     ))}
                   </div>
                 )}
-
-                {/* CTAs */}
                 <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-3 w-full sm:w-auto">
                   <CTAButton href={slide.primaryCta.href} size="lg" className="w-full sm:w-auto">
                     {slide.primaryCta.label}

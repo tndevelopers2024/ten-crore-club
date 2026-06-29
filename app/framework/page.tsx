@@ -14,7 +14,32 @@ export const metadata: Metadata = {
     "A structured, five-pillar system for building serious wealth: income expansion, SIP discipline, smart allocation, compounding time, and behavioral coaching.",
 };
 
-const timeline = growthTimeline(15000, 30, 12);
+const milestones = [
+  { year: 0, value: 0 },
+  { year: 5, value: 2500000 },
+  { year: 10, value: 6900000 },
+  { year: 15, value: 15000000 },
+  { year: 20, value: 29000000 },
+  { year: 25, value: 55200000 },
+  { year: 30, value: 102000000 },
+];
+
+const timeline = Array.from({ length: 31 }, (_, y) => {
+  const invested = 30000 * y * 12;
+  const idx = milestones.findIndex((m) => m.year >= y);
+  if (idx === 0) return { year: y, value: 0, invested };
+  const mPrev = milestones[idx - 1];
+  const mNext = milestones[idx];
+  let value = 0;
+  if (mPrev.value === 0) {
+    const t = (y - mPrev.year) / (mNext.year - mPrev.year);
+    value = mPrev.value + t * (mNext.value - mPrev.value);
+  } else {
+    const t = (y - mPrev.year) / (mNext.year - mPrev.year);
+    value = mPrev.value * Math.pow(mNext.value / mPrev.value, t);
+  }
+  return { year: y, value: Math.round(value), invested };
+});
 
 export default function FrameworkPage() {
   return (
@@ -85,10 +110,10 @@ export default function FrameworkPage() {
         <Reveal>
           <div className="rounded-xl border border-line bg-ink-card p-6 sm:p-8">
             <p className="text-sm text-gold-light/70">
-              ₹15,000/month SIP at 12% annualised — the system, visualised
+              ₹30,000/month SIP at 12.5% annualised — the system, visualised
             </p>
             <h2 className="mt-1 mb-6 font-display text-2xl text-cream">
-              30 years of discipline → ₹10.7 Crore.
+              30 years of discipline → ₹10.2 Crore.
             </h2>
             <LineAreaChart
               maxX={30}

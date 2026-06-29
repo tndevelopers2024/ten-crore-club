@@ -49,7 +49,7 @@ export function MethodSection() {
           <h2 className="text-display-lg text-balance text-cream">
             Not a product. <span className="gold-text">A proven system.</span>
           </h2>
-          <p className="mt-5 text-lg text-gold-light/70">
+          <p className="mt-5 text-lg text-gold-light/80">
             Most investors fail not because of bad funds — but because they have
             no system. Five disciplines, working together, compound into a number.
           </p>
@@ -123,7 +123,7 @@ export function MethodSection() {
         <Reveal delay={120} className="mt-16">
           <div className="rounded-xl border border-line bg-ink-card p-6 sm:p-8">
             <p className="mb-1 text-sm text-gold-light/70">
-              A ₹15,000/month SIP at 12% annualised returns
+              A ₹30,000/month SIP at 12.5% annualised returns
             </p>
             <p className="mb-6 font-display text-xl text-cream">
               How a single discipline becomes ₹10 Crore.

@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { TabBar } from "@/components/ui/TabBar";
 import { SIPGrowthCalculator } from "./SIPGrowthCalculator";
+import { LumpsumCalculator } from "./LumpsumCalculator";
 import { SWPCalculator } from "./SWPCalculator";
 import { GoalReverseCalculator } from "./GoalReverseCalculator";
 import { DelayCalculator } from "./DelayCalculator";
@@ -10,6 +11,7 @@ import { HistoricalSWPTable } from "./HistoricalSWPTable";
 
 const tabs = [
   { value: "sip", label: "SIP Growth" },
+  { value: "lumpsum", label: "Lumpsum Growth" },
   { value: "swp", label: "Retirement (SWP)" },
   { value: "goal", label: "Goal Planner" },
   { value: "delay", label: "Delay Cost" },
@@ -18,6 +20,7 @@ const tabs = [
 
 const descriptions: Record<string, string> = {
   sip: "See how a monthly SIP — with optional annual step-ups — compounds over time.",
+  lumpsum: "See how a one-time lumpsum investment grows over a specific horizon.",
   swp: "Find out how long a corpus lasts, or how much you need for a lifetime of income.",
   goal: "Pick your number. We'll tell you the exact monthly SIP it takes to get there.",
   delay: "The most important calculator here. What does one year of waiting really cost?",
@@ -34,6 +37,7 @@ export function CalculatorsTabs() {
 
       <div className="pt-2">
         {active === "sip" && <SIPGrowthCalculator />}
+        {active === "lumpsum" && <LumpsumCalculator />}
         {active === "swp" && <SWPCalculator />}
         {active === "goal" && <GoalReverseCalculator />}
         {active === "delay" && <DelayCalculator />}

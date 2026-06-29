@@ -64,7 +64,7 @@ export function DelayCalculator({
             value={ret}
             onChange={setRet}
             min={10}
-            max={20}
+            max={40}
             step={0.5}
             display={(v) => `${v}%`}
           />

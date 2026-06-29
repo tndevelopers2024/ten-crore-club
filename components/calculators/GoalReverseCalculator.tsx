@@ -49,7 +49,7 @@ export function GoalReverseCalculator() {
           value={ret}
           onChange={setRet}
           min={10}
-          max={18}
+          max={40}
           step={0.5}
           display={(v) => `${v}%`}
         />

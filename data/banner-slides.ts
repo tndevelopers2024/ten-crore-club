@@ -9,7 +9,6 @@ const u = (id: string) => `https://images.unsplash.com/${id}${IMG}`;
 
 export const bannerSlides: BannerSlide[] = [
   {
-    eyebrow: "The Ten Crore Method™",
     title: "Your ₹10 Crore is {a plan, not a dream.}",
     subtitle:
       "A structured SIP roadmap built around your income, your age, and your goal — so wealth becomes a decision, not a gamble.",
@@ -22,12 +21,10 @@ export const bannerSlides: BannerSlide[] = [
     secondaryCta: { label: "See the Method", href: "/framework" },
     stats: [
       { label: "Target Wealth", value: "₹10 Crore" },
-      { label: "Historic SIP CAGR", value: "15.8%" },
       { label: "Optimal Horizon", value: "15-20 Yrs" },
     ],
   },
   {
-    eyebrow: "Compounding Works While You Sleep",
     title: "Every year you wait {costs you crores.}",
     subtitle:
       "Starting a ₹50,000 SIP at 30 instead of 35 can mean ₹3–4 crore more at retirement. The math is unforgiving — and unforgettable.",
@@ -45,7 +42,6 @@ export const bannerSlides: BannerSlide[] = [
     ],
   },
   {
-    eyebrow: "Private Wealth Community",
     title: "Don't build it {alone. Build it with us.}",
     subtitle:
       "340+ disciplined investors, AMFI-registered guidance, and behavioral coaching that keeps your SIP running through every market storm.",

@@ -42,7 +42,7 @@ export function RegretSection() {
                 alt="Vikram vs You: The cost of postponing your SIP decision"
                 aspect="16/9"
                 rounded="lg"
-                imgClassName="object-cover object-center transition-transform duration-700"
+                imgClassName="!object-contain transition-transform duration-700"
                 priority
               />
             </div>

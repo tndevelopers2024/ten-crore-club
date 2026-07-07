@@ -14,8 +14,8 @@ export const bannerSlides: BannerSlide[] = [
       "A structured SIP roadmap built around your income, your age, and your goal — so wealth becomes a decision, not a gamble.",
     icon: Target,
     image: {
-      src: u("photo-1460925895917-afdab827c52f"),
-      alt: "A financial analytics dashboard on a laptop screen",
+      src: "/images/banners/banner-image-3-by-10crore.avif",
+      alt: "Elegant modern wealth manager's desk with gold pen",
     },
     primaryCta: { label: "Calculate My ₹10 Crore Plan", href: "/calculators" },
     secondaryCta: { label: "See the Method", href: "/framework" },
@@ -30,8 +30,8 @@ export const bannerSlides: BannerSlide[] = [
       "Starting a ₹50,000 SIP at 30 instead of 35 can mean ₹3–4 crore more at retirement. The math is unforgiving — and unforgettable.",
     icon: TrendingUp,
     image: {
-      src: u("photo-1579621970795-87facc2f976d"),
-      alt: "A young plant sprouting from a jar of coins, symbolising growth",
+      src: "/images/banners/banner-image-1-by-10crore.avif",
+      alt: "Macro photography of an elegant gold pocket watch on dark slate",
     },
     primaryCta: { label: "See the Delay Cost", href: "/calculators" },
     secondaryCta: { label: "Read Member Stories", href: "/stories" },
@@ -47,8 +47,8 @@ export const bannerSlides: BannerSlide[] = [
       "340+ disciplined investors, AMFI-registered guidance, and behavioral coaching that keeps your SIP running through every market storm.",
     icon: ShieldCheck,
     image: {
-      src: u("photo-1521737604893-d14cc237f11d"),
-      alt: "A team collaborating around a table with laptops in warm daylight",
+      src: "/images/banners/banner-image-2-by-10crore.avif",
+      alt: "Empty ultra-luxury private boardroom with dark wood and leather",
     },
     primaryCta: { label: "Book a Free Strategy Call", href: "/book" },
     secondaryCta: { label: "Explore the Community", href: "/community" },

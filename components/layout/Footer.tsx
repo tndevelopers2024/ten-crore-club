@@ -42,7 +42,7 @@ const offeringLinks = [
 ];
 
 const socials = [
-  { icon: FaInstagram, label: "Instagram", href: "https://instagram.com/tencroreclub" },
+  { icon: FaInstagram, label: "Instagram", href: "https://www.instagram.com/tencroreclub?igsh=Zmw3cjNxcms0djdz" },
   { icon: FaXTwitter, label: "X (Twitter)", href: "https://twitter.com/tencroreclub" },
   { icon: FaFacebookF, label: "Facebook", href: "https://facebook.com/tencroreclub" },
   { icon: FaLinkedinIn, label: "LinkedIn", href: "https://linkedin.com/company/tencroreclub" },

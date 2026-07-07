@@ -20,15 +20,13 @@ export function RegretSection() {
         <div className="mx-auto max-w-3xl text-center">
             <Reveal delay={160}>
               <p className="font-display text-2xl italic leading-relaxed text-gold-light/85 sm:text-[1.7rem]">
-                Imagine it&apos;s 2040. You&apos;re 55. Your colleague Vikram — same
-                salary, same city, same opportunities — just hit ₹10 Crore. He started
-                a ₹20,000 SIP in 2025. You didn&apos;t.
+                Imagine it&apos;s 2040, you are 55, your colleague Vikram — same salary, same city, same opportunities — just hit ₹10 Crore with his disciplined SIP and lumpsum investment, but you didn&apos;t.
               </p>
             </Reveal>
 
             <Reveal delay={240}>
               <p className="mt-6 font-display text-2xl italic leading-relaxed text-gold-light/70 sm:text-[1.7rem]">
-                Not because you couldn&apos;t. Because you were going to{" "}
+                Not because you couldn&apos;t, because you were going to{" "}
                 <span className="text-cream">“start next month.”</span>
               </p>
             </Reveal>
@@ -40,11 +38,11 @@ export function RegretSection() {
               <div className="absolute -inset-px -z-10 rounded-2xl bg-gradient-to-r from-gold/0 via-gold/10 to-gold/0 opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
               
               <BrandImage
-                src="/images/home/image-1.jpeg"
+                src="/images/home/image.avif"
                 alt="Vikram vs You: The cost of postponing your SIP decision"
-                aspect="3/2"
+                aspect="16/9"
                 rounded="lg"
-                imgClassName="object-cover object-center transition-transform duration-700 group-hover:scale-[1.01]"
+                imgClassName="object-cover object-center transition-transform duration-700"
                 priority
               />
             </div>

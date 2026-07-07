@@ -110,7 +110,7 @@ body {
   background: var(--brand-bg);
   color: var(--brand-text);
   font-family: var(--font-body);
-  font-weight: 400;
+  font-weight: 500;
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
 }
@@ -196,13 +196,15 @@ body {
 }
 
 /* Light theme: deepen the gradient stops so gold reads on ivory */
-:root.light .gold-text {
+:root.light *:not(.force-dark) > .gold-text,
+:root.light .gold-text:not(.force-dark .gold-text) {
   background: linear-gradient(180deg, #b07d1e 0%, #9c6b14 55%, #6e4a0e 100%);
   -webkit-background-clip: text;
   background-clip: text;
 }
 
-:root.light .gold-shimmer {
+:root.light *:not(.force-dark) > .gold-shimmer,
+:root.light .gold-shimmer:not(.force-dark .gold-shimmer) {
   background: linear-gradient(90deg,
       #6e4a0e 0%,
       #9c6b14 30%,
@@ -212,6 +214,37 @@ body {
   background-size: 200% auto;
   -webkit-background-clip: text;
   background-clip: text;
+}
+
+/* Override utility to force dark mode on a specific container in light mode */
+.force-dark {
+  --brand-bg: #161616;
+  --brand-text: #faf0dc;
+  --color-ink: #161616;
+  --color-ink-soft: #1e1e1e;
+  --color-ink-card: #262626;
+  --color-ink-elevated: #2e2e2e;
+  --color-line: #3a3a3a;
+  --color-cream: #faf0dc;
+  --color-gold-light: #e1c18d;
+  --color-gold: #d5a04a;
+  --color-gold-warm: #b47c32;
+  --color-gold-antique: #a76d1f;
+  --color-gold-shadow: #5a2619;
+  
+  color: var(--brand-text);
+}
+
+.force-dark .text-cream {
+  color: #faf0dc !important;
+}
+
+.force-dark .text-gold-light {
+  color: #e1c18d !important;
+}
+
+.force-dark .text-gold-light\/85 {
+  color: color-mix(in srgb, #e1c18d 85%, transparent) !important;
 }
 
 /* Theme-aware section backgrounds (replace hardcoded inline gradients
@@ -531,11 +564,11 @@ input[type="range"].tc-range::-moz-range-thumb {
 /* Ken Burns slow image zoom */
 @keyframes kenBurnsEffect {
   0% {
-    transform: scale(1.02);
+    transform: scale(1.0);
   }
 
   100% {
-    transform: scale(1.09);
+    transform: scale(1.015);
   }
 }
 

@@ -66,7 +66,7 @@ export default function StoriesPage() {
 
                     {/* Quote Testimonial */}
                     <blockquote className="relative mt-6 pt-1">
-                      <span className="absolute -top-3 -left-2 text-4xl font-serif text-gold/20 select-none pointer-events-none">“</span>
+                      <span className="absolute -top-3 -left-2 text-4xl font-display text-gold/20 select-none pointer-events-none">“</span>
                       <p className="font-display text-xl italic leading-relaxed text-cream pl-4">
                         {s.quote}
                       </p>
@@ -88,7 +88,7 @@ export default function StoriesPage() {
                       <p className="text-[10px] font-semibold uppercase tracking-wider text-gold-light/50">
                         On track for
                       </p>
-                      <span className="mt-2 inline-flex items-center gap-1.5 font-medium text-cream font-sans text-sm justify-center">
+                      <span className="mt-2 inline-flex items-center gap-1.5 font-medium text-cream text-sm justify-center">
                         <span className="size-1.5 rounded-full bg-gold animate-pulse" />
                         {s.onTrack}
                       </span>

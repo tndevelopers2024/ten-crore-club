@@ -54,6 +54,7 @@ export function MethodSection() {
             no system. Five disciplines, working together, compound into a number.
           </p>
         </Reveal>
+        {/* Forces Fast Refresh to pick up data changes */}
 
         {/* pillars */}
         <div
@@ -84,7 +85,7 @@ export function MethodSection() {
                       alt={p.title}
                       aspect="1/1"
                       className="border-b border-line"
-                      imgClassName="transition-transform duration-500 group-hover:scale-105"
+                      imgClassName="transition-transform duration-500"
                     />
                   )}
                   <div className="flex flex-1 flex-col p-6">

@@ -42,10 +42,10 @@ export function CommunityPreviewSection() {
             {/* Image hover glow */}
             <div className="absolute -inset-1 rounded-2xl bg-gold/20 opacity-0 blur-xl transition-opacity duration-500 group-hover:opacity-100" />
             <BrandImage
-              src="/images/sections/community-lounge-v2.png"
-              alt="Exclusive ₹10 Crore Circle member networking lounge"
+              src="/images/sections/private-wealth-ecosystem-real.png"
+              alt="Ultra-luxury private member lounge and wealth ecosystem"
               aspect="16/10"
-              className="relative z-10 transition-transform duration-500 group-hover:scale-[1.01]"
+              className="relative z-10 transition-transform duration-500"
               bordered
             />
           </div>

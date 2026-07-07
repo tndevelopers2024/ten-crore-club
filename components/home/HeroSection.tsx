@@ -67,7 +67,7 @@ export function HeroSection() {
             alt="Ten Crore Club Premium Membership Card"
             aspect="1/1"
             bordered
-            className="shadow-2xl transition-transform duration-300 hover:scale-[1.02]"
+            className="shadow-2xl transition-transform duration-300"
           />
         </AnimateIn>
       </div>

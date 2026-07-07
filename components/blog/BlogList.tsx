@@ -151,7 +151,7 @@ export function BlogList({ posts }: { posts: BlogPost[] }) {
                 />
                 {/* Overlay Badge */}
                 <div className="absolute bottom-3 left-3 z-10">
-                  <span className="bg-black/75 backdrop-blur-md border border-white/10 text-cream text-[10px] uppercase tracking-wider py-1 px-2.5 rounded font-semibold font-sans">
+                  <span className="bg-black/75 backdrop-blur-md border border-white/10 text-cream text-[10px] uppercase tracking-wider py-1 px-2.5 rounded font-semibold">
                     {categoryLabels[post.category]}
                   </span>
                 </div>

@@ -56,7 +56,7 @@ export default function AboutPage() {
         <div className="grid items-center gap-10 md:grid-cols-[0.8fr_1.2fr]">
           <Reveal>
             <BrandImage
-              src="/images/team/advisor.jpg"
+              src="/images/home/image-1-by-ten-crore-club.avif"
               alt="Founder, Ten Crore Club"
               aspect="3/4"
               bordered
@@ -111,6 +111,31 @@ export default function AboutPage() {
             </div>
           </Card>
         </Reveal>
+      </SectionWrapper>
+
+      <SectionWrapper>
+        <Reveal className="mb-10 text-center">
+          <h2 className="text-display-md text-cream">Vision & Mission</h2>
+          <GoldDivider className="mt-6" />
+        </Reveal>
+        <div className="grid gap-6 md:grid-cols-2">
+          <Reveal>
+            <Card className="h-full border-gold/20 bg-gradient-to-br from-ink-card to-ink p-8">
+              <h3 className="font-display text-2xl text-gold">Our Vision</h3>
+              <p className="mt-4 text-base leading-relaxed text-gold-light/80">
+                To empower professionals and founders to achieve lasting financial independence and build generational wealth through clarity, discipline, and a proven arithmetic approach to investing.
+              </p>
+            </Card>
+          </Reveal>
+          <Reveal delay={120}>
+            <Card className="h-full border-gold/20 bg-gradient-to-br from-ink-card to-ink p-8">
+              <h3 className="font-display text-2xl text-gold">Our Mission</h3>
+              <p className="mt-4 text-base leading-relaxed text-gold-light/80">
+                To provide a transparent, actionable system that ensures you never look back 10 years from now wondering where your money went, but instead enjoy the compounding results of smart, early decisions.
+              </p>
+            </Card>
+          </Reveal>
+        </div>
       </SectionWrapper>
 
       <SectionWrapper>

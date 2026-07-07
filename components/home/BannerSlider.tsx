@@ -17,7 +17,7 @@ function renderTitle(title: string) {
   return (
     <>
       {before}
-      <span className="gold-shimmer">{highlight}</span>
+      <span className="text-white font-bold">{highlight}</span>
       {after}
     </>
   );
@@ -52,7 +52,7 @@ export function BannerSlider() {
     <section
       aria-roledescription="carousel"
       aria-label="Featured highlights"
-      className="relative flex min-h-screen flex-col justify-center overflow-hidden px-5 pt-28 pb-16 sm:px-8 bg-ink"
+      className="force-dark relative flex min-h-[100svh] flex-col justify-center overflow-hidden px-5 pt-28 pb-24 sm:px-8 bg-ink"
       onMouseEnter={() => setPaused(true)}
       onMouseLeave={() => setPaused(false)}
       onFocusCapture={() => setPaused(true)}
@@ -74,7 +74,7 @@ export function BannerSlider() {
             priority={i === 0}
             className={cn(
               "object-cover transition-opacity duration-1000 ease-out",
-              i === active ? "opacity-100 z-10 ken-burns-active" : "opacity-0 z-0",
+              i === active ? "opacity-100 z-10" : "opacity-0 z-0",
             )}
           />
         ))}
@@ -83,7 +83,7 @@ export function BannerSlider() {
       {/* Dark scrim so cream/gold text stays legible and edges blend to ink. */}
       <div
         aria-hidden
-        className="pointer-events-none absolute inset-0 bg-gradient-to-b from-ink/80 via-ink/55 to-ink/85 z-10"
+        className="pointer-events-none absolute inset-0 bg-gradient-to-b from-ink/60 via-ink/30 to-ink/70 z-10"
       />
 
       {/* Red radial glow + noise */}
@@ -112,7 +112,7 @@ export function BannerSlider() {
                 aria-roledescription="slide"
                 aria-label={`${i + 1} of ${count}`}
                 aria-hidden={!isActive}
-                inert={!isActive}
+                inert={!isActive ? true : undefined}
                 className={cn(
                   "col-start-1 row-start-1 text-center transition-all duration-700 ease-in-out flex flex-col items-center justify-center",
                   isActive ? "opacity-100 translate-y-0 scale-100 z-10" : "opacity-0 translate-y-4 scale-[0.98] pointer-events-none z-0",
@@ -130,12 +130,12 @@ export function BannerSlider() {
                 </div>
 
                 {/* Heading */}
-                <h2 className="mx-auto max-w-4xl text-display-xl text-balance text-cream leading-[1.15]">
+                <h2 className="mx-auto max-w-4xl text-display-xl text-balance text-white leading-[1.15]">
                   {renderTitle(slide.title)}
                 </h2>
 
                 {/* Subtitle */}
-                <p className="mx-auto mt-5 max-w-2xl text-base sm:text-lg leading-relaxed text-gold-light/85">
+                <p className="mx-auto mt-5 max-w-2xl text-base sm:text-lg leading-relaxed text-white/85">
                   {slide.subtitle}
                 </p>
 
@@ -156,10 +156,10 @@ export function BannerSlider() {
                         key={stat.label}
                         className="stats-card-transition flex flex-col p-4 sm:p-5 rounded-lg border border-gold/15 bg-ink-card/40 backdrop-blur-md shadow-[0_10px_30px_rgba(0,0,0,0.5)]"
                       >
-                        <span className="font-display text-xl sm:text-3xl font-bold text-cream gold-text">
+                        <span className="font-display text-xl sm:text-3xl font-bold text-white">
                           {stat.value}
                         </span>
-                        <span className="mt-1.5 text-[9px] sm:text-[10px] font-bold uppercase tracking-[0.15em] text-gold-light/65 leading-none">
+                        <span className="mt-1.5 text-[9px] sm:text-[10px] font-bold uppercase tracking-[0.15em] text-white/65 leading-none">
                           {stat.label}
                         </span>
                       </div>

@@ -21,7 +21,7 @@ function StoryCard({
   return (
     <div className="group flex h-full flex-col rounded-xl border border-gold/20 bg-ink-card/60 backdrop-blur-md p-6 transition-all duration-300 hover:-translate-y-1.5 hover:border-gold/45 hover:shadow-[0_12px_40px_-20px_rgba(213,160,74,0.35)] glare-sweep relative overflow-hidden">
       <header className="flex items-center gap-3.5">
-        <div className="relative shrink-0 transition-transform duration-300 group-hover:scale-105">
+        <div className="relative shrink-0 transition-transform duration-300">
           <Avatar initials={story.initials} photo={story.photo} name={story.name} size={46} />
           <div className="absolute -bottom-1 -right-1 size-3.5 rounded-full bg-gold border-2 border-ink flex items-center justify-center">
             <span className="size-1 rounded-full bg-ink" />
@@ -53,7 +53,7 @@ function StoryCard({
 
       {/* Quote block */}
       <div className="relative mt-6 pt-1">
-        <span className="absolute -top-3 -left-2 text-4xl font-serif text-gold/20 select-none pointer-events-none">“</span>
+        <span className="absolute -top-3 -left-2 text-4xl font-display text-gold/20 select-none pointer-events-none">“</span>
         <p className="font-display text-base italic leading-relaxed text-cream pl-4">
           {story.quote}
         </p>
@@ -73,7 +73,7 @@ function StoryCard({
           />
           <div className="mt-3 flex items-center justify-between border-t border-line/30 pt-3 text-xs">
             <span className="text-gold-light/50">Plan Status:</span>
-            <span className="flex items-center gap-1.5 font-medium text-gold font-sans">
+            <span className="flex items-center gap-1.5 font-medium text-gold">
               <span className="size-1.5 rounded-full bg-gold animate-pulse" />
               {story.onTrack}
             </span>

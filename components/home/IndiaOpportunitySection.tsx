@@ -65,8 +65,8 @@ export function IndiaOpportunitySection() {
           {/* graphic */}
           <Reveal delay={200}>
             <BrandImage
-              src="/images/sections/india-growth-dashboard.png"
-              alt="India compounding growth and Sensex timeline graphic"
+              src="/images/sections/india-growth-dashboard-inr.png"
+              alt="Clean financial dashboard UI showing compounding growth in INR"
               aspect="1/1"
               bordered
             />

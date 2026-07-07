@@ -12,7 +12,7 @@ import { HistoricalSWPTable } from "./HistoricalSWPTable";
 const tabs = [
   { value: "sip", label: "SIP Growth" },
   { value: "lumpsum", label: "Lumpsum Growth" },
-  { value: "swp", label: "Retirement (SWP)" },
+  { value: "swp", label: "SWP" },
   { value: "goal", label: "Goal Planner" },
   { value: "delay", label: "Delay Cost" },
   { value: "historical", label: "Historical Proof" },

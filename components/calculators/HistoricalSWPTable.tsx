@@ -157,13 +157,13 @@ export function HistoricalSWPTable() {
       {/* Control bar: Horizon picker and search input */}
       <div className="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
         {/* Horizon Picker */}
-        <div className="flex rounded-full border border-line bg-ink p-1 self-start">
+        <div className="flex rounded-xl border border-line bg-ink p-1 self-start">
           {(["5", "10", "15"] as HorizonKey[]).map((h) => (
             <button
               key={h}
               onClick={() => setHorizon(h)}
               className={cn(
-                "rounded-full px-4 py-2 text-xs font-semibold uppercase tracking-wider transition-colors cursor-pointer",
+                "rounded-xl px-4 py-2 text-xs font-semibold uppercase tracking-wider transition-colors cursor-pointer",
                 horizon === h
                   ? "bg-gold text-on-accent shadow"
                   : "text-gold-light/60 hover:text-gold"
@@ -184,7 +184,7 @@ export function HistoricalSWPTable() {
             placeholder="Search mutual funds..."
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
-            className="w-full rounded-full border border-line bg-ink py-2 pl-9 pr-4 text-sm text-cream placeholder:text-gold-light/30 outline-none transition-colors focus:border-gold focus:ring-1 focus:ring-gold/40"
+            className="w-full rounded-xl border border-line bg-ink py-2 pl-9 pr-4 text-sm text-cream placeholder:text-gold-light/30 outline-none transition-colors focus:border-gold focus:ring-1 focus:ring-gold/40"
           />
         </div>
       </div>

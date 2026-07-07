@@ -23,7 +23,7 @@ export function Field({ label, htmlFor, error, required, children, className }: 
 }
 
 const inputBase =
-  "w-full rounded-full border bg-ink px-4 py-2.5 text-cream placeholder:text-gold-light/30 outline-none transition-colors focus:border-gold focus:ring-1 focus:ring-gold/40";
+  "w-full rounded-xl border bg-ink px-4 py-2.5 text-cream placeholder:text-gold-light/30 outline-none transition-colors focus:border-gold focus:ring-1 focus:ring-gold/40";
 
 export function TextInput({
   error,
@@ -69,7 +69,7 @@ export function ChoiceGroup({ options, value, onChange }: ChoiceGroupProps) {
             type="button"
             onClick={() => onChange(o.value)}
             className={cn(
-              "rounded-full border px-3.5 py-2 text-sm transition-colors",
+              "rounded-xl border px-3.5 py-2 text-sm transition-colors",
               active
                 ? "border-gold bg-gold/10 text-gold"
                 : "border-line bg-ink text-gold-light/70 hover:border-gold/40",

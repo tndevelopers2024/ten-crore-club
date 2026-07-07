@@ -62,7 +62,7 @@ export function NewsletterSubscribe() {
                   placeholder="Enter your professional email"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
-                  className="w-full h-12 px-5 rounded-full bg-ink/75 border border-gold/20 text-cream placeholder:text-gold-light/35 focus:outline-none focus:border-gold focus:ring-2 focus:ring-gold/20 transition-all text-sm"
+                  className="w-full h-12 px-5 rounded-xl bg-ink/75 border border-gold/20 text-cream placeholder:text-gold-light/35 focus:outline-none focus:border-gold focus:ring-2 focus:ring-gold/20 transition-all text-sm"
                   disabled={status === "submitting"}
                 />
               </div>

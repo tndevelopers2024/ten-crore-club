@@ -64,7 +64,7 @@ export function BlogList({ posts }: { posts: BlogPost[] }) {
             placeholder="Search insights, articles, and math..."
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
-            className="w-full h-12 pl-11 pr-10 rounded-full bg-ink-card/60 backdrop-blur-sm border border-line text-cream placeholder:text-gold-light/35 focus:outline-none focus:border-gold/60 focus:ring-2 focus:ring-gold/10 transition-all text-sm shadow-md"
+            className="w-full h-12 pl-11 pr-10 rounded-xl bg-ink-card/60 backdrop-blur-sm border border-line text-cream placeholder:text-gold-light/35 focus:outline-none focus:border-gold/60 focus:ring-2 focus:ring-gold/10 transition-all text-sm shadow-md"
           />
           {searchQuery && (
             <button

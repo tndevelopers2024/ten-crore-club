@@ -75,13 +75,7 @@ export default function RootLayout({
       className={`light ${cormorant.variable} ${dmSans.variable} ${jetbrains.variable}`}
     >
       <body className="flex min-h-dvh flex-col bg-ink text-cream antialiased">
-        <Script
-          id="theme-initializer"
-          strategy="beforeInteractive"
-          dangerouslySetInnerHTML={{
-            __html: `(function(){try{if(localStorage.getItem('tc-theme')==='dark')document.documentElement.classList.remove('light')}catch(e){}})()`,
-          }}
-        />
+        <Script id="theme-initializer" src="/theme-init.js" strategy="beforeInteractive" />
         <Navbar />
         <main className="flex-1">{children}</main>
         <ComplianceFooter />

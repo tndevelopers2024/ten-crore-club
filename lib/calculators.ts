@@ -246,3 +246,64 @@ export function lumpsumTimeline(
     invested: initial,
   }));
 }
+
+export interface SWPResult {
+  finalBalance: number;
+  totalWithdrawn: number;
+  totalInvested: number;
+}
+
+/** Standard SWP over a fixed period */
+export function calcSWP(
+  corpus: number,
+  withdrawal: number,
+  annualReturn: number,
+  years: number,
+): SWPResult {
+  const r = monthlyRate(annualReturn);
+  let balance = corpus;
+  let totalWithdrawn = 0;
+  const n = years * 12;
+
+  for (let i = 0; i < n; i++) {
+    if (balance >= withdrawal) {
+      totalWithdrawn += withdrawal;
+      balance = (balance - withdrawal) * (1 + r);
+    } else if (balance > 0) {
+      totalWithdrawn += balance;
+      balance = 0;
+    }
+  }
+
+  return {
+    finalBalance: balance,
+    totalWithdrawn,
+    totalInvested: corpus,
+  };
+}
+
+export function swpTimeline(
+  corpus: number,
+  withdrawal: number,
+  annualReturn: number,
+  maxYears: number,
+): TimelinePoint[] {
+  const r = monthlyRate(annualReturn);
+  const timeline: TimelinePoint[] = [];
+  
+  let balance = corpus;
+  timeline.push({ year: 0, value: balance, invested: corpus });
+
+  for (let yr = 1; yr <= maxYears; yr++) {
+    for (let m = 0; m < 12; m++) {
+      if (balance >= withdrawal) {
+        balance = (balance - withdrawal) * (1 + r);
+      } else if (balance > 0) {
+        balance = 0;
+      }
+    }
+    timeline.push({ year: yr, value: balance, invested: corpus });
+  }
+
+  return timeline;
+}

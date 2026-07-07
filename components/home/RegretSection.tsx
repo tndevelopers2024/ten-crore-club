@@ -32,7 +32,7 @@ export function RegretSection() {
             </Reveal>
           </div>
 
-          <Reveal delay={200} className="mx-auto mt-12 max-w-4xl">
+          <Reveal delay={200} className="mx-auto mt-12 max-w-6xl">
             <div className="group relative overflow-hidden rounded-2xl border border-gold/30 bg-ink-card p-2 transition-all duration-500 hover:border-gold/60 hover:shadow-[0_0_50px_-12px_rgba(212,175,55,0.25)]">
               {/* Ambient gold glow effect behind the image */}
               <div className="absolute -inset-px -z-10 rounded-2xl bg-gradient-to-r from-gold/0 via-gold/10 to-gold/0 opacity-0 transition-opacity duration-500 group-hover:opacity-100" />

@@ -94,7 +94,7 @@ export function SWPCalculator() {
           <div className="rounded-lg border border-line bg-ink-card p-4">
             <p className="text-xs text-gold-light/60">Total Withdrawn</p>
             <p className="mt-1 font-mono text-lg font-semibold text-cream tnum">
-              {dur.lastsForever ? "—" : formatINRFull(dur.totalWithdrawn)}
+              {dur.lastsForever ? `${formatINRFull(dur.totalWithdrawn)}+` : formatINRFull(dur.totalWithdrawn)}
             </p>
           </div>
           <div className="rounded-lg border border-line bg-ink-card p-4">

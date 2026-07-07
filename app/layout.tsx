@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Script from "next/script";
 import { Cormorant_Garamond, DM_Sans, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 import { Navbar } from "@/components/layout/Navbar";
@@ -74,8 +75,9 @@ export default function RootLayout({
       className={`light ${cormorant.variable} ${dmSans.variable} ${jetbrains.variable}`}
     >
       <head>
-        <script
-          suppressHydrationWarning
+        <Script
+          id="theme-initializer"
+          strategy="beforeInteractive"
           dangerouslySetInnerHTML={{
             __html: `(function(){try{if(localStorage.getItem('tc-theme')==='dark')document.documentElement.classList.remove('light')}catch(e){}})()`,
           }}

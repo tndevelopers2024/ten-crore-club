@@ -14,7 +14,7 @@ export const bannerSlides: BannerSlide[] = [
       "A structured SIP roadmap built around your income, your age, and your goal — so wealth becomes a decision, not a gamble.",
     icon: Target,
     image: {
-      src: "https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=1920&auto=format&fit=crop",
+      src: "/images/banners/banner-office-desk.jpg",
       alt: "Elegant modern wealth manager's desk",
     },
     primaryCta: { label: "Calculate My ₹10 Crore Plan", href: "/calculators" },

@@ -7,6 +7,7 @@ const nextConfig: NextConfig = {
     // must be allow-listed here (next/image will refuse unknown hosts).
     // Add your CMS/CDN host below as you wire real images in.
     remotePatterns: [
+      { protocol: "https", hostname: "images.unsplash.com" },
       { protocol: "https", hostname: "**" },
       { protocol: "http", hostname: "**" },
     ],

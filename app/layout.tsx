@@ -6,6 +6,7 @@ import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import { ComplianceFooter } from "@/components/layout/ComplianceFooter";
 import { FloatingContactButtons } from "@/components/layout/FloatingContactButtons";
+import { ThemeScriptWarningSuppressor } from "@/components/layout/ThemeScriptWarningSuppressor";
 
 const cormorant = Cormorant_Garamond({
   subsets: ["latin"],
@@ -75,6 +76,7 @@ export default function RootLayout({
       className={`light ${cormorant.variable} ${dmSans.variable} ${jetbrains.variable}`}
     >
       <body className="flex min-h-dvh flex-col bg-ink text-cream antialiased">
+        <ThemeScriptWarningSuppressor />
         <Script id="theme-initializer" src="/theme-init.js" strategy="beforeInteractive" />
         <Navbar />
         <main className="flex-1">{children}</main>

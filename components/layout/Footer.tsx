@@ -243,11 +243,22 @@ export function Footer() {
 
         {/* Bottom bar */}
         <div className="relative border-t border-gold/8">
-          <div className="flex flex-col items-center gap-3 px-8 py-5 sm:flex-row sm:justify-between sm:px-12">
-            <p className="text-xs text-gold-light/40">
-              © {new Date().getFullYear()} Ten Crore Club. All rights reserved.
-            </p>
-            <p className="text-center font-mono text-[11px] text-gold-light/35">
+          <div className="flex flex-col items-center gap-4 px-8 py-5 md:flex-row md:justify-between sm:px-12">
+            <div className="flex flex-col items-center gap-2 md:items-start">
+              <p className="text-xs text-gold-light/40">
+                © {new Date().getFullYear()} Ten Crore Club. All rights reserved.
+              </p>
+              <div className="flex gap-3 text-[11px] text-gold-light/45">
+                <Link href="/privacy" className="hover:text-gold transition-colors">
+                  Privacy Policy
+                </Link>
+                <span>·</span>
+                <Link href="/terms" className="hover:text-gold transition-colors">
+                  Terms & Conditions
+                </Link>
+              </div>
+            </div>
+            <p className="text-center font-mono text-[11px] text-gold-light/35 md:max-w-md md:text-right">
               AMFI Registered Mutual Fund Distributor · ARN: XXXXX · SEBI
               Compliant
             </p>

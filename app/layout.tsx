@@ -53,8 +53,8 @@ export const metadata: Metadata = {
     images: [
       {
         url: "/logo/ten-crore-club-logo-2.png",
-        width: 5000,
-        height: 5000,
+        width: 1200,
+        height: 630,
         alt: "Ten Crore Club logo",
       },
     ],
@@ -62,6 +62,12 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     site: "@tencroreclub",
+    title: "Ten Crore Club — Build ₹10 Crore with Mutual Fund SIPs",
+    description: "India's private wealth community for serious investors.",
+    images: ["/logo/ten-crore-club-logo-2.png"],
+  },
+  alternates: {
+    canonical: "/",
   },
   robots: { index: true, follow: true },
 };

@@ -5,11 +5,8 @@ const nextConfig: NextConfig = {
     formats: ["image/avif", "image/webp"],
     // Local images in /public work with no config. For remote images, the host
     // must be allow-listed here (next/image will refuse unknown hosts).
-    // Add your CMS/CDN host below as you wire real images in.
     remotePatterns: [
       { protocol: "https", hostname: "images.unsplash.com" },
-      { protocol: "https", hostname: "**" },
-      { protocol: "http", hostname: "**" },
     ],
   },
   async headers() {

@@ -125,6 +125,7 @@ export function BannerSlider() {
                     alt="Ten Crore Club"
                     width={160}
                     height={160}
+                    style={{ width: 'auto', height: 'auto' }}
                     className="object-contain drop-shadow-lg"
                   />
                 </div>

@@ -100,6 +100,7 @@ export function Footer() {
                 alt="Ten Crore Club logo"
                 width={180}
                 height={180}
+                style={{ width: 'auto', height: 'auto' }}
                 className="h-36 w-36 object-contain sm:h-44 sm:w-44 transition-transform duration-300 hover:scale-[1.03]"
               />
             </Link>

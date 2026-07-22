@@ -23,16 +23,8 @@ This project is a modern, high-performance web application built with **Next.js 
 
 ---
 
-## Tech Stack Comparison
+## Tech Stack
 
-**Original Site Stack (Legacy):**
-- **CMS:** WordPress
-- **Page Builder:** Elementor / Legacy PHP
-- **Database:** MySQL
-- **Fonts:** Custom Google Fonts
-- **Analytics:** Google Tag Manager
-
-**New Redesign Stack (Modern):**
 - **Framework:** Next.js 16 (App Router)
 - **UI Library:** React 19
 - **Styling:** Tailwind CSS 4 + Custom Luxury Gold & Ink Design System

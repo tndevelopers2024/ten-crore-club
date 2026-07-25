@@ -132,7 +132,7 @@ export default function CommunityPage() {
                 ))}
               </ul>
               <div className="mt-auto pt-8">
-                <CTAButton href="https://chat.whatsapp.com/learning-community" variant="secondary">
+                <CTAButton href="https://chat.whatsapp.com/FL5GGcI6V1DAbIXViSfd5a" variant="secondary">
                   Join Learning Group (WhatsApp)
                 </CTAButton>
               </div>
@@ -162,7 +162,7 @@ export default function CommunityPage() {
               </ul>
               <div className="mt-auto pt-8 flex flex-col gap-3">
                 <CTAButton href="/book">Apply for Inner Circle</CTAButton>
-                <CTAButton href="https://chat.whatsapp.com/premium-community" variant="secondary">
+                <CTAButton href="https://chat.whatsapp.com/FL5GGcI6V1DAbIXViSfd5a" variant="secondary">
                   Join Premium Group (WhatsApp)
                 </CTAButton>
               </div>

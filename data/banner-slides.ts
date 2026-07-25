@@ -53,7 +53,6 @@ export const bannerSlides: BannerSlide[] = [
     primaryCta: { label: "Book a Free Strategy Call", href: "/book" },
     secondaryCta: { label: "Explore the Community", href: "/community" },
     stats: [
-      { label: "Active Members", value: "340+" },
       { label: "Guidance Quality", value: "AMFI Reg." },
       { label: "Asset Retention", value: "99.2%" },
     ],

@@ -1,5 +1,18 @@
 import type { Metadata } from "next";
-import { Clock, Brain, Calculator, ShieldCheck, BadgeCheck, Award } from "lucide-react";
+import {
+  Clock,
+  Brain,
+  Calculator,
+  ShieldCheck,
+  BadgeCheck,
+  Award,
+  CheckCircle2,
+  Target,
+  Compass,
+  TrendingUp,
+  Trophy,
+  HeartHandshake,
+} from "lucide-react";
 import { PageHero } from "@/components/shared/PageHero";
 import { SectionWrapper } from "@/components/shared/SectionWrapper";
 import { Reveal } from "@/components/shared/Reveal";
@@ -7,12 +20,28 @@ import { GoldDivider } from "@/components/shared/GoldDivider";
 import { CTAButton } from "@/components/shared/CTAButton";
 import { BrandImage } from "@/components/shared/BrandImage";
 import { Card } from "@/components/ui/Card";
+import { BlueprintCTA } from "@/components/forms/BlueprintCTA";
 
 export const metadata: Metadata = {
-  title: "About",
+  title: "About Me | Alex Pandyan - Ten Crore Club",
   description:
-    "Why Ten Crore Club exists: a wealth advisor on a mission to make sure smart people stop making the same expensive mistake — waiting.",
+    "I’m Alex Pandyan, founder of TenCroreClub, helping business owners and professionals build structured, long-term wealth through disciplined investing.",
 };
+
+const approachPillars = [
+  {
+    icon: Target,
+    title: "Clarity over confusion",
+  },
+  {
+    icon: Compass,
+    title: "Strategy over speculation",
+  },
+  {
+    icon: ShieldCheck,
+    title: "Discipline over emotion",
+  },
+];
 
 const philosophy = [
   {
@@ -43,40 +72,217 @@ export default function AboutPage() {
   return (
     <>
       <PageHero
-        eyebrow="About"
+        eyebrow="About Me – TenCroreClub"
         title={
           <>
-            I became a wealth advisor because I watched smart people make the same{" "}
-            <span className="gold-text">expensive mistake.</span>
+            I work with a simple belief: Earning well is not enough — your money must{" "}
+            <span className="gold-text">work as hard as you do.</span>
           </>
         }
+        subtitle="I’m Alex Pandyan, founder of TenCroreClub, and I help business owners and professionals build structured, long-term wealth through disciplined investing."
       />
 
+      {/* Founder Story & Introduction */}
       <SectionWrapper>
-        <div className="grid items-center gap-10 md:grid-cols-[0.8fr_1.2fr]">
+        <div className="grid items-start gap-10 md:grid-cols-[0.8fr_1.2fr]">
           <Reveal>
-            <BrandImage
-              src="/images/home/image-1-by-ten-crore-club.avif"
-              alt="Founder, Ten Crore Club"
-              aspect="3/4"
-              bordered
-              sizes="(min-width: 768px) 360px, 100vw"
-              placeholderLabel="Founder portrait"
-            />
+            <div className="space-y-6">
+              <BrandImage
+                src="/images/home/image-1-by-ten-crore-club.avif"
+                alt="Alex Pandyan - Founder, Ten Crore Club"
+                aspect="3/4"
+                bordered
+                sizes="(min-width: 768px) 360px, 100vw"
+                placeholderLabel="Alex Pandyan"
+              />
+              <Card className="text-center">
+                <div className="flex flex-col gap-3 text-sm">
+                  <span className="flex items-center justify-center gap-2 font-medium text-gold">
+                    <ShieldCheck className="size-5 shrink-0 text-gold" /> AMFI Registered MFD
+                  </span>
+                  <span className="flex items-center justify-center gap-2 font-medium text-gold">
+                    <Award className="size-5 shrink-0 text-gold" /> ARN: XXXXX
+                  </span>
+                  <span className="flex items-center justify-center gap-2 font-medium text-gold">
+                    <BadgeCheck className="size-5 shrink-0 text-gold" /> SEBI Compliant
+                  </span>
+                </div>
+              </Card>
+            </div>
           </Reveal>
+
           <Reveal delay={120}>
-            <p className="text-xl leading-relaxed text-gold-light/85 sm:text-2xl">
-              Year after year, I met brilliant doctors, engineers, and founders who
-              earned remarkably well — and had almost nothing to show for it. Not
-              because they were careless. Because nobody ever gave them a system,
-              and the cost of waiting stayed invisible until it was enormous. Ten
-              Crore Club is my answer to that.
-            </p>
+            <div className="space-y-6">
+              <p className="text-xl leading-relaxed text-gold-light/90 sm:text-2xl">
+                Over the years, I’ve seen a common pattern — successful individuals generating strong income, yet lacking a clear roadmap to turn that income into meaningful wealth.
+              </p>
+              <p className="font-display text-2xl font-medium text-cream sm:text-3xl">
+                That’s where I come in.
+              </p>
+              <p className="text-base leading-relaxed text-gold-light/80 sm:text-lg">
+                Instead of chasing trends or short-term gains, my approach focuses on:
+              </p>
+
+              <div className="grid gap-3 sm:grid-cols-3">
+                {approachPillars.map((item, i) => {
+                  const Icon = item.icon;
+                  return (
+                    <div
+                      key={item.title}
+                      className="flex flex-col items-center justify-center rounded-lg border border-gold/20 bg-ink-card p-4 text-center"
+                    >
+                      <Icon className="mb-2 size-6 text-gold" />
+                      <span className="font-medium text-cream">{item.title}</span>
+                    </div>
+                  );
+                })}
+              </div>
+
+              <p className="pt-2 text-base leading-relaxed text-gold-light/80 sm:text-lg">
+                Today, I manage a growing portfolio of clients with a focus on consistent compounding and long-term wealth creation, helping them move closer to a significant milestone:
+              </p>
+
+              <div className="gold-glow rounded-xl border border-gold/40 bg-gradient-to-r from-ink-card via-ink to-ink-card p-6 text-center sm:p-7">
+                <p className="font-display text-xl font-semibold tracking-wide text-cream sm:text-2xl">
+                  👉 Building a ₹10 Crore portfolio with confidence and structure
+                </p>
+              </div>
+
+              <div className="pt-4">
+                <CTAButton href="https://www.linkedin.com/in/alex-pandyan-61778124a" variant="secondary">
+                  Connect with Alex Pandyan on LinkedIn
+                </CTAButton>
+              </div>
+            </div>
           </Reveal>
         </div>
       </SectionWrapper>
 
+      {/* What Makes My Approach Different */}
       <SectionWrapper>
+        <Reveal className="mb-10 text-center">
+          <h2 className="text-display-md text-cream">What Makes My Approach Different</h2>
+          <p className="mx-auto mt-4 max-w-2xl text-lg text-gold-light/80">
+            I don’t believe in one-size-fits-all advice.
+          </p>
+          <GoldDivider className="mt-6" />
+        </Reveal>
+
+        <div className="grid gap-6 md:grid-cols-2">
+          <Reveal>
+            <Card className="flex h-full flex-col justify-between border-gold/20 bg-gradient-to-br from-ink-card to-ink p-8">
+              <div>
+                <span className="mb-4 inline-flex rounded-full bg-gold/10 px-3 py-1 text-xs font-semibold uppercase tracking-wider text-gold">
+                  Personalized Roadmap
+                </span>
+                <h3 className="font-display text-2xl text-cream">Built Around Your Reality</h3>
+                <p className="mt-3 text-base text-gold-light/80">
+                  Every client journey is built around:
+                </p>
+                <ul className="mt-6 space-y-4">
+                  <li className="flex items-center gap-3 text-cream">
+                    <span className="size-2 shrink-0 rounded-full bg-gold" />
+                    <span>Their business cash flows</span>
+                  </li>
+                  <li className="flex items-center gap-3 text-cream">
+                    <span className="size-2 shrink-0 rounded-full bg-gold" />
+                    <span>Their risk appetite</span>
+                  </li>
+                  <li className="flex items-center gap-3 text-cream">
+                    <span className="size-2 shrink-0 rounded-full bg-gold" />
+                    <span>Their long-term life goals</span>
+                  </li>
+                </ul>
+              </div>
+            </Card>
+          </Reveal>
+
+          <Reveal delay={120}>
+            <Card className="flex h-full flex-col justify-between border-gold/20 bg-gradient-to-br from-ink-card to-ink p-8">
+              <div>
+                <span className="mb-4 inline-flex rounded-full bg-gold/10 px-3 py-1 text-xs font-semibold uppercase tracking-wider text-gold">
+                  Disciplined Execution
+                </span>
+                <h3 className="font-display text-2xl text-cream">A Structured System</h3>
+                <p className="mt-3 text-base text-gold-light/80">
+                  Through a structured system, I ensure that your investments are:
+                </p>
+                <ul className="mt-6 space-y-4">
+                  <li className="flex items-center gap-3 text-cream">
+                    <CheckCircle2 className="size-5 shrink-0 text-gold" />
+                    <span className="font-medium">Purpose-driven</span>
+                  </li>
+                  <li className="flex items-center gap-3 text-cream">
+                    <CheckCircle2 className="size-5 shrink-0 text-gold" />
+                    <span className="font-medium">Well-allocated</span>
+                  </li>
+                  <li className="flex items-center gap-3 text-cream">
+                    <CheckCircle2 className="size-5 shrink-0 text-gold" />
+                    <span className="font-medium">Continuously optimized</span>
+                  </li>
+                </ul>
+              </div>
+            </Card>
+          </Reveal>
+        </div>
+
+        <Reveal delay={200} className="mt-8">
+          <div className="rounded-xl border border-line bg-ink-card/60 p-6 text-center">
+            <p className="font-display text-xl italic text-gold-light/90 sm:text-2xl">
+              Because real wealth isn’t built in months — it’s built through years of disciplined decisions.
+            </p>
+          </div>
+        </Reveal>
+      </SectionWrapper>
+
+      {/* Vision & Mission */}
+      <SectionWrapper>
+        <Reveal className="mb-10 text-center">
+          <h2 className="text-display-md text-cream">Vision & Mission</h2>
+          <GoldDivider className="mt-6" />
+        </Reveal>
+        <div className="grid gap-6 md:grid-cols-2">
+          <Reveal>
+            <Card className="h-full border-gold/20 bg-gradient-to-br from-ink-card to-ink p-8">
+              <div className="mb-4 flex items-center gap-3">
+                <div className="flex size-12 items-center justify-center rounded-lg bg-gold/10 text-gold">
+                  <Trophy className="size-6" />
+                </div>
+                <h3 className="font-display text-2xl text-gold">Mission</h3>
+              </div>
+              <p className="text-lg font-medium leading-relaxed text-cream">
+                To help 1,000 business owners and professionals build a ₹10 Crore portfolio through disciplined, structured investing.
+              </p>
+              <p className="mt-4 text-base leading-relaxed text-gold-light/80">
+                I aim to simplify wealth creation and make it accessible, practical, and achievable — without unnecessary complexity or noise.
+              </p>
+            </Card>
+          </Reveal>
+          <Reveal delay={120}>
+            <Card className="h-full border-gold/20 bg-gradient-to-br from-ink-card to-ink p-8">
+              <div className="mb-4 flex items-center gap-3">
+                <div className="flex size-12 items-center justify-center rounded-lg bg-gold/10 text-gold">
+                  <TrendingUp className="size-6" />
+                </div>
+                <h3 className="font-display text-2xl text-gold">Vision</h3>
+              </div>
+              <p className="text-lg font-medium leading-relaxed text-cream">
+                To build India’s most trusted community of serious investors — the TenCroreClub — where wealth creation is driven by clarity, discipline, and long-term thinking.
+              </p>
+              <p className="mt-4 text-base leading-relaxed text-gold-light/80">
+                A space where individuals don’t just invest… they understand, grow, and stay committed to their financial journey.
+              </p>
+            </Card>
+          </Reveal>
+        </div>
+      </SectionWrapper>
+
+      {/* Our Philosophy */}
+      <SectionWrapper>
+        <Reveal className="mb-10 text-center">
+          <h2 className="text-display-md text-cream">The Philosophy of Compounding</h2>
+          <GoldDivider className="mt-6" />
+        </Reveal>
         <div className="grid gap-5 md:grid-cols-3">
           {philosophy.map((p, i) => {
             const Icon = p.icon;
@@ -95,52 +301,10 @@ export default function AboutPage() {
         </div>
       </SectionWrapper>
 
-      <SectionWrapper width="narrow">
-        <Reveal>
-          <Card featured className="text-center">
-            <div className="flex flex-wrap items-center justify-center gap-x-8 gap-y-4">
-              <span className="flex items-center gap-2 text-gold">
-                <ShieldCheck className="size-5" /> AMFI Registered MFD
-              </span>
-              <span className="flex items-center gap-2 text-gold">
-                <Award className="size-5" /> ARN: XXXXX
-              </span>
-              <span className="flex items-center gap-2 text-gold">
-                <BadgeCheck className="size-5" /> SEBI Compliant
-              </span>
-            </div>
-          </Card>
-        </Reveal>
-      </SectionWrapper>
-
+      {/* What we stand for */}
       <SectionWrapper>
         <Reveal className="mb-10 text-center">
-          <h2 className="text-display-md text-cream">Vision & Mission</h2>
-          <GoldDivider className="mt-6" />
-        </Reveal>
-        <div className="grid gap-6 md:grid-cols-2">
-          <Reveal>
-            <Card className="h-full border-gold/20 bg-gradient-to-br from-ink-card to-ink p-8">
-              <h3 className="font-display text-2xl text-gold">Our Vision</h3>
-              <p className="mt-4 text-base leading-relaxed text-gold-light/80">
-                To empower professionals and founders to achieve lasting financial independence and build generational wealth through clarity, discipline, and a proven arithmetic approach to investing.
-              </p>
-            </Card>
-          </Reveal>
-          <Reveal delay={120}>
-            <Card className="h-full border-gold/20 bg-gradient-to-br from-ink-card to-ink p-8">
-              <h3 className="font-display text-2xl text-gold">Our Mission</h3>
-              <p className="mt-4 text-base leading-relaxed text-gold-light/80">
-                To provide a transparent, actionable system that ensures you never look back 10 years from now wondering where your money went, but instead enjoy the compounding results of smart, early decisions.
-              </p>
-            </Card>
-          </Reveal>
-        </div>
-      </SectionWrapper>
-
-      <SectionWrapper>
-        <Reveal className="mb-10 text-center">
-          <h2 className="text-display-md text-cream">What we stand for</h2>
+          <h2 className="text-display-md text-cream">What We Stand For</h2>
           <GoldDivider className="mt-6" />
         </Reveal>
         <div className="grid gap-4 sm:grid-cols-2">
@@ -155,22 +319,54 @@ export default function AboutPage() {
         </div>
       </SectionWrapper>
 
+      {/* A Personal Note */}
       <SectionWrapper width="narrow">
         <Reveal>
-          <div className="gold-glow rounded-xl border border-gold/40 bg-ink-card p-8 text-center sm:p-10">
-            <p className="font-display text-2xl italic leading-relaxed text-gold-light/90 sm:text-3xl">
-              “My mission is simple: make sure that 10 years from now, you are not
-              the person watching your peers count their crores while you wonder
-              where it all went.”
-            </p>
-          </div>
+          <Card className="border-gold/30 bg-gradient-to-b from-ink-card via-ink to-ink-card p-8 sm:p-12">
+            <div className="mb-6 flex items-center justify-center">
+              <div className="flex size-14 items-center justify-center rounded-full bg-gold/15 text-gold">
+                <HeartHandshake className="size-7" />
+              </div>
+            </div>
+            <h2 className="text-center font-display text-3xl text-cream sm:text-4xl">
+              🤝 A Personal Note
+            </h2>
+            <GoldDivider className="mt-4 mb-8" />
+            <div className="space-y-6 text-center text-lg leading-relaxed text-gold-light/85 sm:text-xl">
+              <p>
+                I believe wealth management is not just about numbers — it’s about trust, consistency, and long-term relationships.
+              </p>
+              <p>
+                That’s why I work with a limited number of clients, ensuring every individual gets the attention and strategic guidance they deserve.
+              </p>
+              <p className="pt-2 font-medium text-cream">
+                If you’re someone who is serious about building real wealth — not just returns —
+              </p>
+              <div className="pt-2">
+                <span className="inline-block rounded-xl border border-gold/40 bg-gold/10 px-6 py-3 font-display text-xl font-bold text-gold sm:text-2xl">
+                  👉 You’re in the right place.
+                </span>
+              </div>
+            </div>
+          </Card>
+        </Reveal>
+      </SectionWrapper>
+
+      {/* Closing CTA with Highlighted Blueprint Input Field */}
+      <SectionWrapper width="narrow">
+        <Reveal>
+          <BlueprintCTA />
         </Reveal>
         <Reveal delay={120} className="mt-10 text-center">
-          <CTAButton href="/book" size="lg">
-            Book a Consultation
+          <p className="mb-4 text-sm text-gold-light/60">
+            Prefer to speak directly with an advisor?
+          </p>
+          <CTAButton href="/book" size="lg" variant="secondary">
+            Book a 1-on-1 Consultation
           </CTAButton>
         </Reveal>
       </SectionWrapper>
     </>
   );
 }
+

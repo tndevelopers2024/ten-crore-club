@@ -131,7 +131,7 @@ export function BannerSlider() {
                 </div>
 
                 {/* Heading */}
-                <h2 className="mx-auto max-w-4xl text-display-xl text-balance text-white leading-[1.15]">
+                <h2 className="mx-auto max-w-4xl text-display-xl font-sans text-balance text-white leading-[1.15]">
                   {renderTitle(slide.title)}
                 </h2>
 
@@ -157,7 +157,7 @@ export function BannerSlider() {
                         key={stat.label}
                         className="stats-card-transition flex flex-col p-4 sm:p-5 rounded-lg border border-gold/15 bg-ink-card/40 backdrop-blur-md shadow-[0_10px_30px_rgba(0,0,0,0.5)]"
                       >
-                        <span className="font-display text-xl sm:text-3xl font-bold text-white">
+                        <span className="font-sans text-xl sm:text-3xl font-bold text-white">
                           {stat.value}
                         </span>
                         <span className="mt-1.5 text-[9px] sm:text-[10px] font-bold uppercase tracking-[0.15em] text-white/65 leading-none">

@@ -5,7 +5,7 @@ import { cn } from "@/lib/utils";
 import { ThemeToggle } from "./ThemeToggle";
  
 const PHONE = "+919876543210";
-const WHATSAPP_URL = `https://wa.me/919876543210?text=${encodeURIComponent("Hi, I'm interested in learning more about the Ten Crore Club.")}`;
+const WHATSAPP_URL = "https://chat.whatsapp.com/FL5GGcI6V1DAbIXViSfd5a";
 const CALL_URL = `tel:${PHONE}`;
  
 function WhatsAppIcon({ className }: { className?: string }) {
@@ -54,7 +54,7 @@ export function FloatingContactButtons() {
       <ThemeToggle className="h-10 w-10 sm:h-12 sm:w-12 rounded-full border border-line bg-ink-card/90 backdrop-blur-md text-gold shadow-lg shadow-black/25 hover:border-gold/50 hover:bg-gold/5 hover:-translate-y-0.5 active:translate-y-0 duration-200 transition-all cursor-pointer" />
       <FabButton
         href={WHATSAPP_URL}
-        label="WhatsApp Us"
+        label="Join WhatsApp Group"
         icon={<WhatsAppIcon className="size-5 sm:size-6" />}
         colorClasses="bg-[#25D366] text-white hover:bg-[#1EBE57]"
         glowClasses="hover:shadow-[0_8px_30px_-8px_rgba(37,211,102,0.5)]"

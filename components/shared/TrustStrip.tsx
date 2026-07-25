@@ -1,10 +1,9 @@
-import { ShieldCheck, BadgeCheck, Users, TrendingUp } from "lucide-react";
+import { ShieldCheck, BadgeCheck, TrendingUp } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 const defaultItems = [
   { icon: ShieldCheck, label: "AMFI Registered" },
   { icon: BadgeCheck, label: "SEBI Compliant" },
-  { icon: Users, label: "340+ Active Members" },
   { icon: TrendingUp, label: "₹4.2 Cr Added Last Month" },
 ];
 

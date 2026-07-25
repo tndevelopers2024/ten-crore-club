@@ -59,10 +59,10 @@ export function NewsletterSubscribe() {
                 <input
                   type="email"
                   required
-                  placeholder="Enter your professional email"
+                  placeholder="Enter your professional email..."
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
-                  className="w-full h-12 px-5 rounded-xl bg-ink/75 border border-gold/20 text-cream placeholder:text-gold-light/35 focus:outline-none focus:border-gold focus:ring-2 focus:ring-gold/20 transition-all text-sm"
+                  className="w-full h-12 px-5 rounded-xl bg-ink/90 border-2 border-gold text-cream font-medium placeholder:text-gold-light/45 shadow-[0_0_20px_rgba(213,160,74,0.3)] focus:outline-none focus:border-gold-light focus:ring-4 focus:ring-gold/30 transition-all text-sm"
                   disabled={status === "submitting"}
                 />
               </div>

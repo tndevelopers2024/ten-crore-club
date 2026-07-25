@@ -42,12 +42,12 @@ const offeringLinks = [
 ];
 
 const socials = [
-  { icon: FaInstagram, label: "Instagram", href: "https://www.instagram.com/tencroreclub?igsh=Zmw3cjNxcms0djdz" },
+  { icon: FaInstagram, label: "Instagram", href: "https://www.instagram.com/tencroreclub" },
   { icon: FaXTwitter, label: "X (Twitter)", href: "https://twitter.com/tencroreclub" },
-  { icon: FaFacebookF, label: "Facebook", href: "https://facebook.com/tencroreclub" },
-  { icon: FaLinkedinIn, label: "LinkedIn", href: "https://linkedin.com/company/tencroreclub" },
+  { icon: FaFacebookF, label: "Facebook", href: "https://www.facebook.com/people/Ten-Crore-Club/61590642871004/" },
+  { icon: FaLinkedinIn, label: "LinkedIn", href: "https://www.linkedin.com/in/alex-pandyan-61778124a" },
   { icon: FaYoutube, label: "YouTube", href: "https://youtube.com/@tencroreclub" },
-  { icon: FaWhatsapp, label: "WhatsApp", href: "https://wa.me/919876543210" },
+  { icon: FaWhatsapp, label: "WhatsApp", href: "https://chat.whatsapp.com/FL5GGcI6V1DAbIXViSfd5a" },
 ];
 
 export function Footer() {

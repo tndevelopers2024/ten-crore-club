@@ -75,7 +75,7 @@ export default function AboutPage() {
         eyebrow="About Me – TenCroreClub"
         title={
           <>
-            I work with a simple belief: Earning well is not enough — your money must{" "}
+            Earning well is not enough — your money must{" "}
             <span className="gold-text">work as hard as you do.</span>
           </>
         }

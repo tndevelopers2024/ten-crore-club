@@ -48,15 +48,14 @@ export function Navbar() {
             : "rounded-2xl border border-gold/10 bg-ink-card/60 backdrop-blur-md",
         )}
       >
-        <Link href="/" className="flex items-center shrink-0" onClick={() => setOpen(false)}>
+        <Link href="/" className="flex items-center shrink-0 py-1" onClick={() => setOpen(false)}>
           <Image
             src="/logo/ten-crore-club-logo-2.png"
             alt="Ten Crore Club Logo"
-            width={140}
-            height={140}
+            width={160}
+            height={80}
             priority
-            style={{ width: 'auto', height: 'auto' }}
-            className="h-10 w-auto object-contain sm:h-12 lg:h-24 lg:w-24"
+            className="h-11 w-auto object-contain sm:h-13 lg:h-20 transition-transform duration-300 hover:scale-105"
           />
         </Link>
  

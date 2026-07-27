@@ -66,3 +66,26 @@ export interface BannerSlide {
   /** Optional metric stats display for this slide. */
   stats?: Array<{ label: string; value: string }>;
 }
+
+export type ReelCategory = "all" | "sip-wealth" | "mindset" | "market-insights" | "stories";
+
+export interface InstagramReel {
+  id: string;
+  title: string;
+  caption: string;
+  category: "sip-wealth" | "mindset" | "market-insights" | "stories";
+  categoryLabel: string;
+  views: string;
+  likes: string;
+  comments: string;
+  duration: string;
+  thumbnail: string;
+  videoUrl?: string;
+  instagramUrl: string;
+  authorHandle: string;
+  authorName: string;
+  authorAvatar?: string;
+  tags: string[];
+  featured?: boolean;
+}
+

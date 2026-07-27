@@ -1,11 +1,12 @@
 "use client";
 
+import { useEffect, useState } from "react";
 import { Phone } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { ThemeToggle } from "./ThemeToggle";
  
-const PHONE = "+919876543210";
-const WHATSAPP_URL = "https://chat.whatsapp.com/FL5GGcI6V1DAbIXViSfd5a";
+const PHONE = "+919840441135";
+const WHATSAPP_URL = "https://wa.me/919840441135?text=Hi%2C%20I%20have%20an%20enquiry%20regarding%20Ten%20Crore%20Club";
 const CALL_URL = `tel:${PHONE}`;
  
 function WhatsAppIcon({ className }: { className?: string }) {
@@ -24,48 +25,100 @@ function WhatsAppIcon({ className }: { className?: string }) {
 interface FabProps {
   href: string;
   label: string;
+  tooltip: string;
   icon: React.ReactNode;
   colorClasses: string;
   glowClasses: string;
 }
  
-function FabButton({ href, label, icon, colorClasses, glowClasses }: FabProps) {
+function FabButton({ href, label, tooltip, icon, colorClasses, glowClasses }: FabProps) {
   return (
-    <a
-      href={href}
-      target={href.startsWith("http") ? "_blank" : undefined}
-      rel={href.startsWith("http") ? "noreferrer noopener" : undefined}
-      aria-label={label}
-      className={cn(
-        "inline-flex h-10 w-10 sm:h-12 sm:w-12 items-center justify-center rounded-full border shadow-lg",
-        "transition-all duration-200 hover:-translate-y-0.5 active:translate-y-0",
-        colorClasses,
-        glowClasses,
-      )}
-    >
-      {icon}
-    </a>
+    <div className="group relative flex items-center">
+      <span className="pointer-events-none absolute right-full mr-3 hidden whitespace-nowrap rounded-lg border border-gold/20 bg-ink-card/95 px-3 py-1.5 text-xs font-medium text-cream shadow-xl backdrop-blur-md transition-all duration-200 group-hover:translate-x-0 group-hover:opacity-100 sm:block opacity-0 translate-x-2">
+        {tooltip}
+      </span>
+      <a
+        href={href}
+        target={href.startsWith("http") ? "_blank" : undefined}
+        rel={href.startsWith("http") ? "noreferrer noopener" : undefined}
+        aria-label={label}
+        className={cn(
+          "inline-flex h-10 w-10 sm:h-12 sm:w-12 items-center justify-center rounded-full border shadow-lg",
+          "transition-all duration-200 hover:-translate-y-0.5 active:translate-y-0",
+          colorClasses,
+          glowClasses,
+        )}
+      >
+        {icon}
+      </a>
+    </div>
   );
 }
  
 export function FloatingContactButtons() {
+  const [show, setShow] = useState(false);
+
+  useEffect(() => {
+    function handleScroll() {
+      // Hide on hero banner (top portion of screen), show after scrolling down
+      const threshold = Math.max(250, window.innerHeight * 0.4);
+      if (window.scrollY > threshold) {
+        setShow(true);
+      } else {
+        setShow(false);
+      }
+    }
+    handleScroll();
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   return (
-    <div className="fixed bottom-6 right-5 z-40 flex flex-col items-end gap-3 sm:bottom-8 sm:right-6">
+    <div
+      className={cn(
+        "fixed bottom-4 right-3 z-40 flex flex-col items-end gap-2.5 sm:bottom-8 sm:right-6 transition-all duration-300 ease-in-out",
+        show
+          ? "opacity-100 translate-y-0 pointer-events-auto"
+          : "opacity-0 translate-y-6 pointer-events-none"
+      )}
+    >
       <ThemeToggle className="h-10 w-10 sm:h-12 sm:w-12 rounded-full border border-line bg-ink-card/90 backdrop-blur-md text-gold shadow-lg shadow-black/25 hover:border-gold/50 hover:bg-gold/5 hover:-translate-y-0.5 active:translate-y-0 duration-200 transition-all cursor-pointer" />
-      <FabButton
-        href={WHATSAPP_URL}
-        label="Join WhatsApp Group"
-        icon={<WhatsAppIcon className="size-5 sm:size-6" />}
-        colorClasses="bg-[#25D366] text-white hover:bg-[#1EBE57]"
-        glowClasses="hover:shadow-[0_8px_30px_-8px_rgba(37,211,102,0.5)]"
-      />
-      <FabButton
-        href={CALL_URL}
-        label="Call Us Now"
-        icon={<Phone className="size-4 sm:size-5" />}
-        colorClasses="bg-red-mid text-on-accent hover:bg-red-vivid"
-        glowClasses="hover:shadow-[0_8px_30px_-8px_rgba(219, 51, 19,0.6)]"
-      />
+      
+      {/* WhatsApp FAB with nearby enquiry text badge */}
+      <div className="group relative flex items-center gap-2">
+        <a
+          href={WHATSAPP_URL}
+          target="_blank"
+          rel="noreferrer noopener"
+          className={cn(
+            "flex items-center gap-2 rounded-full border border-[#25D366]/30 bg-ink-card/95 px-3 py-1.5 sm:px-3.5 sm:py-2 text-[11px] sm:text-xs font-medium text-cream shadow-xl backdrop-blur-md max-w-[calc(100vw-110px)] sm:max-w-none",
+            "transition-all duration-200 hover:border-[#25D366] hover:bg-[#25D366]/10 hover:-translate-y-0.5 active:translate-y-0"
+          )}
+        >
+          <span className="inline-block size-2 shrink-0 rounded-full bg-[#25D366] animate-pulse" />
+          <span className="truncate sm:whitespace-nowrap">Hi, I have an enquiry regarding Ten Crore Club</span>
+        </a>
+        <FabButton
+          href={WHATSAPP_URL}
+          label="WhatsApp Enquiry"
+          tooltip="WhatsApp Enquiry"
+          icon={<WhatsAppIcon className="size-5 sm:size-6" />}
+          colorClasses="bg-[#25D366] text-white hover:bg-[#1EBE57]"
+          glowClasses="hover:shadow-[0_8px_30px_-8px_rgba(37,211,102,0.5)]"
+        />
+      </div>
+
+      {/* Call FAB */}
+      <div className="group relative flex items-center gap-2">
+        <FabButton
+          href={CALL_URL}
+          label="Call Us Now"
+          tooltip="Call Us Now"
+          icon={<Phone className="size-4 sm:size-5" />}
+          colorClasses="bg-red-mid text-on-accent hover:bg-red-vivid"
+          glowClasses="hover:shadow-[0_8px_30px_-8px_rgba(219, 51, 19,0.6)]"
+        />
+      </div>
     </div>
   );
 }

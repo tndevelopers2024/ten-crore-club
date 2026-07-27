@@ -648,3 +648,51 @@ input[type="range"].tc-range::-moz-range-thumb {
   scrollbar-width: none;
   /* Firefox */
 }
+
+/* Swiper Pagination Styling for Reels */
+.reels-swiper .swiper-pagination-bullet {
+  background: rgba(255, 255, 255, 0.25);
+  opacity: 1;
+  width: 8px;
+  height: 8px;
+  transition: all 0.3s ease;
+}
+
+.reels-swiper .swiper-pagination-bullet-active {
+  background: linear-gradient(to right, #f59e0b, #ec4899, #a855f7);
+  width: 24px;
+  border-radius: 4px;
+}
+
+/* Autoplay Progress Line Animation */
+@keyframes progressFill {
+  0% {
+    width: 0%;
+  }
+  100% {
+    width: 100%;
+  }
+}
+
+.animate-autoplay-progress {
+  animation-name: progressFill;
+  animation-timing-function: linear;
+  animation-fill-mode: forwards;
+}
+
+@keyframes pulseSlow {
+  0%, 100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.85;
+    transform: scale(0.98);
+  }
+}
+
+.animate-pulse-slow {
+  animation: pulseSlow 4s ease-in-out infinite;
+}
+
+

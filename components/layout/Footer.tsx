@@ -47,7 +47,7 @@ const socials = [
   { icon: FaFacebookF, label: "Facebook", href: "https://www.facebook.com/people/Ten-Crore-Club/61590642871004/" },
   { icon: FaLinkedinIn, label: "LinkedIn", href: "https://www.linkedin.com/in/alex-pandyan-61778124a" },
   { icon: FaYoutube, label: "YouTube", href: "https://youtube.com/@tencroreclub" },
-  { icon: FaWhatsapp, label: "WhatsApp", href: "https://chat.whatsapp.com/FL5GGcI6V1DAbIXViSfd5a" },
+  { icon: FaWhatsapp, label: "WhatsApp", href: "https://wa.me/919840441135?text=Hi%2C%20I%20have%20an%20enquiry%20regarding%20Ten%20Crore%20Club" },
 ];
 
 export function Footer() {
@@ -213,16 +213,18 @@ export function Footer() {
               </li>
               <li>
                 <a
-                  href="tel:+919876543210"
+                  href="https://wa.me/919840441135?text=Hi%2C%20I%20have%20an%20enquiry%20regarding%20Ten%20Crore%20Club"
+                  target="_blank"
+                  rel="noreferrer noopener"
                   className="group flex items-center gap-3.5 rounded-xl p-2 transition-all duration-300 hover:bg-gold/[0.02]"
                 >
                   <span className="flex size-9 shrink-0 items-center justify-center rounded-lg bg-gold/8 text-gold transition-all duration-300 group-hover:scale-105 group-hover:bg-gold/15 group-hover:shadow-[0_0_15px_rgba(213,160,74,0.2)]">
                     <Phone className="size-4" />
                   </span>
                   <div>
-                    <p className="text-[10px] uppercase tracking-wider text-gold-light/45">Phone</p>
+                    <p className="text-[10px] uppercase tracking-wider text-gold-light/45">Phone / WhatsApp</p>
                     <p className="text-[13px] font-medium text-gold-light/85 transition-colors group-hover:text-gold">
-                      +91 98765 43210
+                      +91 98404 41135
                     </p>
                   </div>
                 </a>

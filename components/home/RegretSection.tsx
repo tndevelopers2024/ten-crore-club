@@ -38,11 +38,11 @@ export function RegretSection() {
               <div className="absolute -inset-px -z-10 rounded-2xl bg-gradient-to-r from-gold/0 via-gold/10 to-gold/0 opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
               
               <BrandImage
-                src="/images/home/image-2.avif"
-                alt="Vikram vs You: The cost of postponing your SIP decision"
+                src="/images/home/cost-of-delay-vikram-vs-you.avif"
+                alt="Vikram vs You: The cost of postponing your SIP decision to 2040"
                 aspect="16/9"
                 rounded="lg"
-                imgClassName="!object-contain transition-transform duration-700"
+                imgClassName="!object-contain transition-transform duration-700 hover:scale-[1.01]"
                 priority
               />
             </div>

@@ -23,9 +23,9 @@ import { Card } from "@/components/ui/Card";
 import { BlueprintCTA } from "@/components/forms/BlueprintCTA";
 
 export const metadata: Metadata = {
-  title: "About Me | Alex Pandyan - Ten Crore Club",
+  title: "About Me | Alex Pandyan – Wealth Architect & Founder",
   description:
-    "I’m Alex Pandyan, founder of TenCroreClub, helping business owners and professionals build structured, long-term wealth through disciplined investing.",
+    "Alex Pandyan is a Wealth Architect & founder of TenCroreClub, helping business owners and professionals build structured, long-term wealth through disciplined investing.",
 };
 
 const approachPillars = [
@@ -72,14 +72,14 @@ export default function AboutPage() {
   return (
     <>
       <PageHero
-        eyebrow="About Me – TenCroreClub"
+        eyebrow="Wealth Architect & Founder – TenCroreClub"
         title={
           <>
             Earning well is not enough — your money must{" "}
             <span className="gold-text">work as hard as you do.</span>
           </>
         }
-        subtitle="I’m Alex Pandyan, founder of TenCroreClub, and I help business owners and professionals build structured, long-term wealth through disciplined investing."
+        subtitle="I’m Alex Pandyan, Wealth Architect & founder of TenCroreClub. I help business owners and high-performing professionals design precision wealth blueprints and compound long-term capital."
       />
 
       {/* Founder Story & Introduction */}
@@ -89,7 +89,7 @@ export default function AboutPage() {
             <div className="space-y-6">
               <BrandImage
                 src="/images/home/image-1-by-ten-crore-club.avif"
-                alt="Alex Pandyan - Founder, Ten Crore Club"
+                alt="Alex Pandyan - Wealth Architect & Founder, Ten Crore Club"
                 aspect="3/4"
                 bordered
                 sizes="(min-width: 768px) 360px, 100vw"
@@ -97,13 +97,13 @@ export default function AboutPage() {
               />
               <Card className="text-center">
                 <div className="flex flex-col gap-3 text-sm">
-                  <span className="flex items-center justify-center gap-2 font-medium text-gold">
+                  <span className="flex items-center justify-center gap-2 font-bold text-gold">
+                    <Compass className="size-5 shrink-0 text-gold" /> Wealth Architect & Founder
+                  </span>
+                  <span className="flex items-center justify-center gap-2 font-medium text-gold-light/90">
                     <ShieldCheck className="size-5 shrink-0 text-gold" /> AMFI Registered MFD
                   </span>
-                  <span className="flex items-center justify-center gap-2 font-medium text-gold">
-                    <Award className="size-5 shrink-0 text-gold" /> ARN: XXXXX
-                  </span>
-                  <span className="flex items-center justify-center gap-2 font-medium text-gold">
+                  <span className="flex items-center justify-center gap-2 font-medium text-gold-light/90">
                     <BadgeCheck className="size-5 shrink-0 text-gold" /> SEBI Compliant
                   </span>
                 </div>
@@ -114,13 +114,13 @@ export default function AboutPage() {
           <Reveal delay={120}>
             <div className="space-y-6">
               <p className="text-xl leading-relaxed text-gold-light/90 sm:text-2xl">
-                Over the years, I’ve seen a common pattern — successful individuals generating strong income, yet lacking a clear roadmap to turn that income into meaningful wealth.
+                Over the years as a Wealth Architect, I’ve seen a common pattern — successful individuals generating strong income, yet lacking an engineered roadmap to turn that income into enduring, multi-generational wealth.
               </p>
               <p className="font-display text-2xl font-medium text-cream sm:text-3xl">
                 That’s where I come in.
               </p>
               <p className="text-base leading-relaxed text-gold-light/80 sm:text-lg">
-                Instead of chasing trends or short-term gains, my approach focuses on:
+                Instead of chasing market trends or speculative tips, my work as a Wealth Architect focuses on designing structural clarity:
               </p>
 
               <div className="grid gap-3 sm:grid-cols-3">

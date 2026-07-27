@@ -14,9 +14,9 @@ import { Reveal } from "@/components/shared/Reveal";
 import { BookingForm } from "@/components/forms/BookingForm";
 
 export const metadata: Metadata = {
-  title: "Book a Free Strategy Call",
+  title: "Book a Free Strategy Call | Alex Pandyan — Wealth Architect",
   description:
-    "Book a free 30-minute strategy session. We'll map your income, your ₹10 Crore timeline, and the exact next steps — no sales pressure.",
+    "Book a free 30-minute strategy session with Wealth Architect Alex Pandyan. We'll map your income, your ₹10 Crore timeline, and the exact next steps — no sales pressure.",
 };
 
 const covers = [

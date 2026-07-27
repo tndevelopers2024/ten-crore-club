@@ -34,7 +34,7 @@ export function BlueprintCTA() {
         </h3>
         
         <p className="mx-auto mt-3 max-w-xl text-sm leading-relaxed text-gold-light/80 sm:text-base">
-          Get Alex Pandyan’s step-by-step framework and arithmetic roadmap to building generational wealth delivered directly to your inbox.
+          Get Alex Pandyan’s Wealth Architect blueprint and arithmetic roadmap to building generational wealth delivered directly to your inbox.
         </p>
 
         <div className="mt-8">

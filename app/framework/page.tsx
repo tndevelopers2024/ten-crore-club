@@ -52,7 +52,7 @@ export default function FrameworkPage() {
             <span className="gold-text">serious wealth.</span>
           </>
         }
-        subtitle="Five disciplines. One number. We don't sell products — we install a system that compounds whether you're watching it or not."
+        subtitle="Five disciplines. One number. We don't sell products — we architect a system that compounds whether you're watching it or not."
       />
 
       <SectionWrapper>

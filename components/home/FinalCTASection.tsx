@@ -4,7 +4,7 @@ import { TrustStrip } from "@/components/shared/TrustStrip";
 
 export function FinalCTASection() {
   return (
-    <section className="px-5 py-24 sm:px-8 md:py-28">
+    <section className="px-5 py-10 sm:px-8 md:py-14">
       <Reveal className="mx-auto max-w-5xl">
         <div className="cta-radial relative overflow-hidden rounded-2xl border border-gold/40 p-10 text-center sm:p-16">
           <h2 className="mx-auto max-w-3xl text-display-lg text-balance text-cream">

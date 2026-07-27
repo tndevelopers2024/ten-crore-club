@@ -1,7 +1,6 @@
 "use client";
 
-import { useState } from "react";
-import { ChevronLeft, ChevronRight, Sparkles, ExternalLink } from "lucide-react";
+import { ExternalLink } from "lucide-react";
 import { Swiper, SwiperSlide } from "swiper/react";
 
 function InstagramIcon({ className = "size-4" }: { className?: string }) {
@@ -26,33 +25,14 @@ import { Reveal } from "@/components/shared/Reveal";
 import { Eyebrow } from "@/components/ui/Badge";
 import { instagramReels } from "@/data/reels";
 import { ReelCard } from "@/components/home/ReelCard";
-import { ReelModal } from "@/components/home/ReelModal";
-import type { InstagramReel, ReelCategory } from "@/types";
-import { CTAButton } from "@/components/shared/CTAButton";
 
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
 
-const CATEGORIES: { key: ReelCategory; label: string }[] = [
-  { key: "all", label: "All Reels" },
-  { key: "sip-wealth", label: "SIP & Wealth" },
-  { key: "mindset", label: "Mindset & Psychology" },
-  { key: "market-insights", label: "Market Insights" },
-  { key: "stories", label: "Member Stories" },
-];
-
 export function InstagramReelsSection() {
-  const [activeCategory, setActiveCategory] = useState<ReelCategory>("all");
-  const [selectedReel, setSelectedReel] = useState<InstagramReel | null>(null);
-
-  const filteredReels =
-    activeCategory === "all"
-      ? instagramReels
-      : instagramReels.filter((r) => r.category === activeCategory);
-
   return (
-    <section className="relative px-5 py-24 sm:px-8 md:py-28 overflow-hidden bg-ink/50 border-y border-gold/15">
+    <section className="relative px-5 py-10 sm:px-8 md:py-14 overflow-hidden bg-ink/50 border-y border-gold/15">
       {/* Background Ambient Glowing Orbs */}
       <div
         aria-hidden
@@ -88,26 +68,6 @@ export function InstagramReelsSection() {
               Short, high-yield insights on SIP strategies, compounding mechanics, and behavioral psychology from our official channel.
             </p>
           </Reveal>
-
-          {/* Category Filter Tabs */}
-          <Reveal delay={100} className="mt-8 flex flex-wrap justify-center gap-2 max-w-3xl">
-            {CATEGORIES.map((cat) => {
-              const isActive = activeCategory === cat.key;
-              return (
-                <button
-                  key={cat.key}
-                  onClick={() => setActiveCategory(cat.key)}
-                  className={`px-4 py-2 rounded-full text-xs font-semibold transition-all duration-300 cursor-pointer ${
-                    isActive
-                      ? "bg-gradient-to-r from-amber-500 via-rose-500 to-purple-600 text-white shadow-[0_0_20px_rgba(213,160,74,0.35)] scale-105"
-                      : "bg-ink-card/70 border border-gold/20 text-gold-light/70 hover:border-gold/50 hover:text-cream"
-                  }`}
-                >
-                  {cat.label}
-                </button>
-              );
-            })}
-          </Reveal>
         </div>
 
         {/* Reels Swiper Slider */}
@@ -130,9 +90,9 @@ export function InstagramReelsSection() {
               autoplay={{ delay: 6000, disableOnInteraction: true }}
               className="reels-swiper !pb-14"
             >
-              {filteredReels.map((reel) => (
+              {instagramReels.map((reel) => (
                 <SwiperSlide key={reel.id}>
-                  <ReelCard reel={reel} onSelect={(r) => setSelectedReel(r)} />
+                  <ReelCard reel={reel} />
                 </SwiperSlide>
               ))}
             </Swiper>
@@ -167,14 +127,6 @@ export function InstagramReelsSection() {
           </a>
         </Reveal>
       </div>
-
-      {/* Reel Playback Modal */}
-      <ReelModal
-        reel={selectedReel}
-        reels={filteredReels}
-        onClose={() => setSelectedReel(null)}
-        onSelectReel={(reel) => setSelectedReel(reel)}
-      />
     </section>
   );
 }

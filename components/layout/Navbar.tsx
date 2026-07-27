@@ -62,10 +62,10 @@ export function Navbar() {
         {/* Desktop links - styled as capsule */}
         <ul
           className={cn(
-            "hidden items-center gap-1 lg:flex h-12 rounded-full border px-2 transition-all duration-500",
+            "hidden items-center gap-1 lg:flex h-12 rounded-full px-2 transition-all duration-500",
             scrolled
-              ? "border-gold/15 bg-ink/80 shadow-[0_8px_32px_-8px_rgba(0,0,0,0.7),0_0_0_1px_rgba(213,160,74,0.08)] backdrop-blur-xl"
-              : "border-gold/10 bg-ink-card/60 backdrop-blur-md",
+              ? "bg-ink/80 shadow-[0_8px_32px_-8px_rgba(0,0,0,0.7)] backdrop-blur-xl"
+              : "bg-ink-card/60 backdrop-blur-md",
           )}
         >
           {links.map((link) => {

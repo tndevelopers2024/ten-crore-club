@@ -86,7 +86,7 @@ function StoryCard({
 
 export function MemberStoriesSection() {
   return (
-    <section className="px-5 py-24 sm:px-8 md:py-18">
+    <section className="px-5 py-10 sm:px-8 md:py-14">
       <div className="mx-auto max-w-6xl">
         <Reveal className="max-w-3xl">
           <Eyebrow>Member Stories</Eyebrow>

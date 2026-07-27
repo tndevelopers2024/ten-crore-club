@@ -7,7 +7,7 @@ import { BrandImage } from "@/components/shared/BrandImage";
 
 export function HeroSection() {
   return (
-    <section className="relative flex min-h-[92vh] items-center overflow-hidden px-5 pt-0 pb-0 sm:px-8">
+    <section className="relative flex min-h-[75vh] items-center overflow-hidden px-5 py-10 sm:px-8 md:py-14">
       {/* red radial glow */}
       <div
         aria-hidden

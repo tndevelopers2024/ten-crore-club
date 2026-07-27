@@ -115,24 +115,10 @@ export function BannerSlider() {
         ))}
       </div>
 
-      {/* Luxury Layered Scrims & Ambient Glow */}
+      {/* 50% dark overlay for rich contrast and clear text readability */}
       <div
         aria-hidden
-        className="pointer-events-none absolute inset-0 bg-gradient-to-b from-ink/90 via-ink/65 to-ink/95 z-10"
-      />
-
-      {/* Radial Gold / Crimson Spotlight */}
-      <div
-        aria-hidden
-        className="pointer-events-none absolute inset-0 z-10"
-        style={{
-          background:
-            "radial-gradient(ellipse 80% 50% at 50% 20%, rgba(213, 160, 74, 0.12) 0%, rgba(203, 5, 3, 0.18) 50%, transparent 80%)",
-        }}
-      />
-      <div
-        aria-hidden
-        className="noise-overlay pointer-events-none absolute inset-0 opacity-[0.035] mix-blend-overlay z-10"
+        className="pointer-events-none absolute inset-0 bg-black/50 z-10"
       />
 
       {/* Top Header Logo */}
@@ -178,12 +164,12 @@ export function BannerSlider() {
                 )}
 
                 {/* Headline */}
-                <h1 className="mx-auto max-w-4xl text-display-2xl text-balance text-white leading-[1.08] tracking-tight">
+                <h1 className="mx-auto max-w-4xl text-display-2xl text-balance text-white leading-[1.08] tracking-tight drop-shadow-[0_4px_18px_rgba(0,0,0,0.95)]">
                   {renderTitle(slide.title)}
                 </h1>
 
                 {/* Subtitle */}
-                <p className="mx-auto mt-6 max-w-2xl text-base sm:text-lg leading-relaxed text-cream/85 font-normal drop-shadow-sm">
+                <p className="mx-auto mt-6 max-w-2xl text-base sm:text-lg leading-relaxed text-cream/95 font-medium drop-shadow-[0_2px_12px_rgba(0,0,0,0.95)]">
                   {slide.subtitle}
                 </p>
 

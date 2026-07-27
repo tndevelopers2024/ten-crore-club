@@ -1,142 +1,93 @@
 "use client";
 
-import { useState, useRef } from "react";
 import { Reveal } from "@/components/shared/Reveal";
 import { Eyebrow } from "@/components/ui/Badge";
 import { CTAButton } from "@/components/shared/CTAButton";
 import { MilestoneBars } from "@/components/calculators/CalculatorChart";
 import { pillars, methodMilestones } from "@/data/pillars";
-import { BrandImage } from "@/components/shared/BrandImage";
-import { cn } from "@/lib/utils";
 
 export function MethodSection() {
-  const containerRef = useRef<HTMLDivElement>(null);
-  const [activeIndex, setActiveIndex] = useState(0);
-
-  const handleScroll = () => {
-    const container = containerRef.current;
-    if (!container || container.children.length === 0) return;
-    
-    const scrollLeft = container.scrollLeft;
-    const childWidth = container.children[0].clientWidth;
-    const gap = 20; // gap-5 is 20px
-    const index = Math.round(scrollLeft / (childWidth + gap));
-    const clampedIndex = Math.max(0, Math.min(index, pillars.length - 1));
-    setActiveIndex(clampedIndex);
-  };
-
-  const scrollToSlide = (index: number) => {
-    const container = containerRef.current;
-    if (!container || !container.children[index]) return;
-    
-    const child = container.children[index] as HTMLElement;
-    const containerRect = container.getBoundingClientRect();
-    const childRect = child.getBoundingClientRect();
-    const scrollLeft = container.scrollLeft + (childRect.left - containerRect.left) - (containerRect.width - childRect.width) / 2;
-    
-    container.scrollTo({
-      left: scrollLeft,
-      behavior: "smooth"
-    });
-    setActiveIndex(index);
-  };
-
   return (
-    <section className="px-5 py-24 sm:px-8 md:py-18">
+    <section className="px-5 py-10 sm:px-8 md:py-14">
       <div className="mx-auto max-w-6xl">
-        <Reveal className="max-w-3xl">
+        {/* Header */}
+        <Reveal className="text-center mx-auto max-w-3xl">
           <Eyebrow>The Ten Crore Method™</Eyebrow>
-          <h2 className="text-display-lg text-balance text-cream">
+          <h2 className="mt-3 text-display-lg text-balance text-cream">
             Not a product. <span className="gold-text">A proven system.</span>
           </h2>
-          <p className="mt-5 text-lg text-gold-light/80">
+          <p className="mt-4 text-base sm:text-lg leading-relaxed text-gold-light/80">
             Most investors fail not because of bad funds — but because they have
-            no system. Five disciplines, working together, compound into a number.
+            no system. Five core disciplines work together to compound your wealth.
           </p>
         </Reveal>
-        {/* Forces Fast Refresh to pick up data changes */}
 
-        {/* pillars */}
-        <div
-          ref={containerRef}
-          onScroll={handleScroll}
-          className="mt-14 flex gap-5 overflow-x-auto snap-x snap-mandatory no-scrollbar pb-2 md:grid md:overflow-x-visible md:pb-0 md:grid-cols-4 lg:grid-cols-6"
-        >
+        {/* 5 Pillars Grid */}
+        <div className="mt-8 sm:mt-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4 lg:gap-5">
           {pillars.map((p, i) => {
             const Icon = p.icon;
             return (
-              <Reveal
-                as="article"
-                key={p.number}
-                delay={i * 100}
-                className={cn(
-                  "w-[85vw] sm:w-[50vw] md:w-auto shrink-0 snap-align-center snap-always",
-                  i === 3
-                    ? "md:col-span-2 lg:col-span-2 lg:col-start-2"
-                    : i === 4
-                    ? "md:col-span-2 md:col-start-2 lg:col-span-2 lg:col-start-auto"
-                    : "md:col-span-2 lg:col-span-2"
-                )}
-              >
-                <div className="group flex h-full flex-col overflow-hidden rounded-lg border border-line bg-ink-card transition-colors hover:border-gold/40">
-                  {p.image && (
-                    <BrandImage
-                      src={p.image}
-                      alt={p.title}
-                      aspect="1/1"
-                      className="border-b border-line"
-                      imgClassName="transition-transform duration-500"
-                    />
-                  )}
-                  <div className="flex flex-1 flex-col p-6">
+              <Reveal key={p.number} delay={i * 80} className="h-full">
+                <div className="group relative flex h-full flex-col justify-between overflow-hidden rounded-xl border border-line bg-ink-card p-6 transition-all duration-300 hover:border-gold/40 hover:bg-ink-card/90">
+                  <div>
+                    {/* Top Row: Number & Icon */}
                     <div className="flex items-center justify-between">
-                      <span className="font-mono text-3xl font-bold text-gold/25">
+                      <span className="font-mono text-2xl font-bold text-gold/30 transition-colors group-hover:text-gold/60">
                         {p.number}
                       </span>
-                      <Icon className="size-7 text-gold transition-transform group-hover:scale-110" />
+                      <div className="flex size-10 items-center justify-center rounded-lg border border-gold/20 bg-gold/10 transition-colors group-hover:border-gold/40 group-hover:bg-gold/20">
+                        <Icon className="size-5 text-gold transition-transform group-hover:scale-110" />
+                      </div>
                     </div>
-                    <h3 className="mt-4 font-display text-2xl font-semibold text-cream">
+
+                    {/* Title */}
+                    <h3 className="mt-5 font-display text-lg font-semibold text-cream group-hover:text-gold-warm transition-colors">
                       {p.title}
                     </h3>
+
+                    {/* Description */}
+                    <p className="mt-2 text-xs sm:text-sm leading-relaxed text-gold-light/70">
+                      {p.short}
+                    </p>
                   </div>
+
+                  {/* Subtle hover accent line */}
+                  <div className="mt-6 h-0.5 w-full bg-line transition-colors group-hover:bg-gold/40" />
                 </div>
               </Reveal>
             );
           })}
         </div>
 
-        {/* Mobile slide indicators */}
-        <div className="mt-6 flex justify-center gap-2.5 md:hidden">
-          {pillars.map((_, i) => (
-            <button
-              key={i}
-              onClick={() => scrollToSlide(i)}
-              className={cn(
-                "h-1.5 rounded-full transition-all duration-300 cursor-pointer",
-                activeIndex === i ? "w-6 bg-gold" : "w-1.5 bg-gold/25 hover:bg-gold/40"
-              )}
-              aria-label={`Go to slide ${i + 1}`}
-            />
-          ))}
-        </div>
+        {/* Milestone Chart Section */}
+        <Reveal delay={120} className="mt-8 sm:mt-10">
+          <div className="rounded-2xl border border-line bg-ink-card p-6 sm:p-8 md:p-10">
+            <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 pb-6 border-b border-line">
+              <div>
+                <p className="text-xs font-mono tracking-wider uppercase text-gold">
+                  Compounding In Action
+                </p>
+                <h3 className="mt-1 font-display text-xl sm:text-2xl font-semibold text-cream">
+                  How a single discipline becomes ₹10 Crore
+                </h3>
+              </div>
+              <p className="text-xs text-gold-light/60 font-mono">
+                Based on ₹30,000/mo SIP @ 12.5% CAGR
+              </p>
+            </div>
 
-        {/* milestone chart */}
-        <Reveal delay={120} className="mt-16">
-          <div className="rounded-xl border border-line bg-ink-card p-6 sm:p-8">
-            <p className="mb-1 text-sm text-gold-light/70">
-              A ₹30,000/month SIP at 12.5% annualised returns
-            </p>
-            <p className="mb-6 font-display text-xl text-cream">
-              How a single discipline becomes ₹10 Crore.
-            </p>
-            <MilestoneBars data={methodMilestones} />
-            <p className="mt-6 text-[11px] leading-relaxed text-gold-light/40">
-              Illustrative only. Returns are not guaranteed; actual results vary.
+            <div className="mt-6">
+              <MilestoneBars data={methodMilestones} />
+            </div>
+
+            <p className="mt-6 text-[11px] text-center sm:text-left leading-relaxed text-gold-light/40">
+              *Illustrative calculation only based on constant returns. Market returns fluctuate and are not guaranteed.
             </p>
           </div>
         </Reveal>
 
-        <Reveal delay={150} className="mt-10 text-center">
+        {/* CTA */}
+        <Reveal delay={150} className="mt-8 text-center">
           <CTAButton href="/framework" size="lg">
             Explore the Full Framework
           </CTAButton>
@@ -145,3 +96,4 @@ export function MethodSection() {
     </section>
   );
 }
+

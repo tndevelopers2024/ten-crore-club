@@ -4,7 +4,7 @@ import { BrandImage } from "@/components/shared/BrandImage";
 
 export function RegretSection() {
   return (
-    <section className="px-5 py-14 sm:px-8 md:py-0">
+    <section className="px-5 py-10 sm:px-8 md:py-12">
       <div className="mx-auto max-w-7xl">
         <Reveal className="mx-auto max-w-3xl text-center">
           <h2 className="text-display-lg text-balance text-cream">
@@ -14,7 +14,7 @@ export function RegretSection() {
         </Reveal>
 
         <Reveal delay={120}>
-          <GoldDivider className="my-10" />
+          <GoldDivider className="my-6" />
         </Reveal>
 
         <div className="mx-auto max-w-3xl text-center">
@@ -25,14 +25,14 @@ export function RegretSection() {
             </Reveal>
 
             <Reveal delay={240}>
-              <p className="mt-6 font-display text-2xl italic leading-relaxed text-gold-light/70 sm:text-[1.7rem]">
+              <p className="mt-4 font-display text-2xl italic leading-relaxed text-gold-light/70 sm:text-[1.7rem]">
                 Not because you couldn&apos;t, because you were going to{" "}
                 <span className="text-cream">“start next month.”</span>
               </p>
             </Reveal>
           </div>
 
-          <Reveal delay={200} className="mx-auto mt-12 max-w-6xl">
+          <Reveal delay={200} className="mx-auto mt-8 max-w-6xl">
             <div className="group relative overflow-hidden rounded-2xl border border-gold/30 bg-ink-card p-2 transition-all duration-500 hover:border-gold/60 hover:shadow-[0_0_50px_-12px_rgba(212,175,55,0.25)]">
               {/* Ambient gold glow effect behind the image */}
               <div className="absolute -inset-px -z-10 rounded-2xl bg-gradient-to-r from-gold/0 via-gold/10 to-gold/0 opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
@@ -49,7 +49,7 @@ export function RegretSection() {
           </Reveal>
 
         <Reveal delay={320}>
-          <div className="gold-glow mx-auto mt-12 max-w-3xl rounded-xl border border-gold/40 bg-ink/60 p-8 text-center">
+          <div className="gold-glow mx-auto mt-8 max-w-3xl rounded-xl border border-gold/40 bg-ink/60 p-6 sm:p-8 text-center">
             <p className="text-lg leading-relaxed text-cream sm:text-xl">
               The difference between you and Vikram isn&apos;t intelligence. It
               isn&apos;t income. It isn&apos;t luck.{" "}

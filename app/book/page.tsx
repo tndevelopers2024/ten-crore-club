@@ -30,7 +30,7 @@ const covers = [
 const trust = [
   { icon: ShieldCheck, label: "AMFI Registered" },
   { icon: Lock, label: "SEBI Compliant" },
-  { icon: Users, label: "340+ members investing" },
+  { icon: Users, label: "Active member network" },
   { icon: Clock, label: "Response within 24 hours" },
   { icon: XCircle, label: "No guaranteed-return claims" },
   { icon: BookOpen, label: "Education-first approach" },

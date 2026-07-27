@@ -18,7 +18,7 @@ This project is a modern, high-performance web application built with **Next.js 
   - **GIFT City Investments**: Global exposure & tax-efficient offshore investments.
   - **Portfolio Management Services (PMS)** & **Alternative Investment Funds (AIF)**.
   - **Fixed Deposits & Debt Solutions**: High-yield FDs and optimized loan structures.
-- **Behavioral Coaching & Community**: Peer accountability and guidance for 340+ active members.
+- **Behavioral Coaching & Community**: Peer accountability and guidance for active members.
 - **AMFI Registered**: Professional, regulated financial advisory framework.
 
 ---

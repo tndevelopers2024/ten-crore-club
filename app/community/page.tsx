@@ -40,7 +40,7 @@ const inner = [
   "Personal goal dashboard (track your ₹10 Crore milestone)",
   "Behavioral coaching sessions during corrections",
   "Exclusive masterclasses with senior financial professionals",
-  "Private network of 340+ verified HNI members",
+  "Private network of verified HNI members",
   "Priority access to new tools and research",
 ];
 

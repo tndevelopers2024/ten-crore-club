@@ -16,7 +16,7 @@ const innerCircle = [
   "Behavioral coaching",
   "Exclusive portfolio discussions",
   "Goal tracking dashboard",
-  "Private 340+ HNI network",
+  "Private HNI network",
   "Priority tool access",
 ];
 

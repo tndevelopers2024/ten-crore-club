@@ -48,7 +48,7 @@ export const bannerSlides: BannerSlide[] = [
     eyebrow: "Private Investor Club",
     title: "Don't build it {alone. Build it with us.}",
     subtitle:
-      "340+ disciplined investors, AMFI-registered guidance, and behavioral coaching that keeps your SIP running through every market storm.",
+      "Disciplined investors, AMFI-registered guidance, and behavioral coaching that keeps your SIP running through every market storm.",
     icon: ShieldCheck,
     image: {
       src: "/images/banners/banner-image-2-by-10crore.avif",
@@ -57,7 +57,7 @@ export const bannerSlides: BannerSlide[] = [
     primaryCta: { label: "Book a Strategy Call", href: "/book" },
     secondaryCta: { label: "Explore Community", href: "/community" },
     stats: [
-      { label: "Active Members", value: "340+" },
+      { label: "Investor Network", value: "Private" },
       { label: "Guidance Quality", value: "AMFI Reg." },
       { label: "Asset Retention", value: "99.2%" },
     ],

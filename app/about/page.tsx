@@ -5,13 +5,13 @@ import {
   Calculator,
   ShieldCheck,
   BadgeCheck,
-  Award,
   CheckCircle2,
   Target,
   Compass,
   TrendingUp,
   Trophy,
   HeartHandshake,
+  Sparkles,
 } from "lucide-react";
 import { PageHero } from "@/components/shared/PageHero";
 import { SectionWrapper } from "@/components/shared/SectionWrapper";
@@ -23,9 +23,9 @@ import { Card } from "@/components/ui/Card";
 import { BlueprintCTA } from "@/components/forms/BlueprintCTA";
 
 export const metadata: Metadata = {
-  title: "About Me | Alex Pandyan – Wealth Architect & Founder",
+  title: "About Me | Alex Pandyan – TenCroreClub",
   description:
-    "Alex Pandyan is a Wealth Architect & founder of TenCroreClub, helping business owners and professionals build structured, long-term wealth through disciplined investing.",
+    "I’m Alex Pandyan, founder of TenCroreClub, and I help business owners and professionals build structured, long-term wealth through disciplined investing.",
 };
 
 const approachPillars = [
@@ -72,14 +72,17 @@ export default function AboutPage() {
   return (
     <>
       <PageHero
-        eyebrow="Wealth Architect & Founder – TenCroreClub"
+        eyebrow="👤 About Me – TenCroreClub"
         title={
           <>
+            <span className="block text-sm font-semibold uppercase tracking-widest text-gold/90 mb-3 sm:text-base">
+              I work with a simple belief:
+            </span>
             Earning well is not enough — your money must{" "}
             <span className="gold-text">work as hard as you do.</span>
           </>
         }
-        subtitle="I’m Alex Pandyan, Wealth Architect & founder of TenCroreClub. I help business owners and high-performing professionals design precision wealth blueprints and compound long-term capital."
+        subtitle="I’m Alex Pandyan, founder of TenCroreClub, and I help business owners and professionals build structured, long-term wealth through disciplined investing."
       />
 
       {/* Founder Story & Introduction */}
@@ -91,7 +94,7 @@ export default function AboutPage() {
                 <div className="pointer-events-none absolute -inset-1.5 rounded-3xl bg-gradient-to-b from-gold/30 via-gold/10 to-transparent opacity-70 blur-xl transition-opacity duration-500 group-hover:opacity-100" />
                 <BrandImage
                   src="/images/home/image-1-by-ten-crore-club.avif"
-                  alt="Alex Pandyan - Wealth Architect & Founder, Ten Crore Club"
+                  alt="Alex Pandyan - Founder, TenCroreClub"
                   aspect="3/4"
                   bordered
                   className="relative z-10 rounded-2xl shadow-[0_16px_50px_rgba(0,0,0,0.8)]"
@@ -102,7 +105,7 @@ export default function AboutPage() {
               <Card className="border-gold/25 bg-ink-card/90 shadow-[0_10px_30px_rgba(0,0,0,0.4)] backdrop-blur-xl">
                 <div className="flex flex-col gap-3.5 text-sm">
                   <div className="flex items-center justify-center gap-2 rounded-full border border-gold/30 bg-gold/10 px-4 py-2 font-bold text-gold shadow-[0_2px_10px_rgba(213,160,74,0.15)]">
-                    <Compass className="size-4 shrink-0 text-gold" /> Wealth Architect & Founder
+                    <Compass className="size-4 shrink-0 text-gold" /> Founder – TenCroreClub
                   </div>
                   <div className="flex items-center justify-center gap-2 rounded-full border border-line bg-ink/60 px-4 py-2 font-medium text-gold-light/90">
                     <ShieldCheck className="size-4 shrink-0 text-gold" /> AMFI Registered MFD
@@ -118,17 +121,17 @@ export default function AboutPage() {
           <Reveal delay={120}>
             <div className="space-y-7">
               <p className="text-xl leading-relaxed text-gold-light/90 sm:text-2xl font-light">
-                Over the years as a <span className="font-semibold text-cream">Wealth Architect</span>, I’ve seen a common pattern — successful individuals generating strong income, yet lacking an engineered roadmap to turn that income into enduring, multi-generational wealth.
+                Over the years, I’ve seen a common pattern — successful individuals generating strong income, yet lacking a clear roadmap to turn that income into meaningful wealth.
               </p>
               <p className="font-display text-2xl font-bold tracking-tight text-cream sm:text-3xl">
                 That’s where I come in.
               </p>
               <p className="text-base leading-relaxed text-gold-light/80 sm:text-lg">
-                Instead of chasing market trends or speculative tips, my work as a Wealth Architect focuses on designing structural clarity:
+                Instead of chasing trends or short-term gains, my approach focuses on:
               </p>
 
               <div className="grid gap-4 sm:grid-cols-3">
-                {approachPillars.map((item, i) => {
+                {approachPillars.map((item) => {
                   const Icon = item.icon;
                   return (
                     <div
@@ -150,7 +153,7 @@ export default function AboutPage() {
 
               <div className="relative overflow-hidden rounded-2xl border border-gold/50 bg-gradient-to-r from-gold/15 via-ink-card to-gold/10 p-6 text-center shadow-[0_0_40px_rgba(213,160,74,0.15)] sm:p-8">
                 <p className="font-display text-xl font-bold tracking-wide text-cream sm:text-2xl">
-                  Building a ₹10 Crore portfolio with confidence and structure
+                  👉 Building a ₹10 Crore portfolio with confidence and structure
                 </p>
               </div>
 
@@ -167,7 +170,7 @@ export default function AboutPage() {
       {/* What Makes My Approach Different */}
       <SectionWrapper>
         <Reveal className="mb-10 text-center">
-          <h2 className="text-display-md text-cream">What Makes My Approach Different</h2>
+          <h2 className="text-display-md text-cream">💎 What Makes My Approach Different</h2>
           <p className="mx-auto mt-4 max-w-2xl text-lg text-gold-light/80">
             I don’t believe in one-size-fits-all advice.
           </p>
@@ -181,20 +184,17 @@ export default function AboutPage() {
                 <span className="mb-5 inline-flex items-center gap-1.5 rounded-full border border-gold/30 bg-gold/10 px-4 py-1.5 text-xs font-bold uppercase tracking-wider text-gold shadow-[0_2px_10px_rgba(213,160,74,0.15)]">
                   Personalized Roadmap
                 </span>
-                <h3 className="font-display text-3xl font-bold text-cream">Built Around Your Reality</h3>
-                <p className="mt-3 text-base leading-relaxed text-gold-light/80">
-                  Every client journey is built around:
-                </p>
+                <h3 className="font-display text-2xl font-bold text-cream sm:text-3xl">Every client journey is built around:</h3>
                 <ul className="mt-6 space-y-4">
-                  <li className="flex items-center gap-3.5 text-cream font-medium">
+                  <li className="flex items-center gap-3.5 text-cream font-medium text-base sm:text-lg">
                     <span className="size-2.5 shrink-0 rounded-full bg-gold shadow-[0_0_8px_rgba(213,160,74,0.8)]" />
                     <span>Their business cash flows</span>
                   </li>
-                  <li className="flex items-center gap-3.5 text-cream font-medium">
+                  <li className="flex items-center gap-3.5 text-cream font-medium text-base sm:text-lg">
                     <span className="size-2.5 shrink-0 rounded-full bg-gold shadow-[0_0_8px_rgba(213,160,74,0.8)]" />
                     <span>Their risk appetite</span>
                   </li>
-                  <li className="flex items-center gap-3.5 text-cream font-medium">
+                  <li className="flex items-center gap-3.5 text-cream font-medium text-base sm:text-lg">
                     <span className="size-2.5 shrink-0 rounded-full bg-gold shadow-[0_0_8px_rgba(213,160,74,0.8)]" />
                     <span>Their long-term life goals</span>
                   </li>
@@ -209,20 +209,17 @@ export default function AboutPage() {
                 <span className="mb-5 inline-flex items-center gap-1.5 rounded-full border border-gold/30 bg-gold/10 px-4 py-1.5 text-xs font-bold uppercase tracking-wider text-gold shadow-[0_2px_10px_rgba(213,160,74,0.15)]">
                   Disciplined Execution
                 </span>
-                <h3 className="font-display text-3xl font-bold text-cream">A Structured System</h3>
-                <p className="mt-3 text-base leading-relaxed text-gold-light/80">
-                  Through a structured system, I ensure that your investments are:
-                </p>
+                <h3 className="font-display text-2xl font-bold text-cream sm:text-3xl">Through a structured system, I ensure that your investments are:</h3>
                 <ul className="mt-6 space-y-4">
-                  <li className="flex items-center gap-3.5 text-cream font-medium">
+                  <li className="flex items-center gap-3.5 text-cream font-medium text-base sm:text-lg">
                     <CheckCircle2 className="size-5 shrink-0 text-gold" />
                     <span>Purpose-driven</span>
                   </li>
-                  <li className="flex items-center gap-3.5 text-cream font-medium">
+                  <li className="flex items-center gap-3.5 text-cream font-medium text-base sm:text-lg">
                     <CheckCircle2 className="size-5 shrink-0 text-gold" />
                     <span>Well-allocated</span>
                   </li>
-                  <li className="flex items-center gap-3.5 text-cream font-medium">
+                  <li className="flex items-center gap-3.5 text-cream font-medium text-base sm:text-lg">
                     <CheckCircle2 className="size-5 shrink-0 text-gold" />
                     <span>Continuously optimized</span>
                   </li>
@@ -233,7 +230,7 @@ export default function AboutPage() {
         </div>
 
         <Reveal delay={200} className="mt-8">
-          <div className="rounded-2xl border border-gold/20 bg-ink-card/60 p-6 text-center backdrop-blur-md">
+          <div className="rounded-2xl border border-gold/30 bg-gradient-to-r from-gold/10 via-ink-card to-gold/10 p-6 text-center shadow-[0_0_30px_rgba(213,160,74,0.1)] backdrop-blur-md">
             <p className="font-display text-xl italic text-gold-light/90 sm:text-2xl">
               Because real wealth isn’t built in months — it’s built through years of disciplined decisions.
             </p>
@@ -244,7 +241,7 @@ export default function AboutPage() {
       {/* Vision & Mission */}
       <SectionWrapper>
         <Reveal className="mb-10 text-center">
-          <h2 className="text-display-md text-cream">Vision & Mission</h2>
+          <h2 className="text-display-md text-cream">Mission & Vision</h2>
           <GoldDivider className="mt-6" />
         </Reveal>
         <div className="grid gap-6 md:grid-cols-2">
@@ -254,9 +251,9 @@ export default function AboutPage() {
                 <div className="flex size-14 items-center justify-center rounded-2xl border border-gold/30 bg-gold/15 text-gold shadow-[0_4px_20px_rgba(213,160,74,0.2)]">
                   <Trophy className="size-7" />
                 </div>
-                <h3 className="font-display text-3xl font-bold text-gold">Mission</h3>
+                <h3 className="font-display text-3xl font-bold text-gold">🏆 Mission</h3>
               </div>
-              <p className="text-lg font-semibold leading-relaxed text-cream">
+              <p className="text-lg font-semibold leading-relaxed text-cream sm:text-xl">
                 To help 1,000 business owners and professionals build a ₹10 Crore portfolio through disciplined, structured investing.
               </p>
               <p className="mt-4 text-base leading-relaxed text-gold-light/80">
@@ -270,9 +267,9 @@ export default function AboutPage() {
                 <div className="flex size-14 items-center justify-center rounded-2xl border border-gold/30 bg-gold/15 text-gold shadow-[0_4px_20px_rgba(213,160,74,0.2)]">
                   <TrendingUp className="size-7" />
                 </div>
-                <h3 className="font-display text-3xl font-bold text-gold">Vision</h3>
+                <h3 className="font-display text-3xl font-bold text-gold">🔭 Vision</h3>
               </div>
-              <p className="text-lg font-semibold leading-relaxed text-cream">
+              <p className="text-lg font-semibold leading-relaxed text-cream sm:text-xl">
                 To build India’s most trusted community of serious investors — the TenCroreClub — where wealth creation is driven by clarity, discipline, and long-term thinking.
               </p>
               <p className="mt-4 text-base leading-relaxed text-gold-light/80">
@@ -352,7 +349,7 @@ export default function AboutPage() {
               </p>
               <div className="pt-2">
                 <span className="inline-block rounded-full border border-gold/40 bg-gold/15 px-8 py-3.5 font-display text-xl font-bold text-gold shadow-[0_0_25px_rgba(213,160,74,0.2)] sm:text-2xl">
-                  You’re in the right place.
+                  👉 You’re in the right place.
                 </span>
               </div>
             </div>
@@ -363,6 +360,11 @@ export default function AboutPage() {
       {/* Closing CTA with Highlighted Blueprint Input Field */}
       <SectionWrapper width="narrow">
         <Reveal>
+          <div className="text-center mb-6">
+            <p className="font-display text-2xl font-bold text-gold sm:text-3xl">
+              💬 Start your journey with the ₹10 Crore Blueprint.
+            </p>
+          </div>
           <BlueprintCTA />
         </Reveal>
         <Reveal delay={120} className="mt-10 text-center">

@@ -3,6 +3,41 @@ import nodemailer from "nodemailer";
 import fs from "fs";
 import path from "path";
 
+// Helper functions to convert raw select values into clean, luxury labels
+function formatIncome(val?: string) {
+  if (!val) return "";
+  const map: Record<string, string> = {
+    "below-50k": "Below ₹50,000 / month",
+    "50k-1l": "₹50,000 – ₹1 Lakh / month",
+    "1l-3l": "₹1 Lakh – ₹3 Lakhs / month",
+    "3l-above": "Above ₹3 Lakhs / month",
+  };
+  return map[val] || val;
+}
+
+function formatGoal(val?: string) {
+  if (!val) return "";
+  const map: Record<string, string> = {
+    "1cr": "₹1 Crore",
+    "3cr": "₹3 Crore",
+    "5cr": "₹5 Crore",
+    "10cr": "₹10 Crore Milestone",
+    "starting": "Just Starting Journey",
+  };
+  return map[val] || val;
+}
+
+function formatSavings(val?: string) {
+  if (!val) return "";
+  const map: Record<string, string> = {
+    none: "Nothing Yet",
+    "below-5l": "Below ₹5 Lakhs",
+    "5-20l": "₹5 Lakhs – ₹20 Lakhs",
+    "above-20l": "Above ₹20 Lakhs",
+  };
+  return map[val] || val;
+}
+
 export async function POST(req: Request) {
   try {
     const body = await req.json();
@@ -27,74 +62,177 @@ export async function POST(req: Request) {
     }
 
     // Determine subject and title based on form type
-    let subject = "New Submission - Ten Crore Club";
+    let subject = "New Lead Submission - Ten Crore Club";
     let formTitle = "Form Submission";
 
     switch (type) {
       case "booking":
-        subject = `Strategy Session Request: ${name || email}`;
+        subject = `⚡ Strategy Session Request: ${name || email}`;
         formTitle = "Strategy Session Booking Request";
         break;
       case "contact":
-        subject = `New Contact Inquiry: ${name || email}`;
+        subject = `✉️ New Contact Inquiry: ${name || email}`;
         formTitle = "Contact Us Form Inquiry";
         break;
       case "blueprint":
-        subject = `₹10 Crore Blueprint Request: ${email}`;
+        subject = `📄 ₹10 Crore Blueprint Request: ${email}`;
         formTitle = "₹10 Crore Blueprint Download Request";
         break;
       case "newsletter":
-        subject = `New Newsletter Subscriber: ${email}`;
+        subject = `📬 New Newsletter Subscriber: ${email}`;
         formTitle = "Newsletter Subscription";
         break;
     }
 
-    // Build Luxury Gold & Obsidian Branded HTML Email Template for Admin
+    const formattedIncome = formatIncome(monthlyIncome);
+    const formattedGoal = formatGoal(goal);
+    const formattedSavings = formatSavings(currentSavings);
+
+    // Bulletproof HTML Email Template for Email Clients (Hostinger, Gmail, Outlook)
     const htmlContent = `
       <!DOCTYPE html>
       <html>
         <head>
           <meta charset="utf-8">
-          <style>
-            body { font-family: 'DM Sans', system-ui, -apple-system, sans-serif; background-color: #000000; color: #faf0dc; margin: 0; padding: 24px; }
-            .container { max-width: 600px; margin: 0 auto; background-color: #111111; border: 1px solid #d5a04a; border-radius: 16px; padding: 32px; box-shadow: 0 10px 40px rgba(213, 160, 74, 0.2); }
-            .header { text-align: center; border-bottom: 1px solid #2a2a2a; padding-bottom: 20px; margin-bottom: 24px; }
-            .logo-text { font-size: 24px; font-weight: bold; color: #d5a04a; letter-spacing: 2px; text-transform: uppercase; }
-            .badge { display: inline-block; background: rgba(213, 160, 74, 0.15); border: 1px solid #d5a04a; color: #d5a04a; padding: 4px 12px; border-radius: 999px; font-size: 11px; font-weight: bold; text-transform: uppercase; margin-top: 8px; }
-            .content-row { display: flex; justify-content: space-between; border-bottom: 1px solid #222222; padding: 12px 0; }
-            .label { color: #e1c18d; opacity: 0.8; font-size: 13px; font-weight: 500; }
-            .value { color: #faf0dc; font-size: 14px; font-weight: bold; text-align: right; }
-            .message-box { background: #1a1a1a; border-left: 3px solid #d5a04a; padding: 16px; border-radius: 8px; margin-top: 20px; font-style: italic; color: #faf0dc; }
-            .footer { text-align: center; margin-top: 32px; padding-top: 20px; border-top: 1px solid #2a2a2a; font-size: 11px; color: #888888; }
-          </style>
+          <meta name="viewport" content="width=device-width, initial-scale=1.0">
+          <title>${formTitle}</title>
         </head>
-        <body>
-          <div class="container">
-            <div class="header">
-              <div class="logo-text">Ten Crore Club</div>
-              <div class="badge">${formTitle}</div>
-            </div>
+        <body style="margin:0; padding:20px; background-color:#070707; font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; color:#f5ebd9;">
+          <table width="100%" border="0" cellspacing="0" cellpadding="0" style="max-width:620px; margin:0 auto; background-color:#121212; border:1px solid #d5a04a; border-radius:16px; overflow:hidden; box-shadow:0 12px 40px rgba(213,160,74,0.25);">
+            
+            <!-- Header Banner -->
+            <tr>
+              <td style="background: linear-gradient(180deg, #1c1813 0%, #121212 100%); padding: 32px 24px; text-align: center; border-bottom: 2px solid #282218;">
+                <div style="font-size: 24px; font-weight: 800; color: #d5a04a; letter-spacing: 3px; text-transform: uppercase;">
+                  TEN CRORE CLUB
+                </div>
+                <div style="font-size: 11px; color: #a39580; text-transform: uppercase; letter-spacing: 2px; margin-top: 4px;">
+                  The Wealth Architect Platform
+                </div>
+                <div style="margin-top: 16px;">
+                  <span style="background-color: #cb0503; color: #ffffff; padding: 6px 18px; border-radius: 20px; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; display: inline-block;">
+                    ${formTitle}
+                  </span>
+                </div>
+              </td>
+            </tr>
 
-            <div style="margin-bottom: 20px;">
-              ${name ? `<div class="content-row"><span class="label">Full Name:</span><span class="value">${name}</span></div>` : ""}
-              <div class="content-row"><span class="label">Email Address:</span><span class="value"><a href="mailto:${email}" style="color:#d5a04a;">${email}</a></span></div>
-              ${phone ? `<div class="content-row"><span class="label">Mobile Number:</span><span class="value"><a href="tel:${phone}" style="color:#d5a04a;">${phone}</a></span></div>` : ""}
-              ${city ? `<div class="content-row"><span class="label">City:</span><span class="value">${city}</span></div>` : ""}
-              ${currentAge ? `<div class="content-row"><span class="label">Current Age:</span><span class="value">${currentAge} years</span></div>` : ""}
-              ${monthlyIncome ? `<div class="content-row"><span class="label">Monthly Income:</span><span class="value">${monthlyIncome}</span></div>` : ""}
-              ${goal ? `<div class="content-row"><span class="label">Financial Goal:</span><span class="value">${goal}</span></div>` : ""}
-              ${currentSavings ? `<div class="content-row"><span class="label">Current Savings:</span><span class="value">${currentSavings}</span></div>` : ""}
-            </div>
+            <!-- Lead Details Table -->
+            <tr>
+              <td style="padding: 24px 28px;">
+                <table width="100%" border="0" cellspacing="0" cellpadding="0" style="border-collapse: collapse;">
+                  
+                  ${name ? `
+                  <tr>
+                    <td style="padding: 12px 14px; border-bottom: 1px solid #222222; font-size: 13px; color: #a39580; width: 40%; font-weight: 600;">
+                      Full Name
+                    </td>
+                    <td style="padding: 12px 14px; border-bottom: 1px solid #222222; font-size: 14px; color: #ffffff; font-weight: 700; text-align: right;">
+                      ${name}
+                    </td>
+                  </tr>` : ""}
 
-            ${message ? `
-              <div class="label">Message / Notes:</div>
-              <div class="message-box">${message.replace(/\n/g, "<br>")}</div>
-            ` : ""}
+                  <tr>
+                    <td style="padding: 12px 14px; border-bottom: 1px solid #222222; font-size: 13px; color: #a39580; width: 40%; font-weight: 600;">
+                      Email Address
+                    </td>
+                    <td style="padding: 12px 14px; border-bottom: 1px solid #222222; font-size: 14px; text-align: right;">
+                      <a href="mailto:${email}" style="color: #d5a04a; text-decoration: none; font-weight: 700;">${email}</a>
+                    </td>
+                  </tr>
 
-            <div class="footer">
-              Sent automatically via Ten Crore Club Web Portal (${new Date().toLocaleString("en-IN", { timeZone: "Asia/Kolkata" })})
-            </div>
-          </div>
+                  ${phone ? `
+                  <tr>
+                    <td style="padding: 12px 14px; border-bottom: 1px solid #222222; font-size: 13px; color: #a39580; width: 40%; font-weight: 600;">
+                      Mobile Number
+                    </td>
+                    <td style="padding: 12px 14px; border-bottom: 1px solid #222222; font-size: 14px; text-align: right;">
+                      <a href="tel:${phone}" style="color: #25D366; text-decoration: none; font-weight: 700;">+91 ${phone}</a>
+                    </td>
+                  </tr>` : ""}
+
+                  ${city ? `
+                  <tr>
+                    <td style="padding: 12px 14px; border-bottom: 1px solid #222222; font-size: 13px; color: #a39580; width: 40%; font-weight: 600;">
+                      City / Location
+                    </td>
+                    <td style="padding: 12px 14px; border-bottom: 1px solid #222222; font-size: 14px; color: #ffffff; font-weight: 600; text-align: right;">
+                      ${city}
+                    </td>
+                  </tr>` : ""}
+
+                  ${currentAge ? `
+                  <tr>
+                    <td style="padding: 12px 14px; border-bottom: 1px solid #222222; font-size: 13px; color: #a39580; width: 40%; font-weight: 600;">
+                      Current Age
+                    </td>
+                    <td style="padding: 12px 14px; border-bottom: 1px solid #222222; font-size: 14px; color: #ffffff; font-weight: 600; text-align: right;">
+                      ${currentAge} years
+                    </td>
+                  </tr>` : ""}
+
+                  ${formattedIncome ? `
+                  <tr>
+                    <td style="padding: 12px 14px; border-bottom: 1px solid #222222; font-size: 13px; color: #a39580; width: 40%; font-weight: 600;">
+                      Monthly Income
+                    </td>
+                    <td style="padding: 12px 14px; border-bottom: 1px solid #222222; font-size: 14px; color: #d5a04a; font-weight: 700; text-align: right;">
+                      ${formattedIncome}
+                    </td>
+                  </tr>` : ""}
+
+                  ${formattedGoal ? `
+                  <tr>
+                    <td style="padding: 12px 14px; border-bottom: 1px solid #222222; font-size: 13px; color: #a39580; width: 40%; font-weight: 600;">
+                      Financial Goal
+                    </td>
+                    <td style="padding: 12px 14px; border-bottom: 1px solid #222222; font-size: 14px; color: #d5a04a; font-weight: 700; text-align: right;">
+                      ${formattedGoal}
+                    </td>
+                  </tr>` : ""}
+
+                  ${formattedSavings ? `
+                  <tr>
+                    <td style="padding: 12px 14px; border-bottom: 1px solid #222222; font-size: 13px; color: #a39580; width: 40%; font-weight: 600;">
+                      Current Savings
+                    </td>
+                    <td style="padding: 12px 14px; border-bottom: 1px solid #222222; font-size: 14px; color: #ffffff; font-weight: 600; text-align: right;">
+                      ${formattedSavings}
+                    </td>
+                  </tr>` : ""}
+
+                </table>
+
+                ${message ? `
+                <div style="margin-top: 24px; background-color: #1a1a1a; border-left: 4px solid #d5a04a; border-radius: 8px; padding: 16px 20px;">
+                  <div style="font-size: 11px; text-transform: uppercase; letter-spacing: 1px; color: #d5a04a; font-weight: 700; margin-bottom: 6px;">
+                    Message / Notes from Lead
+                  </div>
+                  <div style="font-size: 14px; color: #ffffff; line-height: 1.6; font-style: italic;">
+                    "${message.replace(/\n/g, "<br>")}"
+                  </div>
+                </div>` : ""}
+
+                ${phone ? `
+                <div style="margin-top: 28px; text-align: center;">
+                  <a href="tel:${phone}" style="background-color: #cb0503; color: #ffffff; text-decoration: none; padding: 12px 24px; border-radius: 8px; font-size: 13px; font-weight: bold; display: inline-block; margin-right: 8px; box-shadow: 0 4px 15px rgba(203,5,3,0.3);">
+                    📞 Call Lead (+91 ${phone})
+                  </a>
+                  <a href="mailto:${email}" style="background-color: #222222; color: #d5a04a; border: 1px solid #d5a04a; text-decoration: none; padding: 12px 24px; border-radius: 8px; font-size: 13px; font-weight: bold; display: inline-block;">
+                    ✉️ Reply via Email
+                  </a>
+                </div>` : ""}
+              </td>
+            </tr>
+
+            <!-- Footer -->
+            <tr>
+              <td style="background-color: #0d0d0d; padding: 20px; text-align: center; border-top: 1px solid #222222; font-size: 11px; color: #777777;">
+                Ten Crore Club Web Portal • Auto-generated Lead Notification<br/>
+                Received: ${new Date().toLocaleString("en-IN", { timeZone: "Asia/Kolkata" })}
+              </td>
+            </tr>
+          </table>
         </body>
       </html>
     `;
@@ -122,7 +260,7 @@ export async function POST(req: Request) {
         },
       });
 
-      const recipient = process.env.NOTIFICATION_EMAIL || "contact@tencroreclub.in";
+      const recipient = process.env.NOTIFICATION_EMAIL || "contact@tencroreclub.com";
 
       // 1. Send notification email to Admin
       await transporter.sendMail({
@@ -146,7 +284,7 @@ export async function POST(req: Request) {
             <p>Thank you for requesting Alex Pandyan's <strong>Wealth Architect Blueprint & Roadmap</strong>.</p>
             <p>We have attached the PDF blueprint directly to this email so you can study the arithmetic roadmap and start compounding with confidence.</p>
             <div style="text-align: center; margin: 28px 0;">
-              <a href="https://tencroreclub.in/docs/Ten-Crore-Blueprint.pdf" style="background: #cb0503; color: #ffffff; padding: 14px 28px; text-decoration: none; font-weight: bold; border-radius: 10px; display: inline-block; box-shadow: 0 4px 20px rgba(203,5,3,0.4);">
+              <a href="https://tencroreclub.com/docs/Ten-Crore-Blueprint.pdf" style="background: #cb0503; color: #ffffff; padding: 14px 28px; text-decoration: none; font-weight: bold; border-radius: 10px; display: inline-block; box-shadow: 0 4px 20px rgba(203,5,3,0.4);">
                 📄 Download Blueprint PDF
               </a>
             </div>

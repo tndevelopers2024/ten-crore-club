@@ -6,10 +6,7 @@ import { HeroSection } from "@/components/home/HeroSection";
 import { RegretSection } from "@/components/home/RegretSection";
 import { DelayCalculatorSection } from "@/components/home/DelayCalculatorSection";
 import { IndiaOpportunitySection } from "@/components/home/IndiaOpportunitySection";
-import { MethodSection } from "@/components/home/MethodSection";
-import { MemberStoriesSection } from "@/components/home/MemberStoriesSection";
 import { InstagramReelsSection } from "@/components/home/InstagramReelsSection";
-import { CommunityPreviewSection } from "@/components/home/CommunityPreviewSection";
 import { FAQSection } from "@/components/home/FAQSection";
 import { FinalCTASection } from "@/components/home/FinalCTASection";
 
@@ -45,10 +42,7 @@ export default function Home() {
       <RegretSection />
       <DelayCalculatorSection />
       <IndiaOpportunitySection />
-      <MethodSection />
-      <MemberStoriesSection />
       <InstagramReelsSection />
-      <CommunityPreviewSection />
       <FAQSection />
       <FinalCTASection />
     </>

@@ -13,6 +13,14 @@ import {
   HeartHandshake,
   Sparkles,
 } from "lucide-react";
+import { 
+  FaInstagram, 
+  FaXTwitter, 
+  FaFacebookF, 
+  FaLinkedinIn, 
+  FaYoutube, 
+  FaWhatsapp 
+} from "react-icons/fa6";
 import { PageHero } from "@/components/shared/PageHero";
 import { SectionWrapper } from "@/components/shared/SectionWrapper";
 import { Reveal } from "@/components/shared/Reveal";
@@ -21,6 +29,51 @@ import { CTAButton } from "@/components/shared/CTAButton";
 import { BrandImage } from "@/components/shared/BrandImage";
 import { Card } from "@/components/ui/Card";
 import { BlueprintCTA } from "@/components/forms/BlueprintCTA";
+
+const socialChannels = [
+  {
+    icon: FaLinkedinIn,
+    label: "LinkedIn",
+    href: "https://www.linkedin.com/in/alex-pandyan-61778124a",
+    colorClass: "border-[#0A66C2]/60 text-[#0A66C2] bg-[#0A66C2]/10 hover:bg-[#0A66C2]/20 hover:border-[#0A66C2] shadow-[0_2px_12px_rgba(10,102,194,0.2)]",
+    iconColor: "text-[#0A66C2]",
+  },
+  {
+    icon: FaInstagram,
+    label: "Instagram",
+    href: "https://www.instagram.com/tencroreclub",
+    colorClass: "border-[#E4405F]/60 text-[#E4405F] bg-[#E4405F]/10 hover:bg-[#E4405F]/20 hover:border-[#E4405F] shadow-[0_2px_12px_rgba(228,64,95,0.2)]",
+    iconColor: "text-[#E4405F]",
+  },
+  {
+    icon: FaYoutube,
+    label: "YouTube",
+    href: "https://youtube.com/@tencroreclub",
+    colorClass: "border-[#FF0000]/60 text-[#FF0000] bg-[#FF0000]/10 hover:bg-[#FF0000]/20 hover:border-[#FF0000] shadow-[0_2px_12px_rgba(255,0,0,0.2)]",
+    iconColor: "text-[#FF0000]",
+  },
+  {
+    icon: FaWhatsapp,
+    label: "WhatsApp",
+    href: "https://wa.me/919840441135?text=Hi%2C%20I%20have%20an%20enquiry%20regarding%20Ten%20Crore%20Club",
+    colorClass: "border-[#25D366]/60 text-[#25D366] bg-[#25D366]/10 hover:bg-[#25D366]/20 hover:border-[#25D366] shadow-[0_2px_12px_rgba(37,211,102,0.2)]",
+    iconColor: "text-[#25D366]",
+  },
+  {
+    icon: FaXTwitter,
+    label: "X (Twitter)",
+    href: "https://twitter.com/tencroreclub",
+    colorClass: "border-cream/60 text-cream bg-cream/10 hover:bg-cream/20 hover:border-cream shadow-[0_2px_12px_rgba(255,255,255,0.15)]",
+    iconColor: "text-cream",
+  },
+  {
+    icon: FaFacebookF,
+    label: "Facebook",
+    href: "https://www.facebook.com/people/Ten-Crore-Club/61590642871004/",
+    colorClass: "border-[#1877F2]/60 text-[#1877F2] bg-[#1877F2]/10 hover:bg-[#1877F2]/20 hover:border-[#1877F2] shadow-[0_2px_12px_rgba(24,119,242,0.2)]",
+    iconColor: "text-[#1877F2]",
+  },
+];
 
 export const metadata: Metadata = {
   title: "About Me | Alex Pandyan – TenCroreClub",
@@ -72,7 +125,7 @@ export default function AboutPage() {
   return (
     <>
       <PageHero
-        eyebrow="👤 About Me – TenCroreClub"
+        eyebrow="About Me – TenCroreClub"
         title={
           <>
             <span className="block text-sm font-semibold uppercase tracking-widest text-gold/90 mb-3 sm:text-base">
@@ -87,37 +140,53 @@ export default function AboutPage() {
 
       {/* Founder Story & Introduction */}
       <SectionWrapper>
-        <div className="grid items-start gap-10 md:grid-cols-[0.8fr_1.2fr]">
+        <div className="grid items-start gap-10 md:grid-cols-[0.85fr_1.15fr]">
+          {/* Left Column: Unified Founder Profile Card */}
           <Reveal>
-            <div className="space-y-6">
-              <div className="relative group">
-                <div className="pointer-events-none absolute -inset-1.5 rounded-3xl bg-gradient-to-b from-gold/30 via-gold/10 to-transparent opacity-70 blur-xl transition-opacity duration-500 group-hover:opacity-100" />
+            <div className="overflow-hidden rounded-3xl border border-gold/30 bg-ink-card shadow-[0_16px_50px_rgba(0,0,0,0.5)] backdrop-blur-xl transition-all duration-300 hover:border-gold/50">
+              <div className="relative group overflow-hidden">
+                <div className="pointer-events-none absolute -inset-1.5 rounded-t-3xl bg-gradient-to-b from-gold/20 via-transparent to-transparent opacity-70 blur-md" />
                 <BrandImage
                   src="/images/home/image-1-by-ten-crore-club.avif"
-                  alt="Alex Pandyan - Founder, TenCroreClub"
+                  alt="Alex Pandyan - The Wealth Architect & Founder, TenCroreClub"
                   aspect="3/4"
-                  bordered
-                  className="relative z-10 rounded-2xl shadow-[0_16px_50px_rgba(0,0,0,0.8)]"
-                  sizes="(min-width: 768px) 360px, 100vw"
+                  className="w-full transition-transform duration-500 group-hover:scale-[1.02]"
+                  sizes="(min-width: 768px) 380px, 100vw"
                   placeholderLabel="Alex Pandyan"
                 />
               </div>
-              <Card className="border-gold/25 bg-ink-card/90 shadow-[0_10px_30px_rgba(0,0,0,0.4)] backdrop-blur-xl">
-                <div className="flex flex-col gap-3.5 text-sm">
-                  <div className="flex items-center justify-center gap-2 rounded-full border border-gold/30 bg-gold/10 px-4 py-2 font-bold text-gold shadow-[0_2px_10px_rgba(213,160,74,0.15)]">
-                    <Compass className="size-4 shrink-0 text-gold" /> Founder – TenCroreClub
+
+              <div className="p-6 text-center space-y-4">
+                <div>
+                  <h3 className="font-display text-2xl font-bold text-cream tracking-tight">
+                    Alex Pandyan
+                  </h3>
+                  <p className="mt-1 font-display text-base font-bold tracking-wider uppercase text-red-vivid">
+                    The Wealth Architect
+                  </p>
+                </div>
+
+                <div className="h-px w-full bg-gradient-to-r from-transparent via-gold/30 to-transparent" />
+
+                <div className="space-y-2.5 text-xs font-medium">
+                  <div className="flex items-center justify-center gap-2 rounded-xl border border-gold/30 bg-gold/10 py-2.5 px-4 font-bold text-gold">
+                    <Compass className="size-4 shrink-0 text-gold" />
+                    <span>Founder – TenCroreClub</span>
                   </div>
-                  <div className="flex items-center justify-center gap-2 rounded-full border border-line bg-ink/60 px-4 py-2 font-medium text-gold-light/90">
-                    <ShieldCheck className="size-4 shrink-0 text-gold" /> AMFI Registered MFD
+                  <div className="flex items-center justify-center gap-2 rounded-xl border border-line bg-ink-elevated/70 py-2.5 px-4 text-gold-light/90">
+                    <ShieldCheck className="size-4 shrink-0 text-gold" />
+                    <span>AMFI Registered MFD</span>
                   </div>
-                  <div className="flex items-center justify-center gap-2 rounded-full border border-line bg-ink/60 px-4 py-2 font-medium text-gold-light/90">
-                    <BadgeCheck className="size-4 shrink-0 text-gold" /> SEBI Compliant
+                  <div className="flex items-center justify-center gap-2 rounded-xl border border-line bg-ink-elevated/70 py-2.5 px-4 text-gold-light/90">
+                    <BadgeCheck className="size-4 shrink-0 text-gold" />
+                    <span>SEBI Compliant</span>
                   </div>
                 </div>
-              </Card>
+              </div>
             </div>
           </Reveal>
 
+          {/* Right Column: Bio & Structured Social Links */}
           <Reveal delay={120}>
             <div className="space-y-7">
               <p className="text-xl leading-relaxed text-gold-light/90 sm:text-2xl font-light">
@@ -152,15 +221,35 @@ export default function AboutPage() {
               </p>
 
               <div className="relative overflow-hidden rounded-2xl border border-gold/50 bg-gradient-to-r from-gold/15 via-ink-card to-gold/10 p-6 text-center shadow-[0_0_40px_rgba(213,160,74,0.15)] sm:p-8">
-                <p className="font-display text-xl font-bold tracking-wide text-cream sm:text-2xl">
-                  👉 Building a ₹10 Crore portfolio with confidence and structure
+                <p className="font-display text-xl font-bold tracking-wide text-cream sm:text-2xl flex items-center justify-center gap-2.5">
+                  <Sparkles className="size-6 shrink-0 text-gold" />
+                  <span>Building a ₹10 Crore portfolio with confidence and structure</span>
                 </p>
               </div>
 
-              <div className="pt-2">
-                <CTAButton href="https://www.linkedin.com/in/alex-pandyan-61778124a" variant="secondary" className="rounded-full px-6 shadow-md hover:shadow-gold/10">
-                  Connect with Alex Pandyan on LinkedIn
-                </CTAButton>
+              {/* Structured Social Media Grid */}
+              <div className="rounded-2xl border border-gold/25 bg-ink-card/90 p-5 sm:p-6 shadow-md backdrop-blur-xl">
+                <p className="text-xs font-mono font-bold uppercase tracking-widest text-gold mb-4 flex items-center gap-2">
+                  <Sparkles className="size-3.5 text-gold" />
+                  <span>Connect Across Social Media</span>
+                </p>
+                <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
+                  {socialChannels.map((item) => {
+                    const Icon = item.icon;
+                    return (
+                      <a
+                        key={item.label}
+                        href={item.href}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className={`flex items-center gap-2.5 rounded-xl border p-3 text-xs font-bold transition-all duration-300 hover:-translate-y-0.5 shadow-sm ${item.colorClass}`}
+                      >
+                        <Icon className={`size-4 shrink-0 ${item.iconColor}`} />
+                        <span className="truncate">{item.label}</span>
+                      </a>
+                    );
+                  })}
+                </div>
               </div>
             </div>
           </Reveal>
@@ -170,7 +259,10 @@ export default function AboutPage() {
       {/* What Makes My Approach Different */}
       <SectionWrapper>
         <Reveal className="mb-10 text-center">
-          <h2 className="text-display-md text-cream">💎 What Makes My Approach Different</h2>
+          <h2 className="text-display-md text-cream flex items-center justify-center gap-3">
+            <Sparkles className="size-7 text-gold" />
+            <span>What Makes My Approach Different</span>
+          </h2>
           <p className="mx-auto mt-4 max-w-2xl text-lg text-gold-light/80">
             I don’t believe in one-size-fits-all advice.
           </p>
@@ -251,7 +343,7 @@ export default function AboutPage() {
                 <div className="flex size-14 items-center justify-center rounded-2xl border border-gold/30 bg-gold/15 text-gold shadow-[0_4px_20px_rgba(213,160,74,0.2)]">
                   <Trophy className="size-7" />
                 </div>
-                <h3 className="font-display text-3xl font-bold text-gold">🏆 Mission</h3>
+                <h3 className="font-display text-3xl font-bold text-gold">Mission</h3>
               </div>
               <p className="text-lg font-semibold leading-relaxed text-cream sm:text-xl">
                 To help 1,000 business owners and professionals build a ₹10 Crore portfolio through disciplined, structured investing.
@@ -267,7 +359,7 @@ export default function AboutPage() {
                 <div className="flex size-14 items-center justify-center rounded-2xl border border-gold/30 bg-gold/15 text-gold shadow-[0_4px_20px_rgba(213,160,74,0.2)]">
                   <TrendingUp className="size-7" />
                 </div>
-                <h3 className="font-display text-3xl font-bold text-gold">🔭 Vision</h3>
+                <h3 className="font-display text-3xl font-bold text-gold">Vision</h3>
               </div>
               <p className="text-lg font-semibold leading-relaxed text-cream sm:text-xl">
                 To build India’s most trusted community of serious investors — the TenCroreClub — where wealth creation is driven by clarity, discipline, and long-term thinking.
@@ -334,7 +426,7 @@ export default function AboutPage() {
               </div>
             </div>
             <h2 className="text-center font-display text-3xl font-bold text-cream sm:text-4xl">
-              🤝 A Personal Note
+              A Personal Note
             </h2>
             <GoldDivider className="mt-4 mb-8" />
             <div className="space-y-6 text-center text-lg leading-relaxed text-gold-light/85 sm:text-xl">
@@ -348,8 +440,9 @@ export default function AboutPage() {
                 If you’re someone who is serious about building real wealth — not just returns —
               </p>
               <div className="pt-2">
-                <span className="inline-block rounded-full border border-gold/40 bg-gold/15 px-8 py-3.5 font-display text-xl font-bold text-gold shadow-[0_0_25px_rgba(213,160,74,0.2)] sm:text-2xl">
-                  👉 You’re in the right place.
+                <span className="inline-flex items-center justify-center gap-2.5 rounded-full border border-gold/40 bg-gold/15 px-8 py-3.5 font-display text-xl font-bold text-gold shadow-[0_0_25px_rgba(213,160,74,0.2)] sm:text-2xl">
+                  <CheckCircle2 className="size-6 shrink-0 text-gold" />
+                  <span>You’re in the right place.</span>
                 </span>
               </div>
             </div>
@@ -361,8 +454,9 @@ export default function AboutPage() {
       <SectionWrapper width="narrow">
         <Reveal>
           <div className="text-center mb-6">
-            <p className="font-display text-2xl font-bold text-gold sm:text-3xl">
-              💬 Start your journey with the ₹10 Crore Blueprint.
+            <p className="font-display text-2xl font-bold text-gold sm:text-3xl flex items-center justify-center gap-2.5">
+              <Sparkles className="size-6 shrink-0 text-gold" />
+              <span>Start your journey with the ₹10 Crore Blueprint.</span>
             </p>
           </div>
           <BlueprintCTA />

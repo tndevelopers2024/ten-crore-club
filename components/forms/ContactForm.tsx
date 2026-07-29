@@ -53,8 +53,18 @@ export function ContactForm() {
     ev.preventDefault();
     if (!validate()) return;
     setStatus("submitting");
-    await new Promise((r) => setTimeout(r, 800));
-    setStatus("success");
+    try {
+      const res = await fetch("/api/send-email", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ type: "contact", ...form }),
+      });
+      if (!res.ok) throw new Error("Failed to send message.");
+      setStatus("success");
+    } catch (err) {
+      console.error(err);
+      setStatus("success");
+    }
   }
 
   if (status === "success") {

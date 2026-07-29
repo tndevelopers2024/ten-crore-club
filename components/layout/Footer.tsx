@@ -42,12 +42,12 @@ const offeringLinks = [
 ];
 
 const socials = [
-  { icon: FaInstagram, label: "Instagram", href: "https://www.instagram.com/tencroreclub" },
-  { icon: FaXTwitter, label: "X (Twitter)", href: "https://twitter.com/tencroreclub" },
-  { icon: FaFacebookF, label: "Facebook", href: "https://www.facebook.com/people/Ten-Crore-Club/61590642871004/" },
-  { icon: FaLinkedinIn, label: "LinkedIn", href: "https://www.linkedin.com/in/alex-pandyan-61778124a" },
-  { icon: FaYoutube, label: "YouTube", href: "https://youtube.com/@tencroreclub" },
-  { icon: FaWhatsapp, label: "WhatsApp", href: "https://wa.me/919840441135?text=Hi%2C%20I%20have%20an%20enquiry%20regarding%20Ten%20Crore%20Club" },
+  { icon: FaInstagram, label: "Instagram", href: "https://www.instagram.com/tencroreclub", colorClass: "border-[#E4405F]/50 text-[#E4405F] bg-[#E4405F]/10 hover:bg-[#E4405F]/20 hover:border-[#E4405F]" },
+  { icon: FaXTwitter, label: "X (Twitter)", href: "https://twitter.com/tencroreclub", colorClass: "border-cream/50 text-cream bg-cream/10 hover:bg-cream/20 hover:border-cream" },
+  { icon: FaFacebookF, label: "Facebook", href: "https://www.facebook.com/people/Ten-Crore-Club/61590642871004/", colorClass: "border-[#1877F2]/50 text-[#1877F2] bg-[#1877F2]/10 hover:bg-[#1877F2]/20 hover:border-[#1877F2]" },
+  { icon: FaLinkedinIn, label: "LinkedIn", href: "https://www.linkedin.com/in/alex-pandyan-61778124a", colorClass: "border-[#0A66C2]/50 text-[#0A66C2] bg-[#0A66C2]/10 hover:bg-[#0A66C2]/20 hover:border-[#0A66C2]" },
+  { icon: FaYoutube, label: "YouTube", href: "https://youtube.com/@tencroreclub", colorClass: "border-[#FF0000]/50 text-[#FF0000] bg-[#FF0000]/10 hover:bg-[#FF0000]/20 hover:border-[#FF0000]" },
+  { icon: FaWhatsapp, label: "WhatsApp", href: "https://wa.me/919840441135?text=Hi%2C%20I%20have%20an%20enquiry%20regarding%20Ten%20Crore%20Club", colorClass: "border-[#25D366]/50 text-[#25D366] bg-[#25D366]/10 hover:bg-[#25D366]/20 hover:border-[#25D366]" },
 ];
 
 export function Footer() {
@@ -115,12 +115,14 @@ export function Footer() {
 
             {/* Social icons */}
             <div className="mt-6 flex items-center gap-2.5">
-              {socials.map(({ icon: Icon, label, href }) => (
+              {socials.map(({ icon: Icon, label, href, colorClass }) => (
                 <a
                   key={label}
                   href={href}
+                  target="_blank"
+                  rel="noreferrer noopener"
                   aria-label={label}
-                  className="inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-line/60 bg-ink/40 text-gold-light/50 transition-all duration-300 hover:-translate-y-1 hover:border-gold/50 hover:bg-gold/15 hover:text-gold-light hover:shadow-[0_4px_20px_rgba(213,160,74,0.25)]"
+                  className={`inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-full border transition-all duration-300 hover:-translate-y-1 ${colorClass}`}
                 >
                   <Icon className="size-[18px]" />
                 </a>

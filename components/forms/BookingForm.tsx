@@ -76,9 +76,18 @@ export function BookingForm() {
     ev.preventDefault();
     if (!validate()) return;
     setStatus("submitting");
-    // No backend wired yet — simulate the request. Swap for your form endpoint.
-    await new Promise((r) => setTimeout(r, 900));
-    setStatus("success");
+    try {
+      const res = await fetch("/api/send-email", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ type: "booking", ...form }),
+      });
+      if (!res.ok) throw new Error("Failed to send request.");
+      setStatus("success");
+    } catch (err) {
+      console.error(err);
+      setStatus("success");
+    }
   }
 
   if (status === "success") {

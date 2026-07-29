@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { TrendingUp, Coins, Wallet, Target, Clock, History, Sparkles } from "lucide-react";
 import { TabBar } from "@/components/ui/TabBar";
 import { SIPGrowthCalculator } from "./SIPGrowthCalculator";
 import { LumpsumCalculator } from "./LumpsumCalculator";
@@ -10,12 +11,12 @@ import { DelayCalculator } from "./DelayCalculator";
 import { HistoricalSWPTable } from "./HistoricalSWPTable";
 
 const tabs = [
-  { value: "sip", label: "SIP Growth" },
-  { value: "lumpsum", label: "Lumpsum Growth" },
-  { value: "swp", label: "SWP" },
-  { value: "goal", label: "Goal Planner" },
-  { value: "delay", label: "Delay Cost" },
-  { value: "historical", label: "Historical Proof" },
+  { value: "sip", label: "SIP Growth", icon: TrendingUp },
+  { value: "lumpsum", label: "Lumpsum", icon: Coins },
+  { value: "swp", label: "SWP Income", icon: Wallet },
+  { value: "goal", label: "Goal Planner", icon: Target },
+  { value: "delay", label: "Delay Cost", icon: Clock },
+  { value: "historical", label: "Historical Proof", icon: History },
 ];
 
 const descriptions: Record<string, string> = {
@@ -32,8 +33,15 @@ export function CalculatorsTabs() {
 
   return (
     <div className="space-y-6">
-      <TabBar tabs={tabs} value={active} onChange={setActive} fill className="max-w-2xl" />
-      <p className="text-sm text-gold-light/60">{descriptions[active]}</p>
+      <TabBar tabs={tabs} value={active} onChange={setActive} className="w-full max-w-5xl mx-auto" />
+
+      {/* Styled Description Callout */}
+      <div className="mx-auto max-w-5xl rounded-xl border border-gold/20 bg-ink-card/60 p-4 text-center backdrop-blur-md shadow-sm">
+        <p className="text-xs sm:text-sm font-medium text-gold-light/90 flex items-center justify-center gap-2">
+          <Sparkles className="size-4 text-gold shrink-0" />
+          <span>{descriptions[active]}</span>
+        </p>
+      </div>
 
       <div className="pt-2">
         {active === "sip" && <SIPGrowthCalculator />}

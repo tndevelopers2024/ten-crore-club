@@ -15,6 +15,7 @@ import {
   ChevronLeft,
   ChevronRight,
   Sparkles,
+  Check,
 } from "lucide-react";
 
 function InstagramIcon({ className = "size-5" }: { className?: string }) {
@@ -151,8 +152,8 @@ export function ReelModal({ reel, reels, onClose, onSelectReel }: ReelModalProps
             <div>
               <p className="text-xs font-semibold text-cream leading-tight flex items-center gap-1">
                 {reel.authorName}
-                <span className="inline-block size-3 bg-gradient-to-tr from-pink-500 to-amber-500 text-[8px] font-bold text-white rounded-full text-center leading-none">
-                  ✓
+                <span className="inline-flex size-3.5 items-center justify-center bg-gradient-to-tr from-pink-500 to-amber-500 rounded-full">
+                  <Check className="size-2 text-white stroke-[3]" />
                 </span>
               </p>
               <p className="text-[10px] text-gold-light/70">{reel.authorHandle}</p>

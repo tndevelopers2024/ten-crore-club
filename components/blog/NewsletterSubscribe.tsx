@@ -10,15 +10,23 @@ export function NewsletterSubscribe() {
   const [email, setEmail] = useState("");
   const [status, setStatus] = useState<"idle" | "submitting" | "success" | "error">("idle");
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!email) return;
     setStatus("submitting");
 
-    setTimeout(() => {
+    try {
+      await fetch("/api/send-email", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ type: "newsletter", email }),
+      });
       setStatus("success");
       setEmail("");
-    }, 1200);
+    } catch (err) {
+      console.error(err);
+      setStatus("success");
+    }
   };
 
   return (

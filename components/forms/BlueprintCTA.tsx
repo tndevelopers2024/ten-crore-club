@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { Sparkles, CheckCircle2, Loader2, ArrowRight, ShieldCheck } from "lucide-react";
+import { Sparkles, CheckCircle2, Loader2, ShieldCheck } from "lucide-react";
 import { CTAButton } from "@/components/shared/CTAButton";
 import { Reveal } from "@/components/shared/Reveal";
 
@@ -80,9 +80,7 @@ export function BlueprintCTA() {
                     Sending...
                   </span>
                 ) : (
-                  <span className="flex items-center gap-2">
-                    Get Blueprint <ArrowRight className="size-5" />
-                  </span>
+                  <span>Get Blueprint</span>
                 )}
               </CTAButton>
             </form>

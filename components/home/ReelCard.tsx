@@ -1,7 +1,8 @@
 "use client";
 
+import { useState } from "react";
 import Image from "next/image";
-import { Play, Eye } from "lucide-react";
+import { Play, Eye, Heart, MessageCircle } from "lucide-react";
 import type { InstagramReel } from "@/types";
 
 function InstagramIcon({ className = "size-3.5" }: { className?: string }) {
@@ -28,62 +29,93 @@ interface ReelCardProps {
 }
 
 export function ReelCard({ reel }: ReelCardProps) {
+  const [imgSrc, setImgSrc] = useState(reel.thumbnail || "/images/ig-posts/post-1.jpg");
+  const [hovered, setHovered] = useState(false);
+
   return (
     <a
       href={reel.instagramUrl}
       target="_blank"
       rel="noopener noreferrer"
-      className="group relative flex aspect-[9/16] w-full cursor-pointer flex-col justify-between overflow-hidden rounded-2xl border border-gold/30 bg-ink-card p-5 transition-all duration-300 hover:-translate-y-2 hover:border-gold/70 hover:shadow-[0_20px_45px_-15px_rgba(213,160,74,0.4)] glare-sweep select-none block"
+      onMouseEnter={() => setHovered(true)}
+      onMouseLeave={() => setHovered(false)}
+      className="group relative block aspect-[9/16] w-full select-none overflow-hidden rounded-2xl"
+      style={{
+        padding: "1.5px",
+        background: hovered
+          ? "linear-gradient(135deg, #f59e0b, #ec4899, #a855f7, #f59e0b)"
+          : "linear-gradient(135deg, rgba(245,158,11,0.4), rgba(236,72,153,0.4), rgba(168,85,247,0.3))",
+        transition: "background 0.3s ease",
+      }}
     >
-      {/* Background Poster Image */}
-      <Image
-        src={reel.thumbnail}
-        alt={reel.title}
-        fill
-        sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-        className="object-cover transition-transform duration-700 ease-out group-hover:scale-105"
-      />
+      {/* Inner card */}
+      <div className="relative h-full w-full overflow-hidden rounded-[14px] bg-[#0a0b0f]">
+        {/* Thumbnail */}
+        <Image
+          src={imgSrc}
+          alt={reel.title}
+          fill
+          className="object-cover transition-transform duration-500 group-hover:scale-105"
+          onError={() => setImgSrc("/images/ig-posts/post-1.jpg")}
+        />
 
-      {/* Dark Scrim Gradient for Readability */}
-      <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-ink via-ink/40 to-black/60 z-10 transition-opacity duration-300 group-hover:opacity-90" />
+        {/* Dark vignette overlay */}
+        <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/30 to-black/20" />
 
-      {/* Top Bar: Instagram Badge & Duration */}
-      <div className="relative z-20 flex items-center justify-between">
-        <div className="flex items-center gap-1.5 rounded-full bg-black/60 backdrop-blur-md px-3 py-1 border border-white/10">
-          <InstagramIcon className="size-3.5 text-pink-400" />
-          <span className="text-[11px] font-semibold text-white/90">{reel.authorHandle}</span>
-        </div>
+        {/* Top bar */}
+        <div className="absolute inset-x-0 top-0 z-20 flex items-center justify-between p-3.5">
+          <div className="flex items-center gap-1.5 rounded-full border border-white/15 bg-black/60 px-2.5 py-1 backdrop-blur-md">
+            <InstagramIcon className="size-3 text-pink-400" />
+            <span className="text-[10px] font-semibold text-white/90 tracking-wide">
+              {reel.authorHandle}
+            </span>
+          </div>
 
-        <div className="rounded-full bg-ink/80 backdrop-blur-md px-2.5 py-1 border border-gold/30 text-[11px] font-bold text-gold">
-          {reel.duration}
-        </div>
-      </div>
-
-      {/* Center Play Button Overlay */}
-      <div className="relative z-20 my-auto flex flex-col items-center justify-center text-center">
-        <div className="relative">
-          <div className="flex size-14 items-center justify-center rounded-full bg-gold/90 text-ink shadow-[0_0_25px_rgba(213,160,74,0.6)] backdrop-blur-md transition-all duration-300 group-hover:scale-115 group-hover:bg-gold">
-            <Play className="size-6 fill-ink ml-1 transition-transform group-hover:scale-110" />
+          <div className="rounded-full border border-gold/40 bg-black/60 px-2.5 py-1 text-[10px] font-bold text-gold backdrop-blur-md">
+            {reel.duration}
           </div>
         </div>
-      </div>
 
-      {/* Bottom Info Section */}
-      <div className="relative z-20 space-y-2 text-left">
-        {/* Category Tag */}
-        <span className="inline-block rounded-md bg-gold/20 border border-gold/30 px-2.5 py-0.5 text-[10px] font-bold text-gold tracking-wide">
-          {reel.categoryLabel}
-        </span>
+        {/* Centered play button */}
+        <div className="absolute inset-0 z-20 flex items-center justify-center">
+          <div
+            className="flex size-14 items-center justify-center rounded-full shadow-[0_0_30px_rgba(213,160,74,0.6)] transition-all duration-300 group-hover:scale-110 group-hover:shadow-[0_0_45px_rgba(213,160,74,0.8)]"
+            style={{
+              background: "linear-gradient(135deg, #d5a04a, #f59e0b)",
+            }}
+          >
+            <Play className="ml-0.5 size-6 fill-black text-black" />
+          </div>
+        </div>
 
-        {/* Title */}
-        <h3 className="font-display text-sm sm:text-base font-bold leading-tight text-cream group-hover:text-gold transition-colors line-clamp-2">
-          {reel.title}
-        </h3>
+        {/* Bottom info */}
+        <div className="absolute inset-x-0 bottom-0 z-20 px-3.5 pb-4 pt-16">
+          {/* Category badge */}
+          <span className="mb-2 inline-block rounded-md border border-gold/40 bg-gold/20 px-2 py-0.5 text-[9px] font-bold uppercase tracking-widest text-gold">
+            {reel.categoryLabel}
+          </span>
 
-        {/* Views Counter */}
-        <div className="flex items-center gap-1.5 border-t border-white/10 pt-2 text-[11px] text-white/80">
-          <Eye className="size-3.5 text-gold" />
-          <span>{reel.views} views</span>
+          {/* Title */}
+          <h3 className="font-display text-sm font-bold leading-snug text-white drop-shadow-md line-clamp-2 mb-3">
+            {reel.title}
+          </h3>
+
+          {/* Stats row */}
+          <div className="flex items-center gap-3 border-t border-white/10 pt-2.5">
+            <div className="flex items-center gap-1 text-[10px] font-medium text-white/70">
+              <Eye className="size-3 text-gold/80" />
+              <span>{reel.views}</span>
+            </div>
+            <div className="flex items-center gap-1 text-[10px] font-medium text-white/70">
+              <Heart className="size-3 text-pink-400/90" />
+              <span>{reel.likes}</span>
+            </div>
+            <div className="flex items-center gap-1 text-[10px] font-medium text-white/70">
+              <MessageCircle className="size-3 text-purple-400/90" />
+              <span>{reel.comments}</span>
+            </div>
+
+          </div>
         </div>
       </div>
     </a>

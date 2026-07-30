@@ -26,3 +26,23 @@ export function cn(...inputs: ClassValue[]): string {
   inputs.forEach(walk);
   return out.join(" ");
 }
+
+export function getWhatsAppUrl(
+  phone: string = "919840441135",
+  message: string = "Hi, I have an enquiry regarding Ten Crore Club"
+): string {
+  const cleanPhone = phone.replace(/[^0-9]/g, "");
+  const encodedMessage = encodeURIComponent(message);
+
+  return `https://wa.me/${cleanPhone}?text=${encodedMessage}`;
+}
+
+export function handleWhatsAppClick(
+  e: React.MouseEvent<HTMLAnchorElement | HTMLButtonElement>,
+  phone: string = "919840441135",
+  message: string = "Hi, I have an enquiry regarding Ten Crore Club"
+) {
+  e.preventDefault();
+  const url = getWhatsAppUrl(phone, message);
+  window.open(url, "_blank", "noopener,noreferrer");
+}

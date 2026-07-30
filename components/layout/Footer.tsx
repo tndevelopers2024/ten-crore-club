@@ -1,3 +1,5 @@
+"use client";
+
 import Link from "next/link";
 import Image from "next/image";
 import {
@@ -7,13 +9,12 @@ import {
   ArrowUpRight,
   ChevronUp,
 } from "lucide-react";
-import { 
-  FaInstagram, 
-  FaXTwitter, 
-  FaFacebookF, 
-  FaLinkedinIn, 
-  FaYoutube, 
-  FaWhatsapp 
+import { handleWhatsAppClick } from "@/lib/utils";
+import {
+  FaInstagram,
+  FaFacebookF,
+  FaLinkedinIn,
+  FaWhatsapp
 } from "react-icons/fa6";
 
 const methodLinks = [
@@ -26,11 +27,11 @@ const methodLinks = [
 ];
 
 const calculatorLinks = [
-  { href: "/calculators", label: "SIP Growth Calculator" },
-  { href: "/calculators", label: "Lumpsum Calculator" },
-  { href: "/calculators", label: "SWP Calculator" },
-  { href: "/calculators", label: "Goal Planner" },
-  { href: "/calculators", label: "Delay Cost Calculator" },
+  { href: "/calculators?tab=sip", label: "SIP Growth Calculator" },
+  { href: "/calculators?tab=lumpsum", label: "Lumpsum Calculator" },
+  { href: "/calculators?tab=swp", label: "SWP Calculator" },
+  { href: "/calculators?tab=goal", label: "Goal Planner" },
+  { href: "/calculators?tab=delay", label: "Delay Cost Calculator" },
 ];
 
 const offeringLinks = [
@@ -43,10 +44,8 @@ const offeringLinks = [
 
 const socials = [
   { icon: FaInstagram, label: "Instagram", href: "https://www.instagram.com/tencroreclub", colorClass: "border-[#E4405F]/50 text-[#E4405F] bg-[#E4405F]/10 hover:bg-[#E4405F]/20 hover:border-[#E4405F]" },
-  { icon: FaXTwitter, label: "X (Twitter)", href: "https://twitter.com/tencroreclub", colorClass: "border-cream/50 text-cream bg-cream/10 hover:bg-cream/20 hover:border-cream" },
   { icon: FaFacebookF, label: "Facebook", href: "https://www.facebook.com/people/Ten-Crore-Club/61590642871004/", colorClass: "border-[#1877F2]/50 text-[#1877F2] bg-[#1877F2]/10 hover:bg-[#1877F2]/20 hover:border-[#1877F2]" },
   { icon: FaLinkedinIn, label: "LinkedIn", href: "https://www.linkedin.com/in/alex-pandyan-61778124a", colorClass: "border-[#0A66C2]/50 text-[#0A66C2] bg-[#0A66C2]/10 hover:bg-[#0A66C2]/20 hover:border-[#0A66C2]" },
-  { icon: FaYoutube, label: "YouTube", href: "https://youtube.com/@tencroreclub", colorClass: "border-[#FF0000]/50 text-[#FF0000] bg-[#FF0000]/10 hover:bg-[#FF0000]/20 hover:border-[#FF0000]" },
   { icon: FaWhatsapp, label: "WhatsApp", href: "https://wa.me/919840441135?text=Hi%2C%20I%20have%20an%20enquiry%20regarding%20Ten%20Crore%20Club", colorClass: "border-[#25D366]/50 text-[#25D366] bg-[#25D366]/10 hover:bg-[#25D366]/20 hover:border-[#25D366]" },
 ];
 
@@ -114,17 +113,17 @@ export function Footer() {
             </p>
 
             {/* Social icons */}
-            <div className="mt-6 flex items-center gap-2.5">
+            <div className="mt-6 flex flex-wrap items-center gap-2">
               {socials.map(({ icon: Icon, label, href, colorClass }) => (
                 <a
                   key={label}
                   href={href}
                   target="_blank"
-                  rel="noreferrer noopener"
+                  rel="noopener noreferrer"
                   aria-label={label}
-                  className={`inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-full border transition-all duration-300 hover:-translate-y-1 ${colorClass}`}
+                  className={`inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-full border transition-all duration-300 hover:-translate-y-1 ${colorClass}`}
                 >
-                  <Icon className="size-[18px]" />
+                  <Icon className="size-4" />
                 </a>
               ))}
             </div>
@@ -199,7 +198,7 @@ export function Footer() {
             <ul className="mt-5 space-y-3">
               <li>
                 <a
-                  href="mailto:contact@tencroreclub.in"
+                  href="mailto:contact@tencroreclub.com"
                   className="group flex items-center gap-3.5 rounded-xl p-2 transition-all duration-300 hover:bg-gold/[0.02]"
                 >
                   <span className="flex size-9 shrink-0 items-center justify-center rounded-lg bg-gold/8 text-gold transition-all duration-300 group-hover:scale-105 group-hover:bg-gold/15 group-hover:shadow-[0_0_15px_rgba(213,160,74,0.2)]">
@@ -208,7 +207,7 @@ export function Footer() {
                   <div>
                     <p className="text-[10px] uppercase tracking-wider text-gold-light/45">Email</p>
                     <p className="text-[13px] font-medium text-gold-light/85 transition-colors group-hover:text-gold">
-                      contact@tencroreclub.in
+                      contact@tencroreclub.com
                     </p>
                   </div>
                 </a>
@@ -217,7 +216,7 @@ export function Footer() {
                 <a
                   href="https://wa.me/919840441135?text=Hi%2C%20I%20have%20an%20enquiry%20regarding%20Ten%20Crore%20Club"
                   target="_blank"
-                  rel="noreferrer noopener"
+                  rel="noopener noreferrer"
                   className="group flex items-center gap-3.5 rounded-xl p-2 transition-all duration-300 hover:bg-gold/[0.02]"
                 >
                   <span className="flex size-9 shrink-0 items-center justify-center rounded-lg bg-gold/8 text-gold transition-all duration-300 group-hover:scale-105 group-hover:bg-gold/15 group-hover:shadow-[0_0_15px_rgba(213,160,74,0.2)]">
@@ -263,18 +262,18 @@ export function Footer() {
                 </Link>
               </div>
             </div>
-            <p className="text-center font-mono text-[11px] text-gold-light/35 md:max-w-md md:text-right">
-              AMFI Registered Mutual Fund Distributor · ARN: XXXXX · SEBI
-              Compliant
+            <p className="text-center font-mono text-[11px] text-gold-light/35 md:text-right whitespace-nowrap">
+              AMFI Registered Mutual Fund Distributor · ARN: 245537 · SEBI Compliant
             </p>
             {/* Back to top */}
-            <a
-              href="#"
+            <button
+              type="button"
+              onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
               aria-label="Back to top"
-              className="hidden size-9 items-center justify-center rounded-full border border-gold/20 bg-ink/60 text-gold-light/50 transition-all hover:-translate-y-0.5 hover:border-gold/40 hover:text-gold sm:inline-flex"
+              className="hidden size-9 items-center justify-center rounded-full border border-gold/20 bg-ink/60 text-gold-light/50 transition-all hover:-translate-y-0.5 hover:border-gold/40 hover:text-gold sm:inline-flex cursor-pointer"
             >
               <ChevronUp className="size-4" />
-            </a>
+            </button>
           </div>
         </div>
       </div>

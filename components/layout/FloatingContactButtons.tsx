@@ -2,13 +2,13 @@
 
 import { useEffect, useState } from "react";
 import { Phone } from "lucide-react";
-import { cn } from "@/lib/utils";
+import { cn, handleWhatsAppClick } from "@/lib/utils";
 import { ThemeToggle } from "./ThemeToggle";
  
 const PHONE = "+919840441135";
 const WHATSAPP_URL = "https://wa.me/919840441135?text=Hi%2C%20I%20have%20an%20enquiry%20regarding%20Ten%20Crore%20Club";
 const CALL_URL = `tel:${PHONE}`;
- 
+
 function WhatsAppIcon({ className }: { className?: string }) {
   return (
     <svg
@@ -21,7 +21,7 @@ function WhatsAppIcon({ className }: { className?: string }) {
     </svg>
   );
 }
- 
+
 interface FabProps {
   href: string;
   label: string;
@@ -30,7 +30,7 @@ interface FabProps {
   colorClasses: string;
   glowClasses: string;
 }
- 
+
 function FabButton({ href, label, tooltip, icon, colorClasses, glowClasses }: FabProps) {
   return (
     <div className="group relative flex items-center">
@@ -40,7 +40,7 @@ function FabButton({ href, label, tooltip, icon, colorClasses, glowClasses }: Fa
       <a
         href={href}
         target={href.startsWith("http") ? "_blank" : undefined}
-        rel={href.startsWith("http") ? "noreferrer noopener" : undefined}
+        rel={href.startsWith("http") ? "noopener noreferrer" : undefined}
         aria-label={label}
         className={cn(
           "inline-flex h-10 w-10 sm:h-12 sm:w-12 items-center justify-center rounded-full border shadow-lg",
@@ -54,7 +54,7 @@ function FabButton({ href, label, tooltip, icon, colorClasses, glowClasses }: Fa
     </div>
   );
 }
- 
+
 export function FloatingContactButtons() {
   const [show, setShow] = useState(false);
 
@@ -89,7 +89,7 @@ export function FloatingContactButtons() {
         <a
           href={WHATSAPP_URL}
           target="_blank"
-          rel="noreferrer noopener"
+          rel="noopener noreferrer"
           className={cn(
             "flex items-center gap-2 rounded-full border border-[#25D366]/30 bg-ink-card/95 px-3 py-1.5 sm:px-3.5 sm:py-2 text-[11px] sm:text-xs font-medium text-cream shadow-xl backdrop-blur-md max-w-[calc(100vw-110px)] sm:max-w-none",
             "transition-all duration-200 hover:border-[#25D366] hover:bg-[#25D366]/10 hover:-translate-y-0.5 active:translate-y-0"

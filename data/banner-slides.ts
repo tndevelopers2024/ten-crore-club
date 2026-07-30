@@ -9,6 +9,24 @@ const u = (id: string) => `https://images.unsplash.com/${id}${IMG}`;
 
 export const bannerSlides: BannerSlide[] = [
   {
+    eyebrow: "Private Investor Club",
+    title: "Don't build it {alone. Build it with us.}",
+    subtitle:
+      "Disciplined investors, AMFI-registered guidance, and behavioral coaching that keeps your SIP running through every market storm.",
+    icon: ShieldCheck,
+    image: {
+      src: "/images/banners/banner-image-2-by-10crore.avif",
+      alt: "Empty ultra-luxury private boardroom with dark wood and leather",
+    },
+    primaryCta: { label: "Book a Strategy Call", href: "/book" },
+    secondaryCta: { label: "Explore Community", href: "/community" },
+    stats: [
+      { label: "Investor Network", value: "Private" },
+      { label: "Guidance Quality", value: "ARN: 245537" },
+      { label: "Asset Retention", value: "99.2%" },
+    ],
+  },
+  {
     eyebrow: "Wealth Blueprint",
     title: "Your ₹10 Crore is {a plan, not a dream.}",
     subtitle:
@@ -42,24 +60,6 @@ export const bannerSlides: BannerSlide[] = [
       { label: "5-Yr Delay Cost", value: "₹3.6 Crore" },
       { label: "Start Age Advantage", value: "30 vs 35" },
       { label: "Extra SIP Effort", value: "2x Capital" },
-    ],
-  },
-  {
-    eyebrow: "Private Investor Club",
-    title: "Don't build it {alone. Build it with us.}",
-    subtitle:
-      "Disciplined investors, AMFI-registered guidance, and behavioral coaching that keeps your SIP running through every market storm.",
-    icon: ShieldCheck,
-    image: {
-      src: "/images/banners/banner-image-2-by-10crore.avif",
-      alt: "Empty ultra-luxury private boardroom with dark wood and leather",
-    },
-    primaryCta: { label: "Book a Strategy Call", href: "/book" },
-    secondaryCta: { label: "Explore Community", href: "/community" },
-    stats: [
-      { label: "Investor Network", value: "Private" },
-      { label: "Guidance Quality", value: "AMFI Reg." },
-      { label: "Asset Retention", value: "99.2%" },
     ],
   },
 ];

@@ -84,7 +84,7 @@ export default function TermsAndConditionsPage() {
                 </h2>
                 <div className="space-y-4 text-sm leading-relaxed text-gold-light/80">
                   <p>
-                    Ten Crore Club is an AMFI-registered Mutual Fund Distributor (ARN: XXXXXXX). We provide a platform for:
+                    Ten Crore Club is an AMFI-registered Mutual Fund Distributor (ARN: 245537). We provide a platform for:
                   </p>
                   <ul className="list-none space-y-3 pl-0">
                     <li className="flex items-start gap-2.5">
@@ -206,7 +206,7 @@ export default function TermsAndConditionsPage() {
                     These Terms &amp; Conditions are governed by and construed in accordance with the laws of India. Any disputes arising out of or in connection with these terms, website access, or our distribution services shall be subject to the exclusive jurisdiction of the courts located in Mumbai, India.
                   </p>
                   <p>
-                    If you have questions about these Terms &amp; Conditions, please reach out to us at <strong className="text-cream">contact@tencroreclub.in</strong>.
+                    If you have questions about these Terms &amp; Conditions, please reach out to us at <strong className="text-cream">contact@tencroreclub.com</strong>.
                   </p>
                 </div>
               </div>

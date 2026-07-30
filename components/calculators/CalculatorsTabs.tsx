@@ -1,6 +1,7 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect, Suspense } from "react";
+import { useSearchParams, useRouter, usePathname } from "next/navigation";
 import { TrendingUp, Coins, Wallet, Target, Clock, History, Sparkles } from "lucide-react";
 import { TabBar } from "@/components/ui/TabBar";
 import { SIPGrowthCalculator } from "./SIPGrowthCalculator";
@@ -28,12 +29,32 @@ const descriptions: Record<string, string> = {
   historical: "See how an actual ₹10 Crore lump sum with a ₹6L/month SWP performed in top mutual funds since 2011.",
 };
 
-export function CalculatorsTabs() {
-  const [active, setActive] = useState("sip");
+function CalculatorsTabsContent() {
+  const searchParams = useSearchParams();
+  const router = useRouter();
+  const pathname = usePathname();
+
+  const tabParam = searchParams.get("tab");
+  const validTab = tabParam && tabs.some((t) => t.value === tabParam) ? tabParam : "sip";
+
+  const [active, setActive] = useState(validTab);
+
+  useEffect(() => {
+    if (tabParam && tabs.some((t) => t.value === tabParam)) {
+      setActive(tabParam);
+    }
+  }, [tabParam]);
+
+  const handleTabChange = (val: string) => {
+    setActive(val);
+    const params = new URLSearchParams(searchParams.toString());
+    params.set("tab", val);
+    router.push(`${pathname}?${params.toString()}`, { scroll: false });
+  };
 
   return (
     <div className="space-y-6">
-      <TabBar tabs={tabs} value={active} onChange={setActive} className="w-full max-w-5xl mx-auto" />
+      <TabBar tabs={tabs} value={active} onChange={handleTabChange} className="w-full max-w-5xl mx-auto" />
 
       {/* Styled Description Callout */}
       <div className="mx-auto max-w-5xl rounded-xl border border-gold/20 bg-ink-card/60 p-4 text-center backdrop-blur-md shadow-sm">
@@ -52,5 +73,13 @@ export function CalculatorsTabs() {
         {active === "historical" && <HistoricalSWPTable />}
       </div>
     </div>
+  );
+}
+
+export function CalculatorsTabs() {
+  return (
+    <Suspense fallback={<div className="text-center py-8 text-gold-light/50">Loading calculators...</div>}>
+      <CalculatorsTabsContent />
+    </Suspense>
   );
 }

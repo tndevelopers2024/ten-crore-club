@@ -55,7 +55,7 @@ const socialChannels = [
   {
     icon: FaWhatsapp,
     label: "WhatsApp",
-    href: "https://wa.me/919840441135?text=Hi%2C%20I%20have%20an%20enquiry%20regarding%20Ten%20Crore%20Club",
+    href: "https://api.whatsapp.com/send?phone=919840441135&text=Hi%2C%20I%20have%20an%20enquiry%20regarding%20Ten%20Crore%20Club",
     colorClass: "border-[#25D366]/60 text-[#25D366] bg-[#25D366]/10 hover:bg-[#25D366]/20 hover:border-[#25D366] shadow-[0_2px_12px_rgba(37,211,102,0.2)]",
     iconColor: "text-[#25D366]",
   },
@@ -175,7 +175,7 @@ export default function AboutPage() {
                   </div>
                   <div className="flex items-center justify-center gap-2 rounded-xl border border-line bg-ink-elevated/70 py-2.5 px-4 text-gold-light/90">
                     <ShieldCheck className="size-4 shrink-0 text-gold" />
-                    <span>AMFI Registered MFD</span>
+                    <span>AMFI Registered MFD (ARN: 245537)</span>
                   </div>
                   <div className="flex items-center justify-center gap-2 rounded-xl border border-line bg-ink-elevated/70 py-2.5 px-4 text-gold-light/90">
                     <BadgeCheck className="size-4 shrink-0 text-gold" />

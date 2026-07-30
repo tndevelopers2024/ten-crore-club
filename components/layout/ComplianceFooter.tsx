@@ -4,7 +4,7 @@ import { ShieldAlert } from "lucide-react";
  * Renders on EVERY page, above the Footer. Legal requirement — do NOT omit.
  * The disclaimer text is fixed.
  */
-export const COMPLIANCE_DISCLAIMER = `Mutual fund investments are subject to market risks. Please read all scheme-related documents carefully before investing. Past performance is not indicative of future results. Ten Crore Club is an AMFI-registered Mutual Fund Distributor. ARN: XXXXXXX. All content on this website is for educational purposes only and does not constitute financial advice. Returns mentioned are indicative and based on historical data — actual returns may vary.`;
+export const COMPLIANCE_DISCLAIMER = `Mutual fund investments are subject to market risks. Please read all scheme-related documents carefully before investing. Past performance is not indicative of future results. Ten Crore Club is an AMFI-registered Mutual Fund Distributor. ARN: 245537. All content on this website is for educational purposes only and does not constitute financial advice. Returns mentioned are indicative and based on historical data — actual returns may vary.`;
 
 export function ComplianceFooter() {
   return (

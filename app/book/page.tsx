@@ -28,7 +28,7 @@ const covers = [
 ];
 
 const trust = [
-  { icon: ShieldCheck, label: "AMFI Registered" },
+  { icon: ShieldCheck, label: "AMFI Registered (ARN: 245537)" },
   { icon: Lock, label: "SEBI Compliant" },
   { icon: Users, label: "Active member network" },
   { icon: Clock, label: "Response within 24 hours" },

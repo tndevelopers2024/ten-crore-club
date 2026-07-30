@@ -32,37 +32,39 @@ export default function ServicesPage() {
             const Icon = s.icon;
             return (
               <Reveal key={s.slug} delay={(i % 3) * 110}>
-                <Card interactive className="flex h-full flex-col">
-                  <div className="flex size-12 items-center justify-center rounded-lg border border-gold/30 bg-gold/10">
-                    <Icon className="size-6 text-gold" />
-                  </div>
-                  <h2 className="mt-5 font-display text-xl font-semibold text-cream">
-                    {s.title}
-                  </h2>
-                  <p className="mt-2 text-sm leading-relaxed text-gold-light/70">
-                    {s.description}
-                  </p>
-                  {s.detail && (
-                    <p className="mt-3 rounded-md border border-line bg-ink p-3 text-xs text-gold-light/75">
-                      {s.detail}
+                <div id={s.slug} className="h-full scroll-mt-28">
+                  <Card interactive className="flex h-full flex-col">
+                    <div className="flex size-12 items-center justify-center rounded-lg border border-gold/30 bg-gold/10">
+                      <Icon className="size-6 text-gold" />
+                    </div>
+                    <h2 className="mt-5 font-display text-xl font-semibold text-cream">
+                      {s.title}
+                    </h2>
+                    <p className="mt-2 text-sm leading-relaxed text-gold-light/70">
+                      {s.description}
                     </p>
-                  )}
-                  {s.forWhom && (
-                    <ul className="mt-3 space-y-1.5">
-                      {s.forWhom.map((f) => (
-                        <li key={f} className="flex items-center gap-2 text-xs text-gold-light/65">
-                          <span className="size-1 rounded-full bg-gold/60" />
-                          {f}
-                        </li>
-                      ))}
-                    </ul>
-                  )}
-                  <div className="mt-auto pt-5">
-                    <CTAButton href="/book" variant="ghost" size="sm">
-                      {s.cta}
-                    </CTAButton>
-                  </div>
-                </Card>
+                    {s.detail && (
+                      <p className="mt-3 rounded-md border border-line bg-ink p-3 text-xs text-gold-light/75">
+                        {s.detail}
+                      </p>
+                    )}
+                    {s.forWhom && (
+                      <ul className="mt-3 space-y-1.5">
+                        {s.forWhom.map((f) => (
+                          <li key={f} className="flex items-center gap-2 text-xs text-gold-light/65">
+                            <span className="size-1 rounded-full bg-gold/60" />
+                            {f}
+                          </li>
+                        ))}
+                      </ul>
+                    )}
+                    <div className="mt-auto pt-5">
+                      <CTAButton href="/book" variant="ghost" size="sm">
+                        {s.cta}
+                      </CTAButton>
+                    </div>
+                  </Card>
+                </div>
               </Reveal>
             );
           })}

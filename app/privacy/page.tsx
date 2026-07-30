@@ -219,7 +219,7 @@ export default function PrivacyPolicyPage() {
                   </p>
                   <div className="rounded-xl border border-line bg-ink/40 p-5 mt-4">
                     <p className="font-semibold text-cream">Grievance Desk - Ten Crore Club</p>
-                    <p className="text-xs text-gold-light/60 mt-1">Email: contact@tencroreclub.in</p>
+                    <p className="text-xs text-gold-light/60 mt-1">Email: contact@tencroreclub.com</p>
                     <p className="text-xs text-gold-light/60">Phone / WhatsApp: +91 98404 41135</p>
                     <p className="text-xs text-gold-light/60">Address: Mumbai, India (Serving Nationwide & NRIs)</p>
                   </div>

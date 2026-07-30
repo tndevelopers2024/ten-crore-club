@@ -26,7 +26,7 @@ export function HeroSection() {
           <AnimateIn>
             <Badge variant="gold" className="mx-auto lg:mx-0">
               <Sparkles className="size-3.5" />
-              Private Wealth Community · AMFI Registered ·
+              Private Wealth Community · AMFI Registered (ARN: 245537) ·
             </Badge>
           </AnimateIn>
 

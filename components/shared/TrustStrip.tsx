@@ -2,7 +2,7 @@ import { ShieldCheck, BadgeCheck } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 const defaultItems = [
-  { icon: ShieldCheck, label: "AMFI Registered" },
+  { icon: ShieldCheck, label: "AMFI Registered (ARN: 245537)" },
   { icon: BadgeCheck, label: "SEBI Compliant" },
 ];
 

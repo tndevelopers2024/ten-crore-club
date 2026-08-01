@@ -34,7 +34,7 @@ export function RegretSection() {
 
         <Reveal delay={200} className="mx-auto mt-8 max-w-6xl">
           <Image
-            src="/images/home/image-by-mohan.avif"
+            src="/images/home/new-image-by-mohan.avif"
             alt="Vikram vs You: The cost of postponing your SIP decision to 2040"
             width={1536}
             height={1024}

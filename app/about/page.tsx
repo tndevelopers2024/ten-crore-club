@@ -28,7 +28,7 @@ import { GoldDivider } from "@/components/shared/GoldDivider";
 import { CTAButton } from "@/components/shared/CTAButton";
 import { BrandImage } from "@/components/shared/BrandImage";
 import { Card } from "@/components/ui/Card";
-import { BlueprintCTA } from "@/components/forms/BlueprintCTA";
+// import { BlueprintCTA } from "@/components/forms/BlueprintCTA";
 
 const socialChannels = [
   {
@@ -452,6 +452,7 @@ export default function AboutPage() {
 
       {/* Closing CTA with Highlighted Blueprint Input Field */}
       <SectionWrapper width="narrow">
+        {/* 
         <Reveal>
           <div className="text-center mb-6">
             <p className="font-display text-2xl font-bold text-gold sm:text-3xl flex items-center justify-center gap-2.5">
@@ -461,6 +462,7 @@ export default function AboutPage() {
           </div>
           <BlueprintCTA />
         </Reveal>
+        */}
         <Reveal delay={120} className="mt-10 text-center">
           <p className="mb-4 text-sm text-gold-light/60">
             Prefer to speak directly with an advisor?

@@ -1,6 +1,6 @@
 "use client";
 
-import { useId } from "react";
+import { useEffect, useId, useRef, useState } from "react";
 import { formatINR } from "@/lib/formatters";
 import { cn } from "@/lib/utils";
 
@@ -39,10 +39,32 @@ export function LineAreaChart({
   animate = false,
 }: LineAreaChartProps) {
   const uid = useId().replace(/:/g, "");
+
+  /* The viewBox is a fixed 640 units wide but the SVG renders at the container's
+     width, so every user-unit length — including font-size — is scaled by
+     renderedWidth / 640. Left alone, the 10-unit axis labels render at ~4px on a
+     phone. Measure the container and size the labels in *user units* so they land
+     at a constant on-screen px size at every breakpoint. */
+  const wrapRef = useRef<HTMLDivElement>(null);
+  const [labelSize, setLabelSize] = useState(10);
+  useEffect(() => {
+    const measure = () => {
+      const w = wrapRef.current?.offsetWidth ?? 0;
+      // Solve for the user-unit size that lands ~12px on screen, then clamp so
+      // extreme container widths can't make the labels absurd either way.
+      if (w > 0) setLabelSize(Math.max(6, Math.min(26, (12 * W) / w)));
+    };
+    measure();
+    window.addEventListener("resize", measure);
+    return () => window.removeEventListener("resize", measure);
+  }, []);
+
   const padL = 18;
   const padR = 20;
-  const padB = 26;
-  const padT = 12;
+  // Gutters track the label size so the top y-label and the x-axis row always
+  // have room — at narrow widths labelSize grows to stay legible.
+  const padB = Math.max(26, labelSize + 10);
+  const padT = Math.max(14, labelSize + 6);
   const innerW = W - padL - padR;
   const innerH = height - padT - padB;
 
@@ -63,7 +85,7 @@ export function LineAreaChart({
     `${toLine(pts)} L ${sx(pts[pts.length - 1].x).toFixed(1)} ${sy(0).toFixed(1)} L ${sx(pts[0].x).toFixed(1)} ${sy(0).toFixed(1)} Z`;
 
   return (
-    <div className={cn("w-full", className)}>
+    <div ref={wrapRef} className={cn("w-full", className)}>
       <svg
         viewBox={`0 0 ${W} ${height}`}
         className="w-full"
@@ -100,7 +122,7 @@ export function LineAreaChart({
                 y={y - 4}
                 style={{ fill: "var(--color-gold-light)" }}
                 fillOpacity="0.55"
-                fontSize="10"
+                fontSize={labelSize}
               >
                 {formatINR(v)}
               </text>
@@ -142,15 +164,19 @@ export function LineAreaChart({
         {/* x labels */}
         {Array.from({ length: 6 }, (_, i) => {
           const yr = Math.round((maxX / 5) * i);
+          const isFirst = i === 0;
+          const isLast = i === 5;
+          // Anchor the end labels inward, else they hang off the viewBox once
+          // labelSize scales up on narrow screens.
           return (
             <text
               key={i}
-              x={sx(yr)}
+              x={isFirst ? padL : isLast ? W - padR : sx(yr)}
               y={height - 8}
               style={{ fill: "var(--color-gold-light)" }}
               fillOpacity="0.6"
-              fontSize="10"
-              textAnchor="middle"
+              fontSize={labelSize}
+              textAnchor={isFirst ? "start" : isLast ? "end" : "middle"}
             >
               Yr {yr}
             </text>

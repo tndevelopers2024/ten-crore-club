@@ -262,7 +262,10 @@ export function Footer() {
                 </Link>
               </div>
             </div>
-            <p className="text-center font-mono text-[11px] text-gold-light/35 md:text-right whitespace-nowrap">
+            {/* No nowrap: this line is ~460px at 11px mono and overflows the
+                bottom bar on phones. Let it wrap; it only ever needs one line
+                once there is room for it. */}
+            <p className="text-center font-mono text-[11px] text-gold-light/35 md:text-right lg:whitespace-nowrap">
               AMFI Registered Mutual Fund Distributor · ARN: 245537 · SEBI Compliant
             </p>
             {/* Back to top */}

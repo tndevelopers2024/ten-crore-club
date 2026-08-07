@@ -76,7 +76,7 @@ export function FloatingContactButtons() {
   return (
     <div
       className={cn(
-        "fixed bottom-4 right-3 z-40 flex flex-col items-end gap-2.5 sm:bottom-8 sm:right-6 transition-all duration-300 ease-in-out",
+        "fixed bottom-4 right-3 z-40 flex max-w-[calc(100vw-1.5rem)] flex-col items-end gap-2.5 sm:bottom-8 sm:right-6 sm:max-w-[calc(100vw-3rem)] transition-all duration-300 ease-in-out",
         show
           ? "opacity-100 translate-y-0 pointer-events-auto"
           : "opacity-0 translate-y-6 pointer-events-none"
@@ -91,12 +91,12 @@ export function FloatingContactButtons() {
           target="_blank"
           rel="noopener noreferrer"
           className={cn(
-            "flex items-center gap-2 rounded-full border border-[#25D366]/30 bg-ink-card/95 px-3 py-1.5 sm:px-3.5 sm:py-2 text-[11px] sm:text-xs font-medium text-cream shadow-xl backdrop-blur-md max-w-[calc(100vw-110px)] sm:max-w-none",
+            "hidden sm:flex items-center gap-2 rounded-full border border-[#25D366]/30 bg-ink-card/95 px-3 py-1.5 sm:px-3.5 sm:py-2 text-[11px] sm:text-xs font-medium text-cream shadow-xl backdrop-blur-md min-w-0",
             "transition-all duration-200 hover:border-[#25D366] hover:bg-[#25D366]/10 hover:-translate-y-0.5 active:translate-y-0"
           )}
         >
           <span className="inline-block size-2 shrink-0 rounded-full bg-[#25D366] animate-pulse" />
-          <span className="truncate sm:whitespace-nowrap">Hi, I have an enquiry regarding Ten Crore Club</span>
+          <span className="truncate">Hi, I have an enquiry regarding Ten Crore Club</span>
         </a>
         <FabButton
           href={WHATSAPP_URL}

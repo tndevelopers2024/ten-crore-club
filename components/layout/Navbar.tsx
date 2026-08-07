@@ -106,7 +106,10 @@ export function Navbar() {
       {/* Mobile drawer */}
       <div
         className={cn(
-          "fixed inset-x-4 top-[4.5rem] z-40 origin-top rounded-2xl border border-gold/15 bg-ink/95 backdrop-blur-xl transition-all duration-300 sm:inset-x-6 sm:top-[5rem] lg:hidden",
+          // Body scroll is locked while this is open, so the drawer itself must
+          // scroll — otherwise the lower links are unreachable on short/landscape
+          // viewports where the full list is taller than the screen.
+          "fixed inset-x-4 top-[4.5rem] z-40 max-h-[calc(100svh-5.5rem)] origin-top overflow-y-auto overscroll-contain rounded-2xl border border-gold/15 bg-ink/95 backdrop-blur-xl transition-all duration-300 sm:inset-x-6 sm:top-[5rem] sm:max-h-[calc(100svh-6rem)] lg:hidden",
           open
             ? "pointer-events-auto scale-100 opacity-100 shadow-[0_16px_48px_-12px_rgba(0,0,0,0.8)]"
             : "pointer-events-none scale-95 opacity-0",

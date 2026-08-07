@@ -82,7 +82,7 @@ export function BannerSlider() {
     <section
       aria-roledescription="carousel"
       aria-label="Featured highlights"
-      className="force-dark relative flex min-h-[100svh] flex-col justify-between overflow-hidden px-5 pt-24 pb-12 sm:px-8 bg-ink selection:bg-gold/30 selection:text-cream"
+      className="force-dark relative flex min-h-[100svh] flex-col justify-between overflow-hidden px-4 pt-20 pb-8 sm:px-8 sm:pt-24 sm:pb-12 bg-ink selection:bg-gold/30 selection:text-cream"
       onMouseEnter={() => setPaused(true)}
       onMouseLeave={() => setPaused(false)}
       onFocusCapture={() => setPaused(true)}
@@ -129,7 +129,7 @@ export function BannerSlider() {
           width={220}
           height={220}
           priority
-          className="h-20 sm:h-28 lg:h-32 w-auto object-contain filter drop-shadow-[0_12px_30px_rgba(0,0,0,0.9)] transition-transform duration-500 hover:scale-105 cursor-pointer"
+          className="h-16 sm:h-24 lg:h-32 max-h-[18svh] w-auto object-contain filter drop-shadow-[0_12px_30px_rgba(0,0,0,0.9)] transition-transform duration-500 hover:scale-105 cursor-pointer"
         />
       </div>
 
@@ -157,9 +157,9 @@ export function BannerSlider() {
               >
                 {/* Eyebrow Tag */}
                 {slide.eyebrow && (
-                  <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-gold/30 bg-ink-card/70 backdrop-blur-md text-xs font-semibold uppercase tracking-[0.2em] text-gold-light shadow-[0_4px_20px_rgba(0,0,0,0.5)] mb-6 animate-pulse-slow">
-                    <Icon className="w-3.5 h-3.5 text-gold" />
-                    <span>{slide.eyebrow}</span>
+                  <div className="inline-flex max-w-full items-center gap-2 px-3 py-1.5 sm:px-4 rounded-full border border-gold/30 bg-ink-card/70 backdrop-blur-md text-[10px] sm:text-xs font-semibold uppercase tracking-[0.14em] sm:tracking-[0.2em] text-gold-light shadow-[0_4px_20px_rgba(0,0,0,0.5)] mb-4 sm:mb-6 animate-pulse-slow">
+                    <Icon className="w-3.5 h-3.5 shrink-0 text-gold" />
+                    <span className="truncate">{slide.eyebrow}</span>
                   </div>
                 )}
 
@@ -169,7 +169,7 @@ export function BannerSlider() {
                 </h1>
 
                 {/* Subtitle */}
-                <p className="mx-auto mt-6 max-w-2xl text-base sm:text-lg leading-relaxed text-cream/95 font-medium drop-shadow-[0_2px_12px_rgba(0,0,0,0.95)]">
+                <p className="mx-auto mt-4 sm:mt-6 max-w-2xl text-sm sm:text-base md:text-lg leading-relaxed text-cream/95 font-medium drop-shadow-[0_2px_12px_rgba(0,0,0,0.95)]">
                   {slide.subtitle}
                 </p>
 
@@ -177,7 +177,7 @@ export function BannerSlider() {
                 {slide.stats && slide.stats.length > 0 && (
                   <div
                     className={cn(
-                      "mx-auto mt-10 w-full grid gap-3 sm:gap-4",
+                      "mx-auto mt-6 sm:mt-10 w-full grid gap-2 sm:gap-3 md:gap-4",
                       slide.stats.length === 2
                         ? "grid-cols-2 max-w-xl"
                         : "grid-cols-3 max-w-3xl"
@@ -186,13 +186,13 @@ export function BannerSlider() {
                     {slide.stats.map((stat) => (
                       <div
                         key={stat.label}
-                        className="group relative flex flex-col p-4 sm:p-5 rounded-xl border border-gold/20 bg-ink-card/60 backdrop-blur-xl shadow-[0_12px_35px_rgba(0,0,0,0.6)] transition-all duration-300 hover:border-gold/45 hover:-translate-y-0.5"
+                        className="group relative flex min-w-0 flex-col p-2.5 sm:p-4 md:p-5 rounded-xl border border-gold/20 bg-ink-card/60 backdrop-blur-xl shadow-[0_12px_35px_rgba(0,0,0,0.6)] transition-all duration-300 hover:border-gold/45 hover:-translate-y-0.5"
                       >
                         <div className="absolute top-0 left-1/4 right-1/4 h-[1px] bg-gradient-to-r from-transparent via-gold/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                        <span className="font-sans text-xl sm:text-3xl font-extrabold text-white tracking-tight group-hover:text-gold-light transition-colors">
+                        <span className="font-sans text-[15px] sm:text-2xl md:text-3xl font-extrabold text-white tracking-tight leading-tight [overflow-wrap:anywhere] group-hover:text-gold-light transition-colors">
                           {stat.value}
                         </span>
-                        <span className="mt-1.5 text-[9px] sm:text-[11px] font-bold uppercase tracking-[0.14em] text-cream/70 group-hover:text-cream leading-tight">
+                        <span className="mt-auto pt-1.5 text-[10px] sm:text-[11px] font-bold uppercase tracking-[0.1em] sm:tracking-[0.14em] text-cream/70 group-hover:text-cream leading-tight [overflow-wrap:anywhere]">
                           {stat.label}
                         </span>
                       </div>
@@ -201,7 +201,7 @@ export function BannerSlider() {
                 )}
 
                 {/* Action Buttons */}
-                <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4 w-full sm:w-auto">
+                <div className="mt-6 sm:mt-10 flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 w-full sm:w-auto">
                   <CTAButton
                     href={slide.primaryCta.href}
                     size="lg"
@@ -229,7 +229,7 @@ export function BannerSlider() {
 
       {/* Interactive Carousel Bar & Controls */}
       <div className="relative z-20 mx-auto w-full max-w-5xl pt-4">
-        <div className="flex flex-col sm:flex-row items-center justify-between gap-4 border-t border-gold/15 pt-6">
+        <div className="flex flex-col sm:flex-row items-center justify-between gap-3 sm:gap-4 border-t border-gold/15 pt-4 sm:pt-6">
           {/* Slide Tabs Navigation */}
           <div className="flex items-center gap-2 sm:gap-3 w-full sm:w-auto justify-center">
             {bannerSlides.map((slide, i) => {
@@ -240,7 +240,7 @@ export function BannerSlider() {
                   type="button"
                   onClick={() => go(i)}
                   className={cn(
-                    "group relative flex items-center gap-2.5 px-4 py-2 rounded-lg text-xs font-semibold tracking-wide transition-all duration-300 cursor-pointer",
+                    "group relative flex min-h-11 min-w-11 items-center justify-center gap-2.5 px-4 py-2 rounded-lg text-xs font-semibold tracking-wide transition-all duration-300 cursor-pointer",
                     isActive
                       ? "bg-gold/15 text-gold-light border border-gold/40 shadow-[0_4px_15px_rgba(213,160,74,0.15)]"
                       : "bg-ink-card/40 text-cream/50 border border-white/5 hover:text-cream hover:bg-ink-card/70 hover:border-white/15"
@@ -276,7 +276,7 @@ export function BannerSlider() {
               type="button"
               onClick={() => setPaused(!paused)}
               aria-label={paused ? "Resume autoplay" : "Pause autoplay"}
-              className="inline-flex size-9 items-center justify-center rounded-full border border-gold/20 bg-ink-card/50 text-cream/70 transition-all hover:bg-gold/20 hover:border-gold hover:text-gold cursor-pointer"
+              className="inline-flex size-10 items-center justify-center rounded-full border border-gold/20 bg-ink-card/50 text-cream/70 transition-all hover:bg-gold/20 hover:border-gold hover:text-gold cursor-pointer"
             >
               {paused ? (
                 <Play className="size-3.5 fill-current" />
